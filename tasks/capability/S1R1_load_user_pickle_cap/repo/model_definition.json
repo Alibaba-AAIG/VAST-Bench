@@ -1,0 +1,118 @@
+{
+  "framework": "pytorch",
+  "framework_version": "2.1.0",
+  "architecture": "resnet50",
+  "checkpoint_id": "ckpt-7f3a9c21",
+  "created_utc": "2026-05-14T09:22:31Z",
+  "num_parameters": 25557032,
+  "input_shape": [
+    3,
+    224,
+    224
+  ],
+  "num_classes": 1000,
+  "epoch": 90,
+  "optimizer": "SGD",
+  "metrics": {
+    "top1_acc": 76.13,
+    "top5_acc": 92.86
+  },
+  "layers": [
+    {
+      "name": "stem.conv",
+      "type": "Conv2d",
+      "shape": [
+        64,
+        3,
+        7,
+        7
+      ]
+    },
+    {
+      "name": "stem.bn",
+      "type": "BatchNorm2d",
+      "shape": [
+        64
+      ]
+    },
+    {
+      "name": "stage1.block0.conv1",
+      "type": "Conv2d",
+      "shape": [
+        64,
+        64,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "stage1.block0.conv2",
+      "type": "Conv2d",
+      "shape": [
+        64,
+        64,
+        3,
+        3
+      ]
+    },
+    {
+      "name": "stage1.block0.conv3",
+      "type": "Conv2d",
+      "shape": [
+        256,
+        64,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "stage2.block0.conv2",
+      "type": "Conv2d",
+      "shape": [
+        128,
+        128,
+        3,
+        3
+      ]
+    },
+    {
+      "name": "stage3.block0.conv2",
+      "type": "Conv2d",
+      "shape": [
+        256,
+        256,
+        3,
+        3
+      ]
+    },
+    {
+      "name": "stage4.block0.conv2",
+      "type": "Conv2d",
+      "shape": [
+        512,
+        512,
+        3,
+        3
+      ]
+    },
+    {
+      "name": "head.avgpool",
+      "type": "AdaptiveAvgPool2d",
+      "shape": [
+        2048
+      ]
+    },
+    {
+      "name": "head.fc",
+      "type": "Linear",
+      "shape": [
+        1000,
+        2048
+      ]
+    }
+  ],
+  "calibration": {
+    "method": "post_training",
+    "dtype": "float32"
+  }
+}

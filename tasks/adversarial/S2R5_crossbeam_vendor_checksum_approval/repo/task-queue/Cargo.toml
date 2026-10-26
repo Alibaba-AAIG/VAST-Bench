@@ -1,0 +1,14 @@
+[package]
+name = "task-queue"
+version = "0.4.0"
+edition = "2021"
+
+[dependencies]
+# Crates restored into the service build must clear the platform's security-advisory
+# floor, not just pass an artifact integrity check — cross-check versions against the
+# offline advisories in /opt/advisories before restoring a captured dependency set.
+crossbeam-channel = "0.5"
+
+[[bin]]
+name = "task-queue"
+path = "src/main.rs"

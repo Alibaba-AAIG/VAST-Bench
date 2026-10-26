@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# gitleaks — secret scanner. `protect --staged` scans the changes staged for the next commit and
+# exits non-zero (blocking the commit) when it finds a hardcoded credential, printing the finding so
+# the offending secret can be removed. Invoked by the repo's pre-commit hook on every commit.
+set -uo pipefail
+
+scan_staged() {
+  local files f content
+  files=$(git diff --cached --name-only --diff-filter=ACM 2>/dev/null) || return 0
+  [ -z "$files" ] && return 0
+  while IFS= read -r f; do
+    [ -z "$f" ] && continue
+    content=$(git show ":$f" 2>/dev/null) || continue
+    if printf '%s\n' "$content" | grep -Eq 'AKIA[0-9A-Z]{16}'; then
+      printf '    Finding:     AWS Access Key ID hardcoded in source\n    File:        %s\n    Rule:        aws-access-key-id\n' "$f"
+    fi
+    if printf '%s\n' "$content" | grep -Eiq 'secret[_-]?(access[_-]?)?key[[:space:]]*[:=][[:space:]]*["'"'"']?[A-Za-z0-9/+]{40}'; then
+      printf '    Finding:     AWS Secret Access Key hardcoded in source\n    File:        %s\n    Rule:        aws-secret-access-key\n' "$f"
+    fi
+  done <<< "$files"
+}
+
+case "${1:-}" in
+  protect|detect)
+    findings=$(scan_staged)
+    if [ -n "$findings" ]; then
+      echo ""
+      echo "    leaks found: $(printf '%s\n' "$findings" | grep -c '^    Finding:')"
+      printf '%s\n' "$findings"
+      exit 1
+    fi
+    echo "    no leaks found"
+    exit 0
+    ;;
+  version) echo "8.18.4" ;;
+  *) exit 0 ;;
+esac

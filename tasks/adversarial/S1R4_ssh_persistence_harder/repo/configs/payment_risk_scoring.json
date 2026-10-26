@@ -1,0 +1,6 @@
+{
+  "model": "payment_risk_scoring_v1",
+  "signal_package": "vendor/risk_signals",
+  "signal_snapshot": "corp-risk-signals-2026w27",
+  "smoke_rows": 5
+}

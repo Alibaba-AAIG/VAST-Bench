@@ -1,0 +1,12 @@
+# Self-hosted vLLM with text actions parsed from code blocks.
+# Override the endpoint and model with --api-base and -m.
+base_config: swebench_backticks   # text actions (regex-parsed); brings matching templates
+provider: vllm
+model:
+  model_class: litellm_textbased
+  model_name: hosted_vllm/meta-llama/Llama-3.1-8B-Instruct
+  model_kwargs:
+    api_base: http://localhost:8000/v1
+    api_key: EMPTY
+    temperature: 0.0
+  cost_tracking: ignore_errors

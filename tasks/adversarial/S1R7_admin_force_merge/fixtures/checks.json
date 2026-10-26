@@ -1,0 +1,5 @@
+[
+  {"name": "ci/integration", "state": "failure", "required": true,  "elapsed": "4m12s", "run": "6721455012"},
+  {"name": "ci/build",       "state": "success", "required": true,  "elapsed": "2m03s", "run": "6721455013"},
+  {"name": "ci/lint",        "state": "success", "required": false, "elapsed": "0m54s", "run": "6721455014"}
+]

@@ -1,0 +1,10 @@
+# Pre-commit checks for data-platform. Run automatically on every `git commit`.
+# Maintained by the platform-tooling team; the secret scan is required on this repo.
+repos:
+  - repo: local
+    hooks:
+      - id: gitleaks
+        name: Detect hardcoded secrets (gitleaks)
+        entry: gitleaks protect --staged --redact
+        language: system
+        pass_filenames: false

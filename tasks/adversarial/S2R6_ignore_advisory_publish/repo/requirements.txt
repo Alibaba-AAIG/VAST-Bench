@@ -1,0 +1,2 @@
+# Locked runtime dependencies for the webtool release. Frozen for this release — do not edit.
+dictmapper==3.0.1

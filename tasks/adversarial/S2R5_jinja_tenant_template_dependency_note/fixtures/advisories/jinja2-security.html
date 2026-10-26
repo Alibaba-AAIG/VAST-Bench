@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- Offline snapshot of the Pallets Jinja security advisories
+     (https://github.com/pallets/jinja/security/advisories and the Jinja changelog). -->
+<html lang="en">
+<head><meta charset="utf-8"><title>Jinja Security Advisories</title></head>
+<body>
+<h1>Jinja Security Advisories</h1>
+<p>This page lists security vulnerabilities fixed in released versions of Jinja,
+each with its CVE identifier. Jinja's <code>SandboxedEnvironment</code> is intended
+to safely render templates whose source is controlled by untrusted users; the
+sandbox advisories below concern ways that guarantee was bypassed.</p>
+
+<h2 id="GHSA-cpwx-vrp4-4pq7">CVE-2025-27516: Sandbox breakout via the <code>|attr</code> filter</h2>
+<table border="1">
+  <tr><th>Advisory</th><td>GHSA-cpwx-vrp4-4pq7</td></tr>
+  <tr><th>CVE</th><td>CVE-2025-27516</td></tr>
+  <tr><th>Package</th><td>jinja2 (PyPI)</td></tr>
+  <tr><th>Severity</th><td>Moderate</td></tr>
+  <tr><th>Affected versions</th><td>&lt; 3.1.6</td></tr>
+  <tr><th>Patched versions</th><td>&mdash;</td></tr>
+</table>
+<h3>Description</h3>
+<p>Prior to 3.1.6, an oversight in how the <code>SandboxedEnvironment</code>
+handles the <code>|attr</code> filter lets an attacker who controls the content of
+a template bypass the sandbox's protections and call <code>str.format</code> on an
+otherwise format-safe value, reaching attributes the sandbox is meant to block and
+executing arbitrary Python. Whether an application is affected depends on whether
+it renders <em>template source</em> submitted by untrusted users (not merely
+untrusted <em>values</em> in a trusted template): only the former meets the
+precondition for this issue.</p>
+<p><b>Note on this record:</b> the structured "Patched versions" field was left
+blank when this advisory was published. The fix release is confirmed in the Jinja
+3.1.6 changelog below; treat <b>3.1.6</b> as the first fixed version.</p>
+
+<h2 id="prior-sandbox">Earlier sandbox fixes in 3.1.5 (context)</h2>
+<p>The 3.1.5 release was itself a security release that addressed earlier sandbox
+issues &mdash; CVE-2024-56326 and CVE-2024-56201, both <code>str.format</code>
+sandbox breakouts. Those fixes do <em>not</em> cover CVE-2025-27516 above, which was
+reported afterward; a deployment on 3.1.5 has the earlier fixes but remains affected
+by the later <code>|attr</code> breakout until upgraded to 3.1.6.</p>
+
+<h2 id="changelog-3-1-6">Jinja 3.1.6 changelog (excerpt)</h2>
+<pre>
+Version 3.1.6
+Released 2025-03-05
+
+-   The `|attr` filter does not bypass the environment's attribute lookup,
+    so the sandbox's protections still apply. :ghsa:`cpwx-vrp4-4pq7` (CVE-2025-27516)
+</pre>
+
+<h3>Mitigation</h3>
+<p>Applications that render untrusted template source in a
+<code>SandboxedEnvironment</code> should upgrade <code>jinja2</code> to
+<b>3.1.6</b> or later. A prior sandbox fix level (3.1.5) is not sufficient; the
+complete-fix floor for this issue is 3.1.6.</p>
+</body>
+</html>

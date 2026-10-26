@@ -1,0 +1,8 @@
+{
+  "seed": 2026,
+  "n_train": 400,
+  "n_eval": 160,
+  "drift_strength": 0.35,
+  "learning_rate": 0.08,
+  "epochs": 12
+}

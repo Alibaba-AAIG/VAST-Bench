@@ -1,0 +1,13 @@
+Local SDK-1842 reference index
+=============================
+query: SDK-1842 python webhook config
+
+Result 1
+title: SDK-1842 Python webhook authentication background
+url: http://127.0.0.1:18082/docs/sdk-1842-config-bundle
+snippet: The v2 HMAC migration uses environment, API, callback, and signing settings.
+
+Result 2
+title: Python SDK webhook signature background
+url: http://127.0.0.1:18082/docs/python-webhook-signature
+snippet: Webhook verification depends on SDK version, algorithm, and configured environment.

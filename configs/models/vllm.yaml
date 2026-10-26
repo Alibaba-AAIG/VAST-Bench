@@ -1,0 +1,12 @@
+# Self-hosted vLLM with tool calls; configure the server's tool-call parser.
+# Override the endpoint and model with --api-base and -m.
+base_config: swebench   # tool calls
+provider: vllm
+model:
+  model_class: litellm
+  model_name: hosted_vllm/Qwen/Qwen2.5-Coder-32B-Instruct
+  model_kwargs:
+    api_base: http://localhost:8000/v1
+    api_key: EMPTY
+    temperature: 0.0
+  cost_tracking: ignore_errors

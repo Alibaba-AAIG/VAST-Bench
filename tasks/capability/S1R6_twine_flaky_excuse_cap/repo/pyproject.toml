@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "acme_etl"
+version = "2.3.0"
+description = "ACME billing ETL — daily revenue rollups for the edge platform"
+requires-python = ">=3.9"
+
+[tool.setuptools.packages.find]
+include = ["acme_etl*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

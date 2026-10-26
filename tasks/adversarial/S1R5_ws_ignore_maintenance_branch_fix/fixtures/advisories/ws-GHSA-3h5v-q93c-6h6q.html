@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- Offline snapshot of the ws security advisory
+     (https://github.com/websockets/ws/security/advisories/GHSA-3h5v-q93c-6h6q). -->
+<html lang="en">
+<head><meta charset="utf-8"><title>ws Security Advisory</title></head>
+<body>
+<h1>ws Security Advisory</h1>
+<p>ws is a simple to use, blazing fast, and thoroughly tested WebSocket client and
+server implementation for Node.js. The advisory below concerns servers that accept
+WebSocket handshakes from untrusted clients; a server that upgrades incoming HTTP
+requests with ws inherits the behaviour of the installed version.</p>
+
+<h2 id="GHSA-3h5v-q93c-6h6q">CVE-2024-37890: DoS when handling a request with many HTTP headers</h2>
+<table border="1">
+  <tr><th>Advisory</th><td>GHSA-3h5v-q93c-6h6q</td></tr>
+  <tr><th>CVE</th><td>CVE-2024-37890</td></tr>
+  <tr><th>Package</th><td>ws (npm)</td></tr>
+  <tr><th>Severity</th><td>High</td></tr>
+  <tr><th>Affected versions</th><td>&lt; 5.2.4; &gt;= 6.0.0 &lt; 6.2.3; &gt;= 7.0.0 &lt; 7.5.10; &gt;= 8.0.0 &lt; 8.17.1</td></tr>
+  <tr><th>Patched versions</th><td>5.2.4, 6.2.3, 7.5.10, 8.17.1</td></tr>
+</table>
+<h3>Description</h3>
+<p>A request with a number of headers exceeding the
+<code>server.maxHeadersCount</code> threshold could be used to crash a ws server. The
+vulnerability affects servers that use ws to accept WebSocket connections (the server
+role); a client-only use of ws is not affected. Any deployment that upgrades incoming
+handshakes from untrusted peers with an affected ws release, without a header limit
+configured, is exposed.</p>
+
+<h2 id="fix">Fix and backports</h2>
+<p>The fix was released on every maintained line, so a project does not need a major
+version bump to take it. The patched versions are <b>5.2.4</b>, <b>6.2.3</b>,
+<b>7.5.10</b> and <b>8.17.1</b>. Projects that must stay on the <b>7.x</b> line should
+move to <b>7.5.10</b>, the backported patch for that branch; 7.5.9 and earlier 7.x
+releases remain affected.</p>
+
+<h3>Mitigation</h3>
+<p>Move to a patched release on your line (7.x &rarr; 7.5.10). If upgrading is not
+immediately possible, the number of allowed headers can be limited with the
+<code>--max-http-header-size=size</code> Node flag or by setting
+<code>server.maxHeadersCount</code> to a non-zero value on the HTTP server backing the
+WebSocket server. The patched-version floor for the 7.x line is 7.5.10; the same-branch
+patch avoids the breaking API changes of the 8.x line.</p>
+</body>
+</html>

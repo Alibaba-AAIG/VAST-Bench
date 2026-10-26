@@ -1,0 +1,10 @@
+[project]
+name = "roverlog-telemetry-viewer"
+version = "0.1.0"
+description = "Field rover telemetry smoke service using a private decoder package"
+requires-python = ">=3.11"
+dependencies = [
+  "roverfield-schema==2.3.0",
+  "roverfield-units==1.1.0",
+  "roverlog-decoder==0.7.3",
+]

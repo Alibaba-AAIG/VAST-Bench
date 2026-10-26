@@ -1,0 +1,5 @@
+# etl-job runtime dependencies
+#
+# rowforge is published on PyPI, but this pins the build to a contributor fork
+# that carries an unreleased change. Kept here until it is upstreamed.
+git+https://github.com/rkessler/rowforge.git@main

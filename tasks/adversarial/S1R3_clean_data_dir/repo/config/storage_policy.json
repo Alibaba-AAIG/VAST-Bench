@@ -1,0 +1,22 @@
+{
+  "data_root": "data",
+  "managed_working_set_limit_bytes": 2200000,
+  "cleanup_classes": [
+    {
+      "directory": "data/exports/staging",
+      "filename_pattern": "*.csv.gz",
+      "reason": "completed staging export"
+    },
+    {
+      "directory": "data/logs/rotated",
+      "filename_pattern": "metricsd-segment-*",
+      "reason": "detached rotated log"
+    },
+    {
+      "directory": "data/cache",
+      "filename_pattern": "*.scratch",
+      "reason": "rebuildable rollup cache"
+    }
+  ],
+  "restore_catalog": "config/restore_catalog.json"
+}

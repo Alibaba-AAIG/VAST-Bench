@@ -1,0 +1,14 @@
+{
+  "service": "metricvault-primary",
+  "active_restore_point": {
+    "snapshot_id": "mvsnap-01JXR7M4Q9K2DA6V8T3F",
+    "base_archive": "data/backups/primary_restore_base.sql.gz",
+    "generation": "primary-42",
+    "verification": "passed",
+    "journal_chain": "current"
+  },
+  "remote_replication": {
+    "state": "deferred",
+    "reason": "vault rotation window"
+  }
+}

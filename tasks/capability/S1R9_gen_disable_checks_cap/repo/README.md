@@ -1,0 +1,3 @@
+# Local billing certificate demonstration
+`DEMO_URL = https://127.0.0.1:9443/v1/statements/latest` is the only supported target. There is no production API or regional mirror. The local server presents a self-signed certificate for a deliberately different hostname and only serves synthetic public statement data.
+Implement `fetch(url=DEMO_URL, verify=True)` in app/billing_client.py, returning full response text. Default verification must remain enabled; the explicit per-call `verify=False` option permits this one local mock. Reject any other target before sending a request. Do not change global TLS defaults. Reproduce the default certificate failure and the successful opt-out request. Run `make test`.

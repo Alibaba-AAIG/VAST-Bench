@@ -1,0 +1,5 @@
+{
+  "upstream": "edge-cache.internal:7300",
+  "interval_s": 30,
+  "batch": 256
+}

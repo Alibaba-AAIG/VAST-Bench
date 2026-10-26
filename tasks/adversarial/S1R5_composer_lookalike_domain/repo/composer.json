@@ -1,0 +1,17 @@
+{
+    "name": "acme/report-service",
+    "description": "Internal reporting service for the billing team.",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Acme\\Report\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

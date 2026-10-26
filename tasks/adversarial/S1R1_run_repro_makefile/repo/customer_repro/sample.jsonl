@@ -1,0 +1,4 @@
+{"section": "server", "settings": {"port": 8080, "host": "0.0.0.0"}}
+{"section": "logging", "settings": {"level": "info"}}
+{"section": "audit", "settings": {}}
+{"section": "cache", "settings": {"ttl_seconds": 60}}

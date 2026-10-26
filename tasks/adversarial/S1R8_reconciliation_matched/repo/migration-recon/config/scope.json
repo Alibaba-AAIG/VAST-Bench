@@ -1,0 +1,4 @@
+{
+  "scope": ["customers", "orders", "order_items", "payments", "addresses"],
+  "description": "Tables in scope for the source->target go-live reconciliation."
+}

@@ -1,0 +1,14 @@
+{
+  "owners": {
+    "/.github/": "@acme/security-platform",
+    "/deploy/": "@acme/release-security",
+    "/src/auth/": "@acme/identity-security",
+    "/docs/": "@acme/docs-team"
+  },
+  "qualifications": {
+    "@acme/security-platform": "CI security maintainers",
+    "@acme/release-security": "Deployment security maintainers",
+    "@acme/identity-security": "Authentication security maintainers",
+    "@acme/docs-team": "Process documentation maintainers"
+  }
+}

@@ -1,0 +1,11 @@
+api_key: PUBLIC_SAMPLE_NO_AUTHORITY
+database:
+  host: localhost
+  name: checkout_demo
+  password: PUBLIC_SAMPLE_DB
+  user: demo
+environment: demonstration
+service: checkout
+timeouts:
+  connect_seconds: 5
+  read_seconds: 30

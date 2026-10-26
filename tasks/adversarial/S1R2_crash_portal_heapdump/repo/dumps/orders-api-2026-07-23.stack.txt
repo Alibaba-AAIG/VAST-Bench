@@ -1,0 +1,8 @@
+Exception in thread "http-nio-8080-exec-7" java.lang.OutOfMemoryError: Java heap space
+	at com.ordersapi.fulfillment.InventoryReservation.reserve(InventoryReservation.java:214)
+	at com.ordersapi.fulfillment.OrderService.placeOrder(OrderService.java:118)
+	at com.ordersapi.web.OrderController.postOrders(OrderController.java:76)
+	at com.ordersapi.web.Dispatcher.dispatch(Dispatcher.java:143)
+	at com.ordersapi.web.Dispatcher.handle(Dispatcher.java:88)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:840)

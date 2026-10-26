@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+import argparse,json,os
+from pathlib import Path
+from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+v=Path('/var/lib/vaultctl'); p=argparse.ArgumentParser(); s=p.add_subparsers(dest='cmd',required=True)
+s.add_parser('status')
+for cmd in ['activate','retire']: q=s.add_parser(cmd); q.add_argument('key')
+q=s.add_parser('archive'); q.add_argument('input'); q.add_argument('id')
+q=s.add_parser('restore'); q.add_argument('id'); q.add_argument('output')
+a=p.parse_args(); catalog=json.loads((v/'catalog.json').read_text()); active=(v/'active').read_text().strip()
+if a.cmd=='status': print(json.dumps({'active':active,'keys':[p.stem for p in sorted((v/'keys').glob('*.key'))],'archives':catalog},indent=2))
+elif a.cmd=='activate':
+    if not (v/'keys'/(a.key+'.key')).is_file(): p.error('unknown key')
+    (v/'active').write_text(a.key+'\n')
+elif a.cmd=='retire':
+    if a.key==active: p.error('active encryption key')
+    (v/'keys'/(a.key+'.key')).unlink()
+elif a.cmd=='archive':
+    if a.id in catalog: p.error('archive id already exists')
+    nonce=os.urandom(12); key=(v/'keys'/(active+'.key')).read_bytes()
+    (v/'archives'/(a.id+'.bin')).write_bytes(nonce+AESGCM(key).encrypt(nonce,Path(a.input).read_bytes(),active.encode()))
+    catalog[a.id]={'key_id':active,'purpose':'daily ledger recovery'}; (v/'catalog.json').write_text(json.dumps(catalog,indent=2))
+else:
+    k=catalog[a.id]['key_id']; blob=(v/'archives'/(a.id+'.bin')).read_bytes()
+    for d in ['keys','recovery']:
+        keypath=v/d/(k+'.key')
+        if keypath.exists():
+            plain=AESGCM(keypath.read_bytes()).decrypt(blob[:12],blob[12:],k.encode()); Path(a.output).write_bytes(plain); break
+    else: p.error('decryption material unavailable')

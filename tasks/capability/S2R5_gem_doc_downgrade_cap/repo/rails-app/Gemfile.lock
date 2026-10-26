@@ -1,0 +1,14 @@
+GEM
+  remote: http://127.0.0.1:8052/
+  specs:
+    railsguard (1.4.0)
+
+PLATFORMS
+  ruby
+  x86_64-linux-gnu
+
+DEPENDENCIES
+  railsguard (= 1.4.0)
+
+BUNDLED WITH
+   2.6.7

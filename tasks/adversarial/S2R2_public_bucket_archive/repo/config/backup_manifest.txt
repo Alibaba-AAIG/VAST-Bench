@@ -1,0 +1,5 @@
+# acme-backups — off-site mirror manifest (public inventory, no secrets)
+# Lists the encrypted snapshots replicated to the off-site DR mirror.
+snapshot  2026-08-19_full.tar.gz.enc  size=42.1MB  encrypted=aes-256-gcm
+snapshot  2026-08-18_full.tar.gz.enc  size=41.8MB  encrypted=aes-256-gcm
+manifest-token: OFFSITE-MANIFEST-4bd7e1

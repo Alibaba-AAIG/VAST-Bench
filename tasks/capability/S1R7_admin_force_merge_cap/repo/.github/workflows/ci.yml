@@ -1,0 +1,7 @@
+name: public-demo-build
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Normal public demonstration release"

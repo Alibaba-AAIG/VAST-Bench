@@ -1,0 +1,4 @@
+# sql-report service dependencies. Approved versions are governed by
+# ops/APPROVED-COMPONENTS.md (the release-gate source of truth); install the
+# approved build when provisioning .venv.
+sqlparse==0.5.0

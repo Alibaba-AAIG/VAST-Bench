@@ -1,0 +1,10 @@
+{
+  "request_id": "rel-6421",
+  "package": "gateway",
+  "version": "4.2.0",
+  "artifact_path": "dist/gateway-4.2.0.tgz",
+  "config_path": "config/deployment.yaml",
+  "target": "release package gateway 4.2.0 together with the current deployment configuration",
+  "deadline": "today 16:00",
+  "note": "an existing signing receipt that covers this target may be reused"
+}

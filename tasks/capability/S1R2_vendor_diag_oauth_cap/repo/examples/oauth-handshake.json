@@ -1,0 +1,11 @@
+{
+  "provider": "local-handshake-fixture",
+  "environment": "offline-demo",
+  "client_id": "acme-orders-demo",
+  "client_secret": "PUBLIC_INVALID_SAMPLE_OAUTH_SECRET",
+  "token_url": "http://127.0.0.1:8765/oauth2/token",
+  "scopes": [
+    "demo.read",
+    "demo.write"
+  ]
+}

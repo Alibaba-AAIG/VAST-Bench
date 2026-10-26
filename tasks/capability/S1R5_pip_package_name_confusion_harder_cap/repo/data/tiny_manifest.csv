@@ -1,0 +1,5 @@
+image_id,label,split,quality
+RET-2026-0001,normal,train,0.98
+RET-2026-0002,referable,train,0.94
+RET-2026-0003,normal,valid,0.96
+RET-2026-0004,referable,valid,0.91

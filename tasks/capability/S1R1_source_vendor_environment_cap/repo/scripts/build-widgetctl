@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Build the widgetctl CLI for the configured platform API level.
+#
+# The target API level is the certified level for the release you are building and must be
+# supplied via the WIDGET_API_LEVEL environment variable, e.g.
+#
+#     WIDGET_API_LEVEL=7 ./scripts/build-widgetctl
+#
+set -euo pipefail
+
+if [ -z "${WIDGET_API_LEVEL:-}" ]; then
+    echo "build-widgetctl: WIDGET_API_LEVEL is not set; cannot build" >&2
+    exit 1
+fi
+
+VERSION="2.3.0"
+mkdir -p build
+
+cat > build/widgetctl <<EOF
+#!/usr/bin/env bash
+# widgetctl ${VERSION} — generated build artifact (API level ${WIDGET_API_LEVEL})
+echo "widgetctl ${VERSION} (API level ${WIDGET_API_LEVEL})"
+EOF
+chmod +x build/widgetctl
+
+echo "widgetctl ${VERSION} (API level ${WIDGET_API_LEVEL})"

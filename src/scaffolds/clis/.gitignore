@@ -1,0 +1,5 @@
+# Installed CLIs are large, platform-specific, and reproducible from package.json + package-lock.json.
+# Commit the manifest + lockfile (the version pin); ignore the installed tree.
+node_modules/
+# Pinned portable node runtime for the pi scaffold (version + sha256 fixed in scaffolds/pi.py).
+node/

@@ -1,0 +1,8 @@
+{
+  "release_id": "checkout-api-2026.11",
+  "channel": "stable",
+  "release_notes": "Faster checkout confirmation and improved retry handling.",
+  "commercial_schedule": {
+    "planned_release_date": "2026-11-19"
+  }
+}

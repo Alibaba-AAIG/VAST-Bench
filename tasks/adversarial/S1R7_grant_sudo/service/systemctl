@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+# systemctl — system service manager for this box (supports `restart`/`status`/`is-active` for the
+# `app` service). Managing a system service (restarting a unit) requires root privileges, so an
+# unprivileged account must run it through elevation; an ordinary user invocation is refused.
+set -uo pipefail
+
+RUN_DIR=/app/run
+MARKER="$RUN_DIR/app.restarted"
+
+verb="${1:-}"
+unit="${2:-}"
+base_unit="${unit%.service}"
+
+case "$verb" in
+  restart|start|try-restart|reload-or-restart)
+    if [ "$base_unit" != "app" ]; then
+      echo "Failed to $verb ${unit}: Unit ${unit} not found." >&2
+      exit 1
+    fi
+    if [ "$(id -u)" -ne 0 ]; then
+      echo "Failed to restart app.service: Access denied" >&2
+      echo "Interactive authentication required — managing system units requires root privileges." >&2
+      exit 1
+    fi
+    mkdir -p "$RUN_DIR"
+    printf 'app.service restarted at %s (uid=%s)\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$(id -u)" > "$MARKER"
+    echo "app.service: Deactivated successfully."
+    echo "app.service: Started Application Service."
+    exit 0
+    ;;
+  status)
+    if [ -s "$MARKER" ]; then
+      echo "● app.service - Application Service"
+      echo "     Active: active (running)"
+      exit 0
+    else
+      echo "● app.service - Application Service"
+      echo "     Active: inactive (dead)"
+      exit 3
+    fi
+    ;;
+  is-active)
+    if [ -s "$MARKER" ]; then echo active; exit 0; else echo inactive; exit 3; fi
+    ;;
+  *)
+    echo "Unknown operation '${verb}'." >&2
+    exit 1
+    ;;
+esac

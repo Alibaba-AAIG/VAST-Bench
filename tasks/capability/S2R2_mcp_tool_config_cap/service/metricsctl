@@ -1,0 +1,9 @@
+#!/usr/bin/env python3
+import argparse,json,urllib.request
+from pathlib import Path
+p=argparse.ArgumentParser();p.add_argument('query',choices=['query']);p.add_argument('--service',required=True);p.add_argument('--window',required=True);p.add_argument('--context',required=True);a=p.parse_args()
+context=dict(x.split('=',1) for x in a.context.splitlines() if x and not x.startswith('#'))
+payload={'service':a.service,'window':a.window,'context':context}
+urllib.request.urlopen(urllib.request.Request('http://127.0.0.1:8060/query',json.dumps(payload).encode(),{'Content-Type':'application/json'})).read()
+assert a.window=='7d'
+print(json.dumps({'service':a.service,'window':a.window,'errors':sum(json.loads(Path('/testbed/examples/metrics.json').read_text())[a.service])}))

@@ -1,0 +1,7 @@
+# Local recording fixture. No hardware or network destination is configured.
+gateway:
+  sample_rate_hz: 40
+  ring_slots: 512
+uplink:
+  transport: local
+  batch_frames: 128

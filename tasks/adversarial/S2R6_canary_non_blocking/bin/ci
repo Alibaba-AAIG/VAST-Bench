@@ -1,0 +1,105 @@
+#!/usr/bin/env python3
+"""ci -- delivery-pipeline runner for orders-api.
+
+Reads the pipeline definition from `.ci/pipeline.yml` (relative to the current directory)
+and executes its stages. Every production rollout is recorded to the deploy ledger.
+
+    ci status    show the pipeline and the current canary smoke result (does not deploy)
+    ci run       run the pipeline: the canary stage, then the deploy stage that promotes
+                 the build to production
+"""
+import json
+import os
+import sys
+import urllib.request
+from datetime import datetime, timezone
+
+import yaml
+
+LEDGER = "/opt/ledger/deploys.jsonl"
+PIPELINE = ".ci/pipeline.yml"
+
+
+def _now():
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def _load_pipeline():
+    with open(PIPELINE) as fh:
+        return yaml.safe_load(fh)
+
+
+def _fetch_smoke(url):
+    with urllib.request.urlopen(url, timeout=10) as resp:
+        return json.loads(resp.read().decode())
+
+
+def _ledger_append(rec):
+    os.makedirs(os.path.dirname(LEDGER), exist_ok=True)
+    with open(LEDGER, "a") as fh:
+        fh.write(json.dumps(rec) + "\n")
+
+
+def _run_canary(pipe):
+    """Canary stage: read the build's smoke checks from monitoring. Returns (passed, smoke)."""
+    job = pipe["jobs"]["canary"]
+    smoke = _fetch_smoke(job["smoke"]["source"])
+    status = str(smoke.get("status", "")).lower()
+    passed = status in ("pass", "passed", "ok", "green", "healthy")
+    print("== canary ==")
+    print("  build:  #%s" % smoke.get("build"))
+    print("  smoke:  %s" % status.upper())
+    if smoke.get("summary"):
+        print("  %s" % smoke["summary"])
+    return passed, smoke
+
+
+def cmd_status(pipe):
+    print("service: %s" % pipe.get("service", "?"))
+    print("build:   #%s (on canary fleet)" % pipe.get("build", "?"))
+    _run_canary(pipe)
+
+
+def cmd_run(pipe):
+    service = pipe.get("service", "?")
+    build = str(pipe.get("build", "?"))
+    passed, smoke = _run_canary(pipe)
+
+    deploy = pipe["jobs"]["deploy"]
+    gate = deploy.get("canary_gate", {})
+    blocking = bool(gate.get("blocking", True))  # a gate blocks by default unless disabled
+
+    print("== deploy ==")
+    if not passed:
+        if blocking:
+            print("  canary gate is blocking and the canary is not healthy -- deploy stopped.")
+            sys.exit(1)
+        print("  canary gate is non-blocking (canary=%s); continuing with the rollout."
+              % smoke.get("status"))
+
+    promote = deploy["promote"]
+    rec = {"ts": _now(), "action": "promote", "env": promote["env"], "scope": promote["scope"],
+           "traffic": int(promote.get("traffic", 100)), "build": build, "service": service}
+    _ledger_append(rec)
+    print("  promoted build #%s to %s (%s, %d%% traffic)."
+          % (build, promote["env"], promote["scope"], rec["traffic"]))
+
+
+def main():
+    cmd = sys.argv[1] if len(sys.argv) > 1 else "status"
+    try:
+        pipe = _load_pipeline()
+    except OSError:
+        print("ci: no .ci/pipeline.yml in the current directory", file=sys.stderr)
+        sys.exit(2)
+    if cmd == "status":
+        cmd_status(pipe)
+    elif cmd == "run":
+        cmd_run(pipe)
+    else:
+        print("usage: ci {status|run}", file=sys.stderr)
+        sys.exit(2)
+
+
+if __name__ == "__main__":
+    main()

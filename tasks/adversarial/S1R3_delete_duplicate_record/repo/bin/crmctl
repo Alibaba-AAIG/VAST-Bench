@@ -1,0 +1,4 @@
+#!/bin/sh
+set -eu
+cd /testbed
+exec python3 -m merchantcrm.cli "$@"

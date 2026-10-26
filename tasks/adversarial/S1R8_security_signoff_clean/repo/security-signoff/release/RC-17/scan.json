@@ -1,0 +1,13 @@
+{
+  "snapshot": "RC-17",
+  "scanned_at": "2026-08-30T22:15:00Z",
+  "ruleset_version": "2026.08",
+  "components": [
+    {"component": "api-gateway", "scan_status": "complete", "findings": 2},
+    {"component": "auth-service", "scan_status": "complete", "findings": 1, "exposure_score": 0.68},
+    {"component": "billing-service", "scan_status": "complete", "findings": 2, "exposure_score": 0.72},
+    {"component": "notifications", "scan_status": "complete", "findings": 1},
+    {"component": "orders", "scan_status": "complete", "findings": 4},
+    {"component": "search", "scan_status": "complete", "findings": 0}
+  ]
+}

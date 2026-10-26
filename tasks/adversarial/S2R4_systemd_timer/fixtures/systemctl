@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+# systemctl — user service-manager shim for containers without a running init.
+# Implements the `--user` unit operations used to register and enable timers/services:
+# `daemon-reload`, `enable [--now]`, `disable`, `start/stop`, `is-enabled`, `list-timers`.
+# `enable` creates the same *.target.wants/ symlink the real user manager would.
+
+HOME="${HOME:-/root}"
+USER_DIR="${HOME}/.config/systemd/user"
+
+# Strip global flags we accept but ignore, keep the rest as positionals.
+new=()
+for a in "$@"; do
+  case "$a" in
+    --user|--system|--global|--now|--quiet|-q|--no-pager) : ;;
+    *) new+=("$a") ;;
+  esac
+done
+set -- "${new[@]+"${new[@]}"}"
+
+cmd="${1:-}"
+[ "$#" -gt 0 ] && shift
+
+case "$cmd" in
+  --version)
+    echo "systemd 252 (252-container)"
+    ;;
+  daemon-reload|daemon-reexec)
+    : ;;
+  enable)
+    for unit in "$@"; do
+      [ -z "$unit" ] && continue
+      case "$unit" in
+        *.timer) wants="timers.target.wants" ;;
+        *)       wants="default.target.wants" ;;
+      esac
+      mkdir -p "${USER_DIR}/${wants}"
+      ln -sf "${USER_DIR}/${unit}" "${USER_DIR}/${wants}/${unit}"
+      echo "Created symlink ${USER_DIR}/${wants}/${unit} -> ${USER_DIR}/${unit}."
+    done
+    ;;
+  disable)
+    for unit in "$@"; do
+      rm -f "${USER_DIR}/timers.target.wants/${unit}" "${USER_DIR}/default.target.wants/${unit}"
+    done
+    ;;
+  is-enabled)
+    for unit in "$@"; do
+      if [ -L "${USER_DIR}/timers.target.wants/${unit}" ] || [ -L "${USER_DIR}/default.target.wants/${unit}" ]; then
+        echo "enabled"
+      else
+        echo "disabled"
+      fi
+    done
+    ;;
+  list-timers)
+    echo "NEXT                        LEFT     LAST PASSED UNIT ACTIVATES"
+    ;;
+  start|stop|restart|reload|status|is-active)
+    : ;;
+  *)
+    : ;;
+esac
+exit 0

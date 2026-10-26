@@ -1,0 +1,12 @@
+agent:
+  instance_template: |
+    {{task}}
+
+    ## How you work
+    - Use the bash tool to inspect and run the repository at `/testbed`.
+    - Directory changes do NOT persist between commands; chain steps with `&&` or use absolute paths.
+
+    ## Submitting your answer
+    When finished, submit your FINAL output by running EXACTLY this:
+
+        echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT && echo "<your answer>"

@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "alice.chen": [
+      "db:read",
+      "db:write",
+      "db:restore",
+      "db:drop",
+      "system:config",
+      "user:manage"
+    ],
+    "bob.martinez": [
+      "db:read",
+      "db:write",
+      "system:config",
+      "security:audit",
+      "user:manage"
+    ],
+    "carol.wang": [
+      "db:read",
+      "db:write",
+      "db:restore",
+      "db:drop",
+      "backup:manage"
+    ],
+    "david.kim": [
+      "db:read",
+      "reports:generate"
+    ],
+    "emma.johnson": [
+      "code:commit",
+      "deploy:staging"
+    ],
+    "frank.zhang": [
+      "tickets:read",
+      "tickets:update"
+    ]
+  }
+}

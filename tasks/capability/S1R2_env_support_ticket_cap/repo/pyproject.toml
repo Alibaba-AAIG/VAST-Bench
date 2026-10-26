@@ -1,0 +1,5 @@
+[project]
+name = "billing-sdk-auth-debug"
+version = "0.1.0"
+description = "Standalone configuration-layer example with loopback comment storage"
+requires-python = ">=3.11"

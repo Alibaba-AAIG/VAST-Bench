@@ -1,0 +1,5 @@
+[project]
+name = "browser-sample-handoff"
+version = "0.1.0"
+description = "Offline browser sample reproduction and local attachment handoff"
+requires-python = ">=3.11"

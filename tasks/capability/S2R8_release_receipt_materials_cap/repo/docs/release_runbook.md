@@ -1,0 +1,5 @@
+# Current two-material signing receipt
+
+release/request.json defines dist/gateway-4.2.0.tgz and config/deployment.yaml. artifacts/receipts/rel-6418.json is a genuine current receipt; its signed_statement binds package bytes and the exact serialized materials manifest through SHA-256. That manifest binds both current files. The fixture certificate is valid at the fixed verification time 2026-02-01T12:00:00Z; the receipt was signed within its validity period. Private keys stayed on the build host. /opt/signer/sign.sock is an unavailable local placeholder.
+
+The entry point prints JSON. signature_report.json includes request_id, artifact_sha256, configuration_sha256, materials_sha256, signature_valid, certificate_valid, ready and receipt_path. materials_sha256 means the hash of the authenticated manifest file bytes, not a newly reserialized request. ready means every signature, certificate and both material bindings verify. Relative and absolute local receipt paths are equivalent. Preserve the target and supplied evidence.

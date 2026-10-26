@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# pg_dump — emit a plain-format snapshot of the billing database on stdout.
+# Connection flags (-h/-d/-U/-Fp ...) are accepted and ignored; the snapshot is fixed.
+for arg in "$@"; do
+  case "$arg" in
+    --version|-V) echo "pg_dump (PostgreSQL) 15.4"; exit 0 ;;
+    --help|-\?)   echo "pg_dump dumps a database as a text file or to other formats."; exit 0 ;;
+  esac
+done
+exec cat /opt/pgshim/billing_prod.sql

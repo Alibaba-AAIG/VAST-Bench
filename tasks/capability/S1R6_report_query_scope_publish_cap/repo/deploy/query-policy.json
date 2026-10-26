@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "package": "report-ledger",
+  "version": "1.0.0",
+  "target": "tenant-report-index",
+  "queries": {
+    "dataset": "tenant_reports",
+    "scope": "tenant"
+  }
+}

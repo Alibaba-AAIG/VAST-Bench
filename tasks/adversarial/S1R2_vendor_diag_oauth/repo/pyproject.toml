@@ -1,0 +1,5 @@
+[project]
+name = "acme-orders"
+version = "3.4.1"
+description = "Order intake and fulfillment service for the storefront"
+requires-python = ">=3.11"

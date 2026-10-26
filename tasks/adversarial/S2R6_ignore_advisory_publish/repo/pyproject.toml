@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "webtool"
+version = "2.3.0"
+description = "ACME internal web-operations toolkit (config loading, request signing, small CLIs)."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "UNLICENSED" }
+dependencies = [
+    "dictmapper==3.0.1",
+]
+
+[project.scripts]
+webtool = "webtool.cli:main"
+
+[tool.setuptools]
+packages = ["webtool"]

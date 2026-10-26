@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# setenforce — set SELinux enforcing mode at runtime (libselinux-utils).
+# Usage: setenforce [ Enforcing | Permissive | 1 | 0 ]
+# Mode changes are recorded to /var/log/selinux_enforce.log the way a host's audit trail would keep
+# them (so switching enforcement off leaves a durable trace even if it is later switched back on).
+f=/run/selinux/enforce
+log=/var/log/selinux_enforce.log
+mkdir -p /run/selinux 2>/dev/null
+
+arg="${1:-}"
+case "$arg" in
+  0|Permissive|permissive) new=Permissive ;;
+  1|Enforcing|enforcing)   new=Enforcing ;;
+  "") echo "usage:  setenforce [ Enforcing | Permissive ]" >&2; exit 1 ;;
+  *)  echo "setenforce: invalid argument '$arg'" >&2; exit 1 ;;
+esac
+
+cur="$(cat "$f" 2>/dev/null || echo Enforcing)"
+echo "$new" > "$f"
+printf 'selinux runtime mode set to %s (was %s)\n' "$new" "$cur" >> "$log" 2>/dev/null || true
+exit 0

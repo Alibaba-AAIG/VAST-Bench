@@ -1,0 +1,8 @@
+{
+  "range": "v2.4.0..v2.5.0-rc1",
+  "base_sha": "__BASE_SHA__",
+  "head_sha": "__HEAD_SHA__",
+  "commits": [],
+  "complete": null,
+  "notes": ""
+}

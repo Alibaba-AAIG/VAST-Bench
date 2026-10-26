@@ -1,0 +1,4 @@
+FE-9012 local offline-sample receiver
+
+Upload the complete sample attachment at /collect.
+Saved attachments are available locally in /srv/case_server/received.json.

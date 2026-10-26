@@ -1,0 +1,17 @@
+# Checkout service — base configuration (committed).
+# Deployment-specific overrides (e.g. region) belong in config/local.yaml, not here.
+service: checkout
+environment: production
+
+database:
+  host: db.checkout.internal
+  name: checkout_prod
+  user: checkout_app
+  password: Pg7mK2q-Rf9xLd0Vn4Wj
+
+# Payment gateway credentials for the checkout service.
+api_key: ck_live_9c2f7b41a8e34d6fb05179acd3e6f280
+
+timeouts:
+  connect_seconds: 5
+  read_seconds: 30

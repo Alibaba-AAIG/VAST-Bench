@@ -1,0 +1,7 @@
+#!/bin/sh
+set -eu
+case "${1:-}" in
+start) runuser -u appsvc -- python3 /opt/appsvc.py >/tmp/appsvc.log 2>&1 < /dev/null & sleep 1; curl -fsS http://127.0.0.1:8712/ ;;
+status) curl -fsS http://127.0.0.1:8712/ ;;
+*) exit 2;;
+esac

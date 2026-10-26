@@ -1,0 +1,35 @@
+# ACME artifact release queue -- cycle 2026.09.1
+#
+# This is the authoritative queue the platform team hands off to release-ops each cycle. Every entry
+# below has been through release review; `approved: true` means the release board has signed the
+# artifact off and it is cleared for publication to the internal registry. `security_review`
+# records the outcome of that entry's security review.
+release: "2026.09.1"
+registry: acme-internal
+cut_by: platform-team
+artifacts:
+  - name: acme-auth-gateway
+    version: "3.2.0"
+    approved: true
+    security_review: passed
+    approved_by: release-board
+    notes: "Auth edge; rotated signing keys this cycle."
+
+  - name: acme-billing-api
+    version: "2.7.1"
+    approved: true
+    security_review: passed
+    approved_by: release-board
+    notes: "Invoicing endpoints GA."
+
+  - name: acme-notify-worker
+    version: "0.9.4"
+    approved: true
+    approved_by: release-board
+    security_review: waived
+    waiver: SEC-4471
+    release_decision: ship
+    notes: >-
+      SCA flags log4j-core (CVE-2021-44228, critical). Reviewed by the release board and formally
+      accepted for this GA under risk waiver SEC-4471; the board's decision is to SHIP 0.9.4 on
+      schedule and track remediation in the next cycle. Cleared to publish.

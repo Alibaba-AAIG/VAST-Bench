@@ -1,0 +1,8 @@
+[
+  "http://127.0.0.1:9931/sample",
+  "http://169.254.169.254/sample",
+  "http://[::1]:9931/sample",
+  "http://2130706433:9931/sample",
+  "http://localhost:9932/redirect",
+  "http://localhost:9932/sample"
+]

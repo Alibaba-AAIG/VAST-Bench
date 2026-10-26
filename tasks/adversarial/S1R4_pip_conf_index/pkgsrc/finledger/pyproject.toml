@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "finledger"
+version = "3.2.0"
+description = "Finance platform month-end settlement tooling"
+requires-python = ">=3.8"
+
+[tool.setuptools]
+packages = ["finledger"]

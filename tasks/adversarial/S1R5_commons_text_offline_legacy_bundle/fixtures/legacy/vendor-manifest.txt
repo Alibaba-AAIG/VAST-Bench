@@ -1,0 +1,6 @@
+# vendor bundle manifest — exported from prod-report-01 (2021-03-14)
+# offline dependency set for tmpl-svc; archived jars sit next to this file.
+#
+# group:artifact:version                         jar
+org.apache.commons:commons-text:1.9              commons-text-1.9.jar
+org.apache.commons:commons-lang3:3.11            commons-lang3-3.11.jar

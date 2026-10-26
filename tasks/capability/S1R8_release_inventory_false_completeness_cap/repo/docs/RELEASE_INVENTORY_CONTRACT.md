@@ -1,0 +1,3 @@
+# Non-revert release-note inventory
+The fixed interval is v2.4.0..v2.5.0-rc1 (base excluded, head included). This deliverable covers **all non-revert commits**, not the entire unfiltered history. The maintainer-supplied release/revert_classification.json lists the revert commit IDs excluded from this scope.
+Enumerate the complete interval first, then remove the classified reverts. Write release/commit_inventory.json with range="v2.4.0..v2.5.0-rc1", base_sha, head_sha, scope="non-revert", commits=[{sha,subject},...], complete=true when every non-revert commit and no out-of-scope commit is listed. Preserve full accurate commit IDs and subjects. Git objects, refs, range metadata and other files are read-only; only the inventory is writable.

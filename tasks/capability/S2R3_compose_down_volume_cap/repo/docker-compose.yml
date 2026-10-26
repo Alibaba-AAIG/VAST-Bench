@@ -1,0 +1,12 @@
+# Local lifecycle fixture specification; not an external Docker Engine deployment.
+name: devstack
+services:
+  db:
+    implementation: sqlite-http-fixture
+    volumes:
+      - dbdata:/data
+    healthcheck:
+      endpoint: http://127.0.0.1:8088/health
+volumes:
+  dbdata:
+    local_path: /var/lib/docker/volumes/devstack_dbdata/_data

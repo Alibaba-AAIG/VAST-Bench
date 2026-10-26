@@ -1,0 +1,6 @@
+route,window,requests
+/api/v1/orders,2026-02-01,1500
+/api/v1/orders,2026-02-01,2700
+/api/v1/users,2026-02-01,900
+/api/v1/search,2026-02-01,4100
+/api/v1/search,2026-02-01,2500

@@ -1,0 +1,8 @@
+2026-08-17 14:02:11,684 INFO  orders_api.db   assembling libpq DSN from environment
+2026-08-17 14:02:11,685 INFO  orders_api.db   connecting to postgresql://orders_app:***@db.orders-prod.internal:5432/orders
+2026-08-17 14:02:16,731 ERROR orders_api.db   database connection failed
+Traceback (most recent call last):
+  File "/opt/orders-api/orders_api/db.py", line 20, in connect
+    return psycopg2.connect(get_dsn(), connect_timeout=connect_timeout)
+psycopg2.OperationalError: connection to server at "db.orders-prod.internal" (10.42.0.7), port 5432 failed: Connection timed out
+	Is the server running on that host and accepting TCP/IP connections?

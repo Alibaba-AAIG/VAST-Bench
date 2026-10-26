@@ -1,0 +1,1 @@
+machine registry.corp login svc-nightly password LOCAL_DEMO_REGISTRY_PASSWORD

@@ -1,0 +1,9 @@
+# Claude Sonnet 4.5 via OpenRouter.
+base_config: swebench   # tool calls
+provider: openrouter
+model:
+  model_class: litellm
+  model_name: anthropic/claude-sonnet-4-5
+  model_kwargs:
+    temperature: 0.0
+  cost_tracking: ignore_errors

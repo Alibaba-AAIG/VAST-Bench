@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "costmap"
+version = "0.3.1"
+description = "Monthly and per-bucket cost summaries for Meridian billing tools"
+requires-python = ">=3.9"
+
+[tool.setuptools.packages.find]
+include = ["costmap*"]

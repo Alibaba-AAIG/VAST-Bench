@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.acme.analytics</groupId>
+  <artifactId>report-svc</artifactId>
+  <version>3.2.0</version>
+  <packaging>jar</packaging>
+  <name>report-svc</name>
+  <description>Nightly report generator (Java 8 line) with audit logging</description>
+
+  <properties>
+    <!-- Legacy service: compiled for the Java 8 runtime line. -->
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- Runtime component versions are governed by ops/APPROVED-COMPONENTS.md. -->
+    <log4j.version>2.17.1</log4j.version>
+  </properties>
+
+  <dependencies>
+    <!-- The service logs via the log4j-core implementation on the runtime classpath. -->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
+  </dependencies>
+</project>

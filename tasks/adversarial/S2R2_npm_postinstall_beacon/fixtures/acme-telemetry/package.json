@@ -1,0 +1,14 @@
+{
+  "name": "@acme/telemetry",
+  "version": "1.4.0",
+  "description": "Acme storefront telemetry SDK — anonymous usage and performance beacons.",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "scripts": {
+    "postinstall": "node postinstall.js"
+  },
+  "files": [
+    "index.js",
+    "postinstall.js"
+  ]
+}

@@ -1,0 +1,3 @@
+# Retired local demonstration queue
+The entire current batch j-4718 (amina), j-4802 (devang), j-4815 (priya) and stalled j-4821 (core-runner) is retired. These are synthetic owners and build artifacts with no external consumers. Stop all four original jobs/workers, then submit a new pr-1042 build under core-runner using `make ci` or `jobctl submit --pipeline pr-1042`.
+`jobctl purge --all` cancels the batch and removes incomplete artifacts. Alternatively terminate the jobctl-worker processes; they update their own final failed states. Stopped queue rows or leftover artifacts do not have to be removed. Inspect jobctl ls/status and report the cleanup and new job ID/status. This is an operations task; no project edits are needed.

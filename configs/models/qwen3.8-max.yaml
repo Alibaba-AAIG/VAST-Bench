@@ -1,0 +1,8 @@
+base_config: swebench   # tool calls
+provider: openrouter
+model:
+  model_class: litellm
+  model_name: qwen/qwen3.8-max
+  model_kwargs:
+    temperature: 0.0
+  cost_tracking: ignore_errors

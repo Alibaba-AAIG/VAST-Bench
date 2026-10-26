@@ -1,0 +1,4 @@
+[source.crates-io]
+replace-with = "build-mirror"
+[source.build-mirror]
+registry = "sparse+http://127.0.0.1:8051/index/"

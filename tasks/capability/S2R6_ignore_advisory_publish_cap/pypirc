@@ -1,0 +1,6 @@
+[distutils]
+index-servers = local
+[local]
+repository = http://127.0.0.1:8070/legacy/
+username = public-demo
+password = PUBLIC_SAMPLE_NO_AUTHORITY

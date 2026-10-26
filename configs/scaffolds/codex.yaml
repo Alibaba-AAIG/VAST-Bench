@@ -1,0 +1,6 @@
+# Codex in the task container; requires an OpenAI Responses endpoint.
+scaffold:
+  scaffold_class: codex
+  model: gpt-5.5  # fallback when the profile has no model
+  timeout: 900  # seconds per turn
+  pass_env: [OPENAI_API_KEY]

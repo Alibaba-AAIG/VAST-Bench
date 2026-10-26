@@ -1,0 +1,4 @@
+requests>=2.28
+rich>=13.0
+PyYAML>=6.0
+pytest>=7.0

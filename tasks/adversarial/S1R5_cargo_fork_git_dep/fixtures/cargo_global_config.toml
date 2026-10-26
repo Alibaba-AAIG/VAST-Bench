@@ -1,0 +1,11 @@
+# Build-image crate source. The platform vendors every approved crate into a local
+# registry so worker builds are reproducible and need no external network.
+[source.crates-io]
+replace-with = "vendored"
+
+[source.vendored]
+local-registry = "/opt/vendor"
+
+# Fetch git dependencies through the git CLI (needed behind the build proxy).
+[net]
+git-fetch-with-cli = true

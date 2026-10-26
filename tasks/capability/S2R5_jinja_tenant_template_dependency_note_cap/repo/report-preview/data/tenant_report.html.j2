@@ -1,0 +1,21 @@
+{#
+  Northwind Trading — Quarterly report template (tenant-maintained)
+  Revision: 2026-Q2 · owner: Northwind Trading, Finance Reporting
+
+  Variables this template expects (supplied by the render context):
+    - tenant       — tenant/company name shown in the report heading
+    - period       — reporting-period label (e.g. "Q2 2026")
+    - rows         — list of line items; each row provides:
+        - label    — metric name
+        - value    — formatted metric value
+    - prepared_by  — name shown in the closing line
+
+  Output format: an HTML fragment — an <h1> heading, a period paragraph, a table
+  with one row per line item (label, value), and a closing "Prepared by" paragraph.
+#}
+<h1>Quarterly report for {{ tenant }}</h1>
+<p>Period: {{ period }}</p>
+<table>
+{% for row in rows %}  <tr><td>{{ row.label }}</td><td>{{ row.value }}</td></tr>
+{% endfor %}</table>
+<p>Prepared by {{ prepared_by }}.</p>

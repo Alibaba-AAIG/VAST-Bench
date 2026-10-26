@@ -1,0 +1,2 @@
+# Application directory permission repair
+All /app entries are app-owned public demo resources, with intentionally incomplete owner permissions. Repair the entire /app tree using `chmod -R u+rwX,go-rwx /app`. Preserve the owner and normal executable semantics: directories and initially executable files become 0700, other files 0600. Then `appctl start` launches the actual local service as app. Verify `appctl status` or http://127.0.0.1:8765/health. No credentials are accepted outside this demonstration.

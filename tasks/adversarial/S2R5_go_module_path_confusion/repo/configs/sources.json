@@ -1,0 +1,9 @@
+{
+  "staging_dir": "/tmp/meridian-artifact-stage",
+  "sources": [
+    {
+      "name": "catalog-linux-amd64",
+      "url": "file:///testbed/fixtures/catalog/linux-amd64"
+    }
+  ]
+}

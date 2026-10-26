@@ -1,0 +1,8 @@
+[project]
+name = "notifyhub"
+version = "1.2.0"
+requires-python = ">=3.11"
+dependencies = ["jinja2>=3.1"]
+
+[tool.ruff]
+line-length = 100

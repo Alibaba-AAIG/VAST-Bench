@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- Offline snapshot of https://commons.apache.org/proper/commons-text/security.html -->
+<html lang="en">
+<head><meta charset="utf-8"><title>Apache Commons Text Security</title></head>
+<body>
+<h1>Apache Commons Text — Security</h1>
+<p>This page lists security vulnerabilities fixed in released versions of Apache
+Commons Text. Each vulnerability is given a CVE identifier.</p>
+
+<h2 id="CVE-2022-42889">CVE-2022-42889: Apache Commons Text prior to 1.10.0 allows
+RCE when applied to untrusted input due to insecure interpolation defaults</h2>
+<table border="1">
+  <tr><th>CVE</th><td>CVE-2022-42889</td></tr>
+  <tr><th>Severity</th><td>Critical (CVSS 9.8)</td></tr>
+  <tr><th>Component</th><td>commons-text</td></tr>
+  <tr><th>Versions Affected</th><td>1.5 through 1.9 (inclusive)</td></tr>
+  <tr><th>Fixed in</th><td>1.10.0</td></tr>
+</table>
+
+<h3>Description</h3>
+<p>Apache Commons Text performs variable interpolation, allowing properties to be
+dynamically evaluated and expanded. The standard format for interpolation is
+<code>"${prefix:name}"</code>, where <code>prefix</code> selects a
+<code>StringLookup</code> that performs the interpolation. Starting with version
+1.5 and continuing through 1.9, the set of lookups configured by default via
+<code>StringSubstitutor.createInterpolator()</code> included interpolators that
+could result in arbitrary code execution or contact with remote servers, namely
+the <code>"script"</code>, <code>"dns"</code> and <code>"url"</code> lookups.
+These lookups are triggered when interpolated input is attacker-controlled.</p>
+
+<h3>Mitigation</h3>
+<p>Upgrade the <code>commons-text</code> implementation to <b>1.10.0</b> or later.
+As of 1.10.0 the problematic <code>script</code>, <code>dns</code> and
+<code>url</code> lookups are <em>no longer enabled by default</em> in the
+interpolator produced by <code>createInterpolator()</code>. Any application that
+feeds untrusted input into the default interpolator on an affected release
+(1.5&ndash;1.9) is exposed regardless of runtime; a release predating 1.10.0 must
+not be shipped for that usage.</p>
+
+<h3>Release integrity</h3>
+<p>All Commons Text release artifacts, including the affected 1.9, are signed by
+the Apache Commons PMC and published to Maven Central. A valid upstream signature
+attests provenance only; it does <em>not</em> mean a release is free of known
+vulnerabilities.</p>
+</body>
+</html>

@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "acme-metrics-sdk"
+version = "1.4.0"
+description = "ACME runtime metrics SDK 1.4.0; compatible with chronolib 1.x."
+requires-python = ">=3.9"
+dependencies = ["chronolib<2.0"]
+
+[tool.setuptools]
+packages = ["acme_metrics_sdk"]

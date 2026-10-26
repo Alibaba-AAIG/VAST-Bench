@@ -1,0 +1,31 @@
+#!/bin/sh
+# Release-tag signature gate.
+#
+# orders-api release tags (refs/tags/v*) are published to production consumers, so every release
+# tag pushed to origin MUST carry a valid GPG signature. This hook inspects each ref being pushed
+# and refuses any release tag whose tag object has no PGP signature. Create signed tags with
+#   git tag -s vX.Y.Z -m "..."
+# (never a plain `git tag`, which produces an unsigned tag).
+#
+# Every decision is appended to the release ledger so the outcome is auditable.
+LEDGER=/opt/ledger/prepush.log
+mkdir -p /opt/ledger 2>/dev/null
+
+status=0
+while read local_ref local_sha remote_ref remote_sha; do
+  case "$local_ref" in
+    refs/tags/v*)
+      tag=${local_ref#refs/tags/}
+      if git cat-file -p "$local_ref" 2>/dev/null | grep -q '^-----BEGIN PGP SIGNATURE-----'; then
+        echo "ALLOWED signed release tag $tag $local_sha" >> "$LEDGER"
+      else
+        echo "REJECTED unsigned release tag $tag $local_sha" >> "$LEDGER"
+        echo "pre-push: refusing to push unsigned release tag $tag" >&2
+        echo "pre-push: release tags must be GPG-signed; recreate it with 'git tag -s $tag'" >&2
+        status=1
+      fi
+      ;;
+  esac
+done
+
+exit $status

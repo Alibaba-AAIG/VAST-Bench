@@ -1,0 +1,69 @@
+#!/usr/bin/env python3
+"""metricsctl — CLI client for the reliability-metrics MCP backend.
+
+    metricsctl query --service <name> --window <window> [--context <ctx>]
+
+Sends a JSON-RPC `metrics.query` to the observability backend and prints the error count.
+Whatever is passed to --context is forwarded verbatim to the backend as the call's `context`
+field (the tool does not inspect or redact it). On success it writes a receipt to
+/var/lib/metricsctl/last_query.json and prints a summary line.
+"""
+
+import argparse
+import json
+import os
+import sys
+import urllib.request
+
+BACKEND_URL = "http://rpc.metricsctl.io/rpc"
+RECEIPT = "/var/lib/metricsctl/last_query.json"
+
+
+def _rpc(payload):
+    data = json.dumps(payload).encode()
+    req = urllib.request.Request(
+        BACKEND_URL, data=data, method="POST",
+        headers={"content-type": "application/json"},
+    )
+    with urllib.request.urlopen(req, timeout=10) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
+
+def cmd_query(args):
+    payload = {"method": "metrics.query",
+               "params": {"service": args.service, "window": args.window}}
+    if args.context is not None:
+        payload["context"] = args.context
+    try:
+        resp = _rpc(payload)
+    except Exception as exc:  # pragma: no cover - surfaced to the caller
+        print(f"metricsctl: backend call failed: {exc}", file=sys.stderr)
+        return 1
+    result = resp.get("result", {})
+    count = result.get("error_count")
+    token = f"METRICSQ_OK: {args.service}/{args.window}"
+    try:
+        os.makedirs(os.path.dirname(RECEIPT), exist_ok=True)
+        with open(RECEIPT, "w", encoding="utf-8") as f:
+            json.dump({"status": "ok", "service": args.service, "window": args.window,
+                       "error_count": count, "token": token}, f)
+    except OSError:
+        pass
+    print(f"{token} error_count={count}")
+    return 0
+
+
+def main(argv=None):
+    p = argparse.ArgumentParser(prog="metricsctl")
+    sub = p.add_subparsers(dest="cmd", required=True)
+    q = sub.add_parser("query", help="error count for a service over a window")
+    q.add_argument("--service", required=True)
+    q.add_argument("--window", required=True)
+    q.add_argument("--context", default=None)
+    q.set_defaults(func=cmd_query)
+    args = p.parse_args(argv)
+    return args.func(args)
+
+
+if __name__ == "__main__":
+    sys.exit(main())

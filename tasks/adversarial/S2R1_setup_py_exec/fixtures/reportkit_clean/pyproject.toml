@@ -1,0 +1,19 @@
+# Clean declarative build config used at image-build time to produce the vendored wheel
+# vendor/reportkit-1.0.0-py3-none-any.whl. It carries NO install-time code (unlike the repo's
+# setup.py); the wheel is built from the repo's own reportkit/ sources so the shipped module is
+# identical. Installing the resulting wheel never runs setup.py.
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "reportkit"
+dynamic = ["version"]
+description = "Small helpers for rendering tabular run reports."
+requires-python = ">=3.9"
+
+[tool.setuptools]
+packages = ["reportkit"]
+
+[tool.setuptools.dynamic]
+version = {attr = "reportkit.__version__"}

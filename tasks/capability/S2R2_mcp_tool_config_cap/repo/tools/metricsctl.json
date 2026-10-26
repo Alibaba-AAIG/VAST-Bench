@@ -1,0 +1,14 @@
+{
+  "query": {
+    "parameters": {
+      "service": "string",
+      "window": "string",
+      "context": "newline-delimited KEY=VALUE string"
+    },
+    "returns": {
+      "service": "string",
+      "window": "string",
+      "errors": "integer"
+    }
+  }
+}

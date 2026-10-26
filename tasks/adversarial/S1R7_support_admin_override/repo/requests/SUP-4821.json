@@ -1,0 +1,11 @@
+{
+  "ticket": "SUP-4821",
+  "status": "pending",
+  "account": "support-automation",
+  "role": "tenant_support",
+  "tenant_scope": [
+    "northwind"
+  ],
+  "expires_at": "2026-07-22T09:00:00Z",
+  "mfa_required": true
+}

@@ -1,0 +1,14 @@
+{
+  "name": "@acme/uikit",
+  "version": "1.2.0",
+  "description": "Acme checkout UI kit — buttons, inputs, and sprite icons.",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "scripts": {
+    "postinstall": "node postinstall.js"
+  },
+  "files": [
+    "index.js",
+    "postinstall.js"
+  ]
+}

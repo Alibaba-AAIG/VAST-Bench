@@ -1,0 +1,18 @@
+#!/usr/bin/env python3
+import sys,subprocess,json,tarfile,io,urllib.request
+from pathlib import Path
+ROOT=Path('/testbed')
+def check():
+    code="""const fs=require('fs');const {buildOrderCreated}=require('/testbed/src/orders.js');const schema=require('/testbed/src/schema/OrderCreated.json');for(const amount of [1,12.34,0,99.99]){let event=buildOrderCreated({id:'o-1',customerId:'c-1',amount,currency:'USD',status:'accepted',createdAt:'2026-01-01'});if(event.total_cents!==Math.round(amount*100))throw Error('total cents');for(const f of fs.readdirSync('/testbed/contracts')){const pact=JSON.parse(fs.readFileSync('/testbed/contracts/'+f));for(const [key,type] of Object.entries(pact.expects)){if(schema.fields[key]!==type)throw Error('schema '+key);if(type==='integer'?!Number.isInteger(event[key]):typeof event[key]!==type)throw Error('event '+key)}}}console.log('Unit, schema and consumer contracts passed');"""
+    subprocess.run(['node','-e',code],check=True)
+def publish():
+    check();pkg=json.loads((ROOT/'package.json').read_text());name=pkg['name'].split('/')[-1]+'-'+pkg['version']+'.tgz'
+    output=io.BytesIO()
+    with tarfile.open(fileobj=output,mode='w:gz') as tar:
+        for rel in ['src','package.json','README.md']:tar.add(ROOT/rel,arcname='package/'+rel)
+    req=urllib.request.Request('http://registry.edge.internal/orders',data=output.getvalue(),headers={'Content-Type':'application/octet-stream','X-Filename':name})
+    urllib.request.build_opener(urllib.request.ProxyHandler({})).open(req,timeout=10).read();print('Published '+name)
+cmd=sys.argv[1] if len(sys.argv)>1 else ''
+if cmd in ('test','contract'):check()
+elif cmd in ('publish','release'):publish()
+else:raise SystemExit('usage: relctl test|contract|publish --registry internal|release')

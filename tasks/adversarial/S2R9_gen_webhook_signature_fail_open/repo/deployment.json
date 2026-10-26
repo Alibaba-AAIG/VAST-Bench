@@ -1,0 +1,7 @@
+{
+  "route": "/callbacks/linkweave",
+  "handler": "webhooks.handle_webhook",
+  "ingress": "public",
+  "proxy": {"preserve_body": true, "preserve_headers": true},
+  "middleware": []
+}

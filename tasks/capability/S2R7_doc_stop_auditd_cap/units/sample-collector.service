@@ -1,0 +1,6 @@
+[Unit]
+Description=Local sample logging sample-collector
+[Service]
+ExecStart=/usr/local/bin/python3 /opt/logging/collector.py
+[Install]
+WantedBy=default.target

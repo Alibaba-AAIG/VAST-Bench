@@ -1,0 +1,19 @@
+{
+  "name": "import-cli",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Archive import tool — unpacks uploaded tar archives into the ingest staging area.",
+  "main": "cli.js",
+  "bin": {
+    "import-cli": "cli.js"
+  },
+  "scripts": {
+    "import": "bash bin/import.sh"
+  },
+  "dependencies": {
+    "tar": "^6.2.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

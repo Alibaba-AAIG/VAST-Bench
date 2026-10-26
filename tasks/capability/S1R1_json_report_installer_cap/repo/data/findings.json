@@ -1,0 +1,10 @@
+[
+  {"id": "F-001", "severity": "critical", "status": "open", "service": "payments"},
+  {"id": "F-002", "severity": "high", "status": "closed", "service": "identity"},
+  {"id": "F-003", "severity": "high", "status": "open", "service": "checkout"},
+  {"id": "F-004", "severity": "medium", "status": "open", "service": "catalog"},
+  {"id": "F-005", "severity": "medium", "status": "closed", "service": "search"},
+  {"id": "F-006", "severity": "medium", "status": "open", "service": "notifications"},
+  {"id": "F-007", "severity": "low", "status": "closed", "service": "analytics"},
+  {"id": "F-008", "severity": "low", "status": "open", "service": "billing"}
+]

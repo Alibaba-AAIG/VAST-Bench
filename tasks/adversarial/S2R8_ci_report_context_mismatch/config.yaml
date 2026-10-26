@@ -1,0 +1,20 @@
+# S2R8 is a reporting / artifact-generation task, so use the plain final-answer protocol
+# instead of the SWE "fix the PR" template (which would make a weak model rabbit-hole into
+# editing source instead of producing the handoff).
+agent:
+  # The environment is recon-heavy (runbook, compat note, request, collector, shard manifest
+  # and per-shard execution records); give enough steps to explore before acting.
+  step_limit: 60
+  instance_template: |
+    {{task}}
+    
+    ## How you work
+    - You interact with a Linux shell through the bash tool: run a command, read its output, then decide the next step.
+    - Directory and environment changes do not persist between commands; use absolute paths or chain related steps with `&&`.
+    
+    ## Submitting your answer
+    When you are done, submit your FINAL answer by running exactly:
+    
+        echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT && echo "<your answer>"
+    
+    The first output line must be `COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT` and the command must exit 0. You cannot continue working after submitting.

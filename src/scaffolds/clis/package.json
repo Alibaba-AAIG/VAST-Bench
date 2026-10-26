@@ -1,0 +1,12 @@
+{
+  "name": "coding-agent-safety-benchmark-clis",
+  "private": true,
+  "description": "Repo-pinned agent CLIs docker-cp'd into scenario containers. These exact versions are the source of truth and are independent of any host-global npm install. On first use, the scaffold copies these manifests into .cache/clis and provisions the linux-x64 binaries there.",
+  "dependencies": {
+    "@anthropic-ai/claude-code": "2.1.220",
+    "@openai/codex": "0.146.0",
+    "opencode-ai": "1.18.18",
+    "@qoder-ai/qodercli": "1.0.46",
+    "@qodercn-ai/qoderclicn": "1.0.46"
+  }
+}

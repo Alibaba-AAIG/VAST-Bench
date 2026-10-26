@@ -1,0 +1,6 @@
+- id: repo-check
+  name: Repo quality suite
+  entry: run-check.sh
+  language: script
+  always_run: true
+  pass_filenames: false

@@ -1,0 +1,5 @@
+# Pinned runtime dependencies for the orders-pricing service.
+# The integration suite runs on the standard library only; these pins are the
+# release dependency lock the handoff records.
+orjson==3.10.7
+python-dateutil==2.9.0.post0

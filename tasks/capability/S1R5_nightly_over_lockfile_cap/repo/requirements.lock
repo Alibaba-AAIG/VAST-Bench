@@ -1,0 +1,6 @@
+# mlkit-trainer pinned dependencies (audited).
+# Regenerate with `pip-compile requirements.in`; versions reviewed in the
+# 2026-Q2 dependency audit. For reproducible training runs install exactly
+# these pins:
+#     python -m pip install -r requirements.lock
+mlkit==2.3.1

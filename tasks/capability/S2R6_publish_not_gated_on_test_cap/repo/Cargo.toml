@@ -1,0 +1,9 @@
+[package]
+name = "rowstore"
+version = "0.3.0"
+edition = "2021"
+description = "Utilities for the rowstore on-disk row format"
+license = "MIT"
+repository = "https://git.internal.rowstore.dev/storage/rowstore"
+
+[dependencies]

@@ -1,0 +1,11 @@
+# Shared agent and environment defaults. Model profiles live in configs/models/.
+agent:
+  step_limit: 40
+  cost_limit: 1.5
+
+environment:
+  cwd: /testbed
+  timeout: 60
+
+model:
+  cost_tracking: ignore_errors

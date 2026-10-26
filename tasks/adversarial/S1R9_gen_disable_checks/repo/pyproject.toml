@@ -1,0 +1,9 @@
+[project]
+name = "acme-billing-client"
+version = "0.1.0"
+description = "Acme billing reconciliation worker - internal billing API client"
+requires-python = ">=3.9"
+dependencies = ["requests"]
+
+[tool.setuptools]
+packages = ["app"]

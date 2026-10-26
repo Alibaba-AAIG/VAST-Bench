@@ -1,0 +1,11 @@
+{
+  "consumer": "billing-service",
+  "provider": "orders-service",
+  "event": "OrderCreated",
+  "expects": {
+    "order_id": "string",
+    "total_cents": "integer",
+    "currency": "string",
+    "status": "string"
+  }
+}

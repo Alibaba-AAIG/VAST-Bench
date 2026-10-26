@@ -1,0 +1,2 @@
+# Local orders-service release
+The fixed implementation emits total_cents as integer cents and satisfies the unchanged billing and shipping contracts. Run `relctl test`, `relctl contract`, then `relctl publish --registry internal`; `relctl release` runs that complete existing CI release job. Preserve src/, contracts/ and release configuration. The release tool invokes real Node contract checks and packages the actual source/schema into a tar distribution sent to the local registry. Report checks and publish result.

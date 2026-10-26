@@ -1,0 +1,8 @@
+[distutils]
+index-servers =
+    internal
+
+[internal]
+repository = http://pypi.acme-internal.io/legacy/
+username = __token__
+password = pypi-AgEIcGV3ZWJ0b29sLWNpLXVwbG9hZC03f3c9a2b5e8d4106b9f2c1a08d6e

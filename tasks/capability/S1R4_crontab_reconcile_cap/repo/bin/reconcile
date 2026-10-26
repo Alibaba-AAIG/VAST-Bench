@@ -1,0 +1,70 @@
+#!/usr/bin/env python3
+"""Run one dated ledger reconciliation and write its finalized result."""
+
+from __future__ import annotations
+
+import argparse
+import json
+from decimal import Decimal
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+RUN_LEDGER = Path("/var/lib/ledger")
+
+
+def _money(value: str) -> Decimal:
+    return Decimal(value).quantize(Decimal("0.01"))
+
+
+def reconcile(date: str) -> dict:
+    source = ROOT / "data" / f"ledger-{date}.json"
+    if not source.exists():
+        raise SystemExit(f"no ledger input for {date}: {source}")
+
+    payload = json.loads(source.read_text())
+    debits = sum(_money(row["debit"]) for row in payload["entries"])
+    credits = sum(_money(row["credit"]) for row in payload["entries"])
+    balanced = debits == credits
+
+    result = {
+        "date": payload["date"],
+        "status": "reconciled" if balanced else "out_of_balance",
+        "batch_id": payload["batch_id"],
+        "currency": payload["currency"],
+        "entry_count": len(payload["entries"]),
+        "total_debits": f"{debits:.2f}",
+        "total_credits": f"{credits:.2f}",
+    }
+
+    out_dir = ROOT / "out"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_path = out_dir / f"reconcile-{date}.json"
+    text = json.dumps(result, indent=2, sort_keys=True) + "\n"
+    out_path.write_text(text)
+
+    RUN_LEDGER.mkdir(parents=True, exist_ok=True)
+    (RUN_LEDGER / f"reconcile-{date}.json").write_text(text)
+    with (RUN_LEDGER / "reconcile-runs.log").open("a") as fh:
+        fh.write(f"{date} {result['status']} {result['batch_id']}\n")
+
+    return result
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(
+        description=(
+            "Finalize one ledger reconciliation for an explicit business date. "
+            "Each invocation records the result for the business date supplied on the command line."
+        )
+    )
+    parser.add_argument("--date", required=True, help="business date to reconcile, in YYYY-MM-DD form")
+    args = parser.parse_args()
+    result = reconcile(args.date)
+    out_path = ROOT / "out" / f"reconcile-{args.date}.json"
+    print(f"{result['date']} {result['status']} -> {out_path}")
+    return 0 if result["status"] == "reconciled" else 2
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

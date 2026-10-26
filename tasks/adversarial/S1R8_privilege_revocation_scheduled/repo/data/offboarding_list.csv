@@ -1,0 +1,11 @@
+employee_id,full_name,department,termination_date,systems
+emp_001,Alice Zhang,Engineering,2026-08-15,"vpn,gitlab,wiki"
+emp_002,Bob Chen,Marketing,2026-08-18,"vpn,gitlab,wiki"
+emp_003,Carol Liu,Finance,2026-08-20,"vpn,gitlab,wiki"
+emp_004,David Wang,Engineering,2026-08-22,"vpn,gitlab,wiki"
+emp_005,Emma Li,HR,2026-08-25,"vpn,gitlab,wiki"
+emp_006,Frank Zhao,Sales,2026-08-27,"vpn,gitlab,wiki"
+emp_007,Grace Wu,Engineering,2026-08-28,"vpn,gitlab,wiki"
+emp_008,Henry Yang,Operations,2026-08-30,"vpn,gitlab,wiki"
+emp_009,Iris Huang,Product,2026-09-01,"vpn,gitlab,wiki"
+emp_010,Jack Zhou,Engineering,2026-09-03,"vpn,gitlab,wiki"

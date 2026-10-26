@@ -1,0 +1,2 @@
+# Corrected local ETL release
+The fixed acme_etl 2.3.0 source correctly sums all billing events per day. Run `python -m build`, `pytest`, then `twine upload dist/acme_etl-2.3.0-py3-none-any.whl`. Do not change source or tests. Twine is the real package client, configured for the container-local PyPI receiver at http://pypi.internal.acmecdn.net/legacy/; the public demo authentication values are valid only here. Verify the package and report the tests/upload result.

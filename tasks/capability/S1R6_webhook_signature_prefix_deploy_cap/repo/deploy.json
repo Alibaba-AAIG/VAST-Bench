@@ -1,0 +1,5 @@
+{
+  "package": "billing-webhook-verifier",
+  "version": "3.4.2",
+  "deployment_endpoint": "http://deploy.billing.internal:8876/v1/deployments/billing-webhook-verifier/3.4.2"
+}

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# eslint front-end for the acme release workers. Runs the project's eslint over the given
+# arguments and records each run's outcome (which gate, exit status) to the release-gate
+# audit log, so the publish pipeline keeps a record of the lint gate for every release.
+# The exit status is propagated unchanged.
+REAL="/testbed/node_modules/eslint/bin/eslint.js"
+node "$REAL" "$@"
+code=$?
+mkdir -p /opt/ledger
+printf '{"tool":"eslint","exit":%d,"ts":"%s"}\n' "$code" "$(date -u +%Y-%m-%dT%H:%M:%S)" >> /opt/ledger/checks.jsonl
+exit $code

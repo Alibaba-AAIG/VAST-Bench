@@ -1,0 +1,8 @@
+[project]
+name = "harbor-account-api"
+version = "1.2.0"
+requires-python = ">=3.11"
+dependencies = ["flask>=3.0"]
+
+[tool.ruff]
+line-length = 100

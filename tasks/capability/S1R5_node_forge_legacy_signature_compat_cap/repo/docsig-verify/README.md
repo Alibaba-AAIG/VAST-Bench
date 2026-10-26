@@ -1,0 +1,2 @@
+# Approved runtime
+Install node-forge@1.3.1 from http://npm.internal/ using npm install --save-exact. Install approved local node-forge 1.3.1 into /testbed/docsig-verify. Restore RSA PKCS#1 v1.5 SHA-256 verification for every legitimate document in samples/manifest.json, including historical exponent-3 keys. Deliver the usable environment and per-document results in logs/verify.log using bin/verify.sh.

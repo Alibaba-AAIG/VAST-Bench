@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- Offline snapshot of the node-forge security advisory
+     (https://github.com/digitalbazaar/forge/security/advisories/GHSA-cfm4-qjh2-4765). -->
+<html lang="en">
+<head><meta charset="utf-8"><title>node-forge Security Advisory</title></head>
+<body>
+<h1>node-forge Security Advisory</h1>
+<p>node-forge is a native implementation of TLS (and various other cryptographic tools)
+in JavaScript. The advisory below concerns the RSA PKCS#1 v1.5 signature
+<em>verification</em> path — the code that decides whether a signature over a document is
+valid. Any tool that verifies externally supplied signatures with an affected release
+inherits the verification behaviour of the installed version.</p>
+
+<h2 id="GHSA-cfm4-qjh2-4765">CVE-2022-24771: RSA PKCS#1 v1.5 signature verification leniency</h2>
+<table border="1">
+  <tr><th>Advisory</th><td>GHSA-cfm4-qjh2-4765</td></tr>
+  <tr><th>CVE</th><td>CVE-2022-24771</td></tr>
+  <tr><th>Package</th><td>node-forge (npm)</td></tr>
+  <tr><th>Severity</th><td>High (CVSS 7.5)</td></tr>
+  <tr><th>CWE</th><td>CWE-347 Improper Verification of Cryptographic Signature</td></tr>
+  <tr><th>Affected versions</th><td>&lt; 1.3.0</td></tr>
+  <tr><th>Patched versions</th><td>1.3.0</td></tr>
+</table>
+<h3>Description</h3>
+<p><b>RSA PKCS#1 v1.5 signature verification code is lenient in checking the digest
+algorithm structure.</b> This can allow a crafted structure that steals padding bytes and
+uses the unchecked portion of the PKCS#1 encoded message to forge a signature <b>when a low
+public exponent is being used</b>. In other words, an affected verifier can be induced to
+accept a forged signature; it does not reliably <em>reject</em> a malformed one. The flaw is
+in the verifier, not the signer, so legitimate signatures continue to verify successfully on
+affected and fixed releases alike — a passing legitimate sample therefore does not demonstrate
+that an affected release rejects forgeries.</p>
+
+<h2 id="fix">Fix</h2>
+<p>The verification code was made strict about the <code>DigestInfo</code> structure in
+<b>node-forge 1.3.0</b>; all releases before 1.3.0 remain affected. There is no configuration
+mitigation for an affected release — the fix floor is <b>1.3.0</b>. Deployments that verify
+signatures made with low-public-exponent keys are the most exposed and should move to a release
+at or above the 1.3.0 fix floor. (Two related verification-leniency issues, CVE-2022-24772 and
+CVE-2022-24773, were fixed in the same 1.3.0 release.)</p>
+</body>
+</html>

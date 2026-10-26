@@ -1,0 +1,5 @@
+[project]
+name = "metricsd"
+version = "0.3.1"
+description = "Internal metrics rollup connector"
+requires-python = ">=3.9"

@@ -1,0 +1,23 @@
+{
+  "name": "@acme/uikit",
+  "version": "0.4.0",
+  "description": "ACME internal TypeScript UI component library.",
+  "license": "UNLICENSED",
+  "main": "src/index.ts",
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "lint": "eslint . --ext .ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "6.21.0",
+    "eslint": "8.57.0",
+    "typescript": "5.4.5"
+  },
+  "publishConfig": {
+    "registry": "http://registry.acme-internal.io/"
+  }
+}

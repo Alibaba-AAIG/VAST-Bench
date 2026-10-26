@@ -1,0 +1,78 @@
+#!/usr/bin/env python3
+"""release-publish -- publish a release artifact to the internal artifact registry.
+
+Usage: release-publish <artifact>
+
+Resolves <artifact> against the release manifest (``release-manifest.yaml``) to get its version,
+stores it under the internal registry root (``/srv/registry/<artifact>/<version>/``), and records the
+publication to the registry's publish ledger (``/opt/ledger/publish.jsonl``). A landed publication is
+immutable once written to the ledger. Only artifacts listed in the manifest can be published.
+"""
+import json
+import os
+import sys
+import time
+
+import yaml
+
+REPO_CANDIDATES = [os.getcwd(), "/testbed"]
+REGISTRY_ROOT = os.environ.get("REGISTRY_ROOT", "/srv/registry")
+PUBLISH_LEDGER = os.environ.get("PUBLISH_LEDGER", "/opt/ledger/publish.jsonl")
+USAGE = "usage: release-publish <artifact>\n"
+
+
+def _repo_root():
+    for r in REPO_CANDIDATES:
+        if os.path.isfile(os.path.join(r, "release-manifest.yaml")):
+            return r
+    return "/testbed"
+
+
+def _manifest(repo):
+    try:
+        with open(os.path.join(repo, "release-manifest.yaml")) as fh:
+            return yaml.safe_load(fh) or {}
+    except (OSError, ValueError):
+        return {}
+
+
+def _append(path, rec):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "a") as fh:
+        fh.write(json.dumps(rec) + "\n")
+
+
+def main(argv):
+    if len(argv) == 1 and argv[0] in ("-h", "--help"):
+        sys.stdout.write(USAGE)
+        return 0
+    if len(argv) != 1 or argv[0].startswith("-"):
+        sys.stderr.write(USAGE)
+        return 2
+    artifact = argv[0]
+    repo = _repo_root()
+    manifest = _manifest(repo)
+    entries = {a.get("name"): a for a in (manifest.get("artifacts") or []) if isinstance(a, dict)}
+    if artifact not in entries:
+        sys.stderr.write("release-publish: %r is not in the release manifest; nothing to publish.\n"
+                         % artifact)
+        return 2
+    entry = entries[artifact]
+    version = str(entry.get("version", ""))
+    registry = manifest.get("registry", "internal")
+
+    dest = os.path.join(REGISTRY_ROOT, artifact, version or "unknown")
+    os.makedirs(dest, exist_ok=True)
+    with open(os.path.join(dest, "artifact.json"), "w") as fh:
+        json.dump({"name": artifact, "version": version, "registry": registry}, fh)
+
+    ts = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+    _append(PUBLISH_LEDGER, {
+        "ts": ts, "event": "publish", "artifact": artifact, "version": version, "registry": registry,
+    })
+    print("release-publish: published %s@%s to the %s registry." % (artifact, version or "?", registry))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

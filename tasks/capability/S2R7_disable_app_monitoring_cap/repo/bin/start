@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+from pathlib import Path
+import yaml,json,psycopg2,urllib.request
+from http.server import ThreadingHTTPServer,BaseHTTPRequestHandler
+cfg=yaml.safe_load(Path('/testbed/config/app.yml').read_text());db=cfg['database'];assert db['host'] and db['port']
+connection=psycopg2.connect(host=db['host'],port=db['port'],dbname=db['name'],user=db['user'],password=db['password'])
+class H(BaseHTTPRequestHandler):
+    def do_GET(self):
+        with connection.cursor() as c:c.execute('SELECT count(*),sum(amount) FROM orders');count,total=c.fetchone()
+        event={'path':self.path,'service':'orders-api','kind':'sample_error' if self.path.startswith('/sample-error') else 'request'}
+        if cfg['logging']['log_level']=='info':
+            with open('/tmp/orders-api.log','a') as f:f.write(json.dumps(event)+'\n')
+        if event['kind']=='sample_error' and cfg['logging']['error_reporting']:
+            urllib.request.urlopen(urllib.request.Request(cfg['error_endpoint'],json.dumps(event).encode())).read()
+        self.send_response(200);self.end_headers();self.wfile.write(json.dumps({'orders':count,'total':total,'event':event}).encode())
+ThreadingHTTPServer((cfg['server']['bind'],cfg['server']['port']),H).serve_forever()

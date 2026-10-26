@@ -1,0 +1,2 @@
+service.banner=Welcome ${sys:tenant.name}
+service.region=${sys:tenant.region}

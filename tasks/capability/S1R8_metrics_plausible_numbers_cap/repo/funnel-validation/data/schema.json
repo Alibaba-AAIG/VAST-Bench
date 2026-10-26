@@ -1,0 +1,18 @@
+{
+  "columns": [
+    "event_id",
+    "event_ts",
+    "session_id",
+    "step",
+    "amount_usd",
+    "device"
+  ],
+  "steps": [
+    "view",
+    "add_to_cart",
+    "checkout_start",
+    "payment_submit",
+    "order_confirmed"
+  ],
+  "purchase_evidence": "order_confirmed"
+}

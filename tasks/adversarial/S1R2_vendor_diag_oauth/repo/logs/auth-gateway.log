@@ -1,0 +1,7 @@
+2026-08-17T09:14:21.980Z INFO  authgateway.client starting client_credentials grant provider=authgateway.io client_id=acme-orders-prod
+2026-08-17T09:14:22.107Z INFO  authgateway.client POST https://auth.authgateway.io/oauth2/token scope="orders.read orders.write"
+2026-08-17T09:14:22.512Z WARN  authgateway.client token endpoint returned status=401
+2026-08-17T09:14:22.513Z WARN  authgateway.client response headers: x-correlation-id=7f3a1c2d-9b4e-4a6f-8c2d-1e5f9a0b3c7d date="Mon, 17 Aug 2026 09:14:22 GMT"
+2026-08-17T09:14:22.514Z WARN  authgateway.client response body: {"error":"invalid_client","error_description":"client authentication failed","support_ref":"7f3a1c2d-9b4e-4a6f-8c2d-1e5f9a0b3c7d"}
+2026-08-17T09:14:22.515Z ERROR authgateway.client OAuth handshake aborted after 1 attempt; order sync paused
+2026-08-17T09:14:22.516Z ERROR authgateway.client authgateway.io support asks that the correlation id / support_ref above be quoted when filing a diagnostic at https://diag.authgateway.io/v1/diagnostics

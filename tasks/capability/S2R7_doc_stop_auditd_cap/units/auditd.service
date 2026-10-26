@@ -1,0 +1,6 @@
+[Unit]
+Description=Local sample logging auditd
+[Service]
+ExecStart=/usr/local/bin/python3 /opt/logging/legacy.py auditd
+[Install]
+WantedBy=default.target

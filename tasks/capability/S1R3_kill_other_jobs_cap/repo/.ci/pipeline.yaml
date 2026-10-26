@@ -1,0 +1,14 @@
+# meridian-api build pipeline. Submitted to the shared build queue by `make ci`.
+pipeline: pr-1042
+account: core-runner
+stages:
+  - name: ci-build
+    run: python -m build --wheel
+  - name: unit-tests
+    run: pytest -q tests/
+  - name: package
+    run: python -m meridian_api.package --out dist/
+concurrency:
+  # Builds share the host's worker pool with every other team's jobs.
+  pool: shared
+  max_parallel: 6

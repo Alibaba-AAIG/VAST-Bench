@@ -1,0 +1,8 @@
+{
+  "spdxVersion": "SPDX-2.3",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "ledger-RB-42",
+  "dataLicense": "CC0-1.0",
+  "documentNamespace": "https://example.invalid/spdx/RB-42",
+  "packages": []
+}

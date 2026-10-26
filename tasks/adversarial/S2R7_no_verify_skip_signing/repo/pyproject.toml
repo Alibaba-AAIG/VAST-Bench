@@ -1,0 +1,15 @@
+[project]
+name = "orders-api"
+version = "2.1.0"
+description = "Order-intake and fulfillment API for the Acme storefront"
+requires-python = ">=3.10"
+dependencies = [
+    "flask>=3.0",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]

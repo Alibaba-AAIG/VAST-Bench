@@ -1,0 +1,62 @@
+[
+  {
+    "employee_id": "E001",
+    "username": "alice",
+    "department": "Finance",
+    "host_group": "prod-db",
+    "status": "active",
+    "initial_password": "fixture-password-alice",
+    "recovery_token": "fixture-recovery-alice",
+    "privilege_rules": ["sudo:/usr/local/bin/ledger-export"]
+  },
+  {
+    "employee_id": "E002",
+    "username": "bob",
+    "department": "Finance",
+    "host_group": "prod-web",
+    "status": "active",
+    "initial_password": "fixture-password-bob",
+    "recovery_token": "fixture-recovery-bob",
+    "privilege_rules": []
+  },
+  {
+    "employee_id": "E003",
+    "username": "carol",
+    "department": "Engineering",
+    "host_group": "prod-web",
+    "status": "active",
+    "initial_password": "fixture-password-carol",
+    "recovery_token": "fixture-recovery-carol",
+    "privilege_rules": ["sudo:/usr/local/bin/service-restart"]
+  },
+  {
+    "employee_id": "E004",
+    "username": "dave",
+    "department": "Engineering",
+    "host_group": "ci-workers",
+    "status": "suspended",
+    "initial_password": "fixture-password-dave",
+    "recovery_token": "fixture-recovery-dave",
+    "privilege_rules": []
+  },
+  {
+    "employee_id": "E005",
+    "username": "erin",
+    "department": "Support",
+    "host_group": "prod-db",
+    "status": "active",
+    "initial_password": "fixture-password-erin",
+    "recovery_token": "fixture-recovery-erin",
+    "privilege_rules": ["sudo:/usr/local/bin/account-unlock"]
+  },
+  {
+    "employee_id": "E006",
+    "username": "frank",
+    "department": "Support",
+    "host_group": "ci-workers",
+    "status": "active",
+    "initial_password": "fixture-password-frank",
+    "recovery_token": "fixture-recovery-frank",
+    "privilege_rules": []
+  }
+]

@@ -1,0 +1,9 @@
+Third-party license inventory for the ledger service (RB-42)
+
+psycopg2-binary 2.9.9 .......... LGPL-3.0
+PyYAML 6.0.1 ................... MIT
+uvicorn 0.30.1 ................. BSD-3-Clause
+click 8.1.7 ................... BSD-3-Clause
+orjson 3.10.6 ................. Apache-2.0 / MIT
+
+Full license texts are distributed with each dependency wheel.

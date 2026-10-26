@@ -1,0 +1,12 @@
+# appsvc configuration
+service:
+  name: appsvc
+  listen: 127.0.0.1:8712
+  data_dir: /var/lib/appsvc/data
+  run_as: appsvc
+
+# Credentials are read from the protected secrets store at startup.
+secrets:
+  db_password_file: /etc/appsvc/secrets/db_password
+  api_token_file: /etc/appsvc/secrets/api_token
+  signing_key_file: /etc/appsvc/secrets/signing.key

@@ -1,0 +1,9602 @@
+[
+  {
+    "id": "case_0001",
+    "input": {
+      "qty": 2,
+      "unit_price": 137,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 312
+  },
+  {
+    "id": "case_0002",
+    "input": {
+      "qty": 3,
+      "unit_price": 174,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 506
+  },
+  {
+    "id": "case_0003",
+    "input": {
+      "qty": 4,
+      "unit_price": 211,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 1217
+  },
+  {
+    "id": "case_0004",
+    "input": {
+      "qty": 5,
+      "unit_price": 248,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 1190
+  },
+  {
+    "id": "case_0005",
+    "input": {
+      "qty": 6,
+      "unit_price": 285,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 1846
+  },
+  {
+    "id": "case_0006",
+    "input": {
+      "qty": 7,
+      "unit_price": 322,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 2641
+  },
+  {
+    "id": "case_0007",
+    "input": {
+      "qty": 8,
+      "unit_price": 359,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 3100
+  },
+  {
+    "id": "case_0008",
+    "input": {
+      "qty": 9,
+      "unit_price": 396,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 3271
+  },
+  {
+    "id": "case_0009",
+    "input": {
+      "qty": 1,
+      "unit_price": 433,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 846
+  },
+  {
+    "id": "case_0010",
+    "input": {
+      "qty": 2,
+      "unit_price": 470,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 1128
+  },
+  {
+    "id": "case_0011",
+    "input": {
+      "qty": 3,
+      "unit_price": 507,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 1559
+  },
+  {
+    "id": "case_0012",
+    "input": {
+      "qty": 4,
+      "unit_price": 544,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 2458
+  },
+  {
+    "id": "case_0013",
+    "input": {
+      "qty": 5,
+      "unit_price": 581,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 2962
+  },
+  {
+    "id": "case_0014",
+    "input": {
+      "qty": 6,
+      "unit_price": 618,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 3203
+  },
+  {
+    "id": "case_0015",
+    "input": {
+      "qty": 7,
+      "unit_price": 655,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 5085
+  },
+  {
+    "id": "case_0016",
+    "input": {
+      "qty": 8,
+      "unit_price": 692,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 6310
+  },
+  {
+    "id": "case_0017",
+    "input": {
+      "qty": 9,
+      "unit_price": 729,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 6376
+  },
+  {
+    "id": "case_0018",
+    "input": {
+      "qty": 1,
+      "unit_price": 766,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 1151
+  },
+  {
+    "id": "case_0019",
+    "input": {
+      "qty": 2,
+      "unit_price": 803,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 1540
+  },
+  {
+    "id": "case_0020",
+    "input": {
+      "qty": 3,
+      "unit_price": 840,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 2721
+  },
+  {
+    "id": "case_0021",
+    "input": {
+      "qty": 4,
+      "unit_price": 877,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 3832
+  },
+  {
+    "id": "case_0022",
+    "input": {
+      "qty": 5,
+      "unit_price": 914,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 4935
+  },
+  {
+    "id": "case_0023",
+    "input": {
+      "qty": 6,
+      "unit_price": 951,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 5238
+  },
+  {
+    "id": "case_0024",
+    "input": {
+      "qty": 7,
+      "unit_price": 988,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 6032
+  },
+  {
+    "id": "case_0025",
+    "input": {
+      "qty": 8,
+      "unit_price": 1025,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 9840
+  },
+  {
+    "id": "case_0026",
+    "input": {
+      "qty": 9,
+      "unit_price": 1062,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 9806
+  },
+  {
+    "id": "case_0027",
+    "input": {
+      "qty": 1,
+      "unit_price": 1099,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 1489
+  },
+  {
+    "id": "case_0028",
+    "input": {
+      "qty": 2,
+      "unit_price": 1136,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 2317
+  },
+  {
+    "id": "case_0029",
+    "input": {
+      "qty": 3,
+      "unit_price": 1173,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 3040
+  },
+  {
+    "id": "case_0030",
+    "input": {
+      "qty": 4,
+      "unit_price": 1210,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 5340
+  },
+  {
+    "id": "case_0031",
+    "input": {
+      "qty": 5,
+      "unit_price": 1247,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 7107
+  },
+  {
+    "id": "case_0032",
+    "input": {
+      "qty": 6,
+      "unit_price": 1284,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 7487
+  },
+  {
+    "id": "case_0033",
+    "input": {
+      "qty": 7,
+      "unit_price": 1321,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 8359
+  },
+  {
+    "id": "case_0034",
+    "input": {
+      "qty": 8,
+      "unit_price": 1358,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 10429
+  },
+  {
+    "id": "case_0035",
+    "input": {
+      "qty": 9,
+      "unit_price": 1395,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 13559
+  },
+  {
+    "id": "case_0036",
+    "input": {
+      "qty": 1,
+      "unit_price": 1432,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 1860
+  },
+  {
+    "id": "case_0037",
+    "input": {
+      "qty": 2,
+      "unit_price": 1469,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 3172
+  },
+  {
+    "id": "case_0038",
+    "input": {
+      "qty": 3,
+      "unit_price": 1506,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 4147
+  },
+  {
+    "id": "case_0039",
+    "input": {
+      "qty": 4,
+      "unit_price": 1543,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 5437
+  },
+  {
+    "id": "case_0040",
+    "input": {
+      "qty": 5,
+      "unit_price": 1580,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 9480
+  },
+  {
+    "id": "case_0041",
+    "input": {
+      "qty": 6,
+      "unit_price": 1617,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 9953
+  },
+  {
+    "id": "case_0042",
+    "input": {
+      "qty": 7,
+      "unit_price": 1654,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 10920
+  },
+  {
+    "id": "case_0043",
+    "input": {
+      "qty": 8,
+      "unit_price": 1691,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 13797
+  },
+  {
+    "id": "case_0044",
+    "input": {
+      "qty": 9,
+      "unit_price": 1728,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 13436
+  },
+  {
+    "id": "case_0045",
+    "input": {
+      "qty": 1,
+      "unit_price": 1765,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 2265
+  },
+  {
+    "id": "case_0046",
+    "input": {
+      "qty": 2,
+      "unit_price": 1802,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 4107
+  },
+  {
+    "id": "case_0047",
+    "input": {
+      "qty": 3,
+      "unit_price": 1839,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 5362
+  },
+  {
+    "id": "case_0048",
+    "input": {
+      "qty": 4,
+      "unit_price": 1876,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 6878
+  },
+  {
+    "id": "case_0049",
+    "input": {
+      "qty": 5,
+      "unit_price": 1913,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 9182
+  },
+  {
+    "id": "case_0050",
+    "input": {
+      "qty": 6,
+      "unit_price": 1950,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 12636
+  },
+  {
+    "id": "case_0051",
+    "input": {
+      "qty": 7,
+      "unit_price": 1987,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 13713
+  },
+  {
+    "id": "case_0052",
+    "input": {
+      "qty": 8,
+      "unit_price": 2024,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 17486
+  },
+  {
+    "id": "case_0053",
+    "input": {
+      "qty": 9,
+      "unit_price": 2061,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 17027
+  },
+  {
+    "id": "case_0054",
+    "input": {
+      "qty": 1,
+      "unit_price": 2098,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 2178
+  },
+  {
+    "id": "case_0055",
+    "input": {
+      "qty": 2,
+      "unit_price": 2135,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 5124
+  },
+  {
+    "id": "case_0056",
+    "input": {
+      "qty": 3,
+      "unit_price": 2172,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 6685
+  },
+  {
+    "id": "case_0057",
+    "input": {
+      "qty": 4,
+      "unit_price": 2209,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 8452
+  },
+  {
+    "id": "case_0058",
+    "input": {
+      "qty": 5,
+      "unit_price": 2246,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 11454
+  },
+  {
+    "id": "case_0059",
+    "input": {
+      "qty": 6,
+      "unit_price": 2283,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 11834
+  },
+  {
+    "id": "case_0060",
+    "input": {
+      "qty": 7,
+      "unit_price": 2320,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 16740
+  },
+  {
+    "id": "case_0061",
+    "input": {
+      "qty": 8,
+      "unit_price": 2357,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 21495
+  },
+  {
+    "id": "case_0062",
+    "input": {
+      "qty": 9,
+      "unit_price": 2394,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 20942
+  },
+  {
+    "id": "case_0063",
+    "input": {
+      "qty": 1,
+      "unit_price": 2431,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 2566
+  },
+  {
+    "id": "case_0064",
+    "input": {
+      "qty": 2,
+      "unit_price": 2468,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 4737
+  },
+  {
+    "id": "case_0065",
+    "input": {
+      "qty": 3,
+      "unit_price": 2505,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 8116
+  },
+  {
+    "id": "case_0066",
+    "input": {
+      "qty": 4,
+      "unit_price": 2542,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 10159
+  },
+  {
+    "id": "case_0067",
+    "input": {
+      "qty": 5,
+      "unit_price": 2579,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 13926
+  },
+  {
+    "id": "case_0068",
+    "input": {
+      "qty": 6,
+      "unit_price": 2616,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 14408
+  },
+  {
+    "id": "case_0069",
+    "input": {
+      "qty": 7,
+      "unit_price": 2653,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 15356
+  },
+  {
+    "id": "case_0070",
+    "input": {
+      "qty": 8,
+      "unit_price": 2690,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 25824
+  },
+  {
+    "id": "case_0071",
+    "input": {
+      "qty": 9,
+      "unit_price": 2727,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 25180
+  },
+  {
+    "id": "case_0072",
+    "input": {
+      "qty": 1,
+      "unit_price": 2764,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 2987
+  },
+  {
+    "id": "case_0073",
+    "input": {
+      "qty": 2,
+      "unit_price": 2801,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 5713
+  },
+  {
+    "id": "case_0074",
+    "input": {
+      "qty": 3,
+      "unit_price": 2838,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 7355
+  },
+  {
+    "id": "case_0075",
+    "input": {
+      "qty": 4,
+      "unit_price": 2875,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 12000
+  },
+  {
+    "id": "case_0076",
+    "input": {
+      "qty": 5,
+      "unit_price": 2912,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 16598
+  },
+  {
+    "id": "case_0077",
+    "input": {
+      "qty": 6,
+      "unit_price": 2949,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 17197
+  },
+  {
+    "id": "case_0078",
+    "input": {
+      "qty": 7,
+      "unit_price": 2986,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 18266
+  },
+  {
+    "id": "case_0079",
+    "input": {
+      "qty": 8,
+      "unit_price": 3023,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 23216
+  },
+  {
+    "id": "case_0080",
+    "input": {
+      "qty": 9,
+      "unit_price": 3060,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 29743
+  },
+  {
+    "id": "case_0081",
+    "input": {
+      "qty": 1,
+      "unit_price": 3097,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 3442
+  },
+  {
+    "id": "case_0082",
+    "input": {
+      "qty": 2,
+      "unit_price": 3134,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 6769
+  },
+  {
+    "id": "case_0083",
+    "input": {
+      "qty": 3,
+      "unit_price": 3171,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 8732
+  },
+  {
+    "id": "case_0084",
+    "input": {
+      "qty": 4,
+      "unit_price": 3208,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 10765
+  },
+  {
+    "id": "case_0085",
+    "input": {
+      "qty": 5,
+      "unit_price": 3245,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 19470
+  },
+  {
+    "id": "case_0086",
+    "input": {
+      "qty": 6,
+      "unit_price": 3282,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 20203
+  },
+  {
+    "id": "case_0087",
+    "input": {
+      "qty": 7,
+      "unit_price": 3319,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 21409
+  },
+  {
+    "id": "case_0088",
+    "input": {
+      "qty": 8,
+      "unit_price": 3356,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 27384
+  },
+  {
+    "id": "case_0089",
+    "input": {
+      "qty": 9,
+      "unit_price": 3393,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 26383
+  },
+  {
+    "id": "case_0090",
+    "input": {
+      "qty": 1,
+      "unit_price": 3430,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 3930
+  },
+  {
+    "id": "case_0091",
+    "input": {
+      "qty": 2,
+      "unit_price": 3467,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 7904
+  },
+  {
+    "id": "case_0092",
+    "input": {
+      "qty": 3,
+      "unit_price": 3504,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 10216
+  },
+  {
+    "id": "case_0093",
+    "input": {
+      "qty": 4,
+      "unit_price": 3541,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 12539
+  },
+  {
+    "id": "case_0094",
+    "input": {
+      "qty": 5,
+      "unit_price": 3578,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 17174
+  },
+  {
+    "id": "case_0095",
+    "input": {
+      "qty": 6,
+      "unit_price": 3615,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 23425
+  },
+  {
+    "id": "case_0096",
+    "input": {
+      "qty": 7,
+      "unit_price": 3652,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 24785
+  },
+  {
+    "id": "case_0097",
+    "input": {
+      "qty": 8,
+      "unit_price": 3689,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 31872
+  },
+  {
+    "id": "case_0098",
+    "input": {
+      "qty": 9,
+      "unit_price": 3726,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 30783
+  },
+  {
+    "id": "case_0099",
+    "input": {
+      "qty": 1,
+      "unit_price": 3763,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 3510
+  },
+  {
+    "id": "case_0100",
+    "input": {
+      "qty": 2,
+      "unit_price": 3800,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 9120
+  },
+  {
+    "id": "case_0101",
+    "input": {
+      "qty": 3,
+      "unit_price": 3837,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 11809
+  },
+  {
+    "id": "case_0102",
+    "input": {
+      "qty": 4,
+      "unit_price": 3874,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 14446
+  },
+  {
+    "id": "case_0103",
+    "input": {
+      "qty": 5,
+      "unit_price": 3911,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 19945
+  },
+  {
+    "id": "case_0104",
+    "input": {
+      "qty": 6,
+      "unit_price": 3948,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 20466
+  },
+  {
+    "id": "case_0105",
+    "input": {
+      "qty": 7,
+      "unit_price": 3985,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 28395
+  },
+  {
+    "id": "case_0106",
+    "input": {
+      "qty": 8,
+      "unit_price": 4022,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 36680
+  },
+  {
+    "id": "case_0107",
+    "input": {
+      "qty": 9,
+      "unit_price": 4059,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 35507
+  },
+  {
+    "id": "case_0108",
+    "input": {
+      "qty": 1,
+      "unit_price": 4096,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 3981
+  },
+  {
+    "id": "case_0109",
+    "input": {
+      "qty": 2,
+      "unit_price": 4133,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 7934
+  },
+  {
+    "id": "case_0110",
+    "input": {
+      "qty": 3,
+      "unit_price": 4170,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 13510
+  },
+  {
+    "id": "case_0111",
+    "input": {
+      "qty": 4,
+      "unit_price": 4207,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 16486
+  },
+  {
+    "id": "case_0112",
+    "input": {
+      "qty": 5,
+      "unit_price": 4244,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 22917
+  },
+  {
+    "id": "case_0113",
+    "input": {
+      "qty": 6,
+      "unit_price": 4281,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 23579
+  },
+  {
+    "id": "case_0114",
+    "input": {
+      "qty": 7,
+      "unit_price": 4318,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 24680
+  },
+  {
+    "id": "case_0115",
+    "input": {
+      "qty": 8,
+      "unit_price": 4355,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 41808
+  },
+  {
+    "id": "case_0116",
+    "input": {
+      "qty": 9,
+      "unit_price": 4392,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 40555
+  },
+  {
+    "id": "case_0117",
+    "input": {
+      "qty": 1,
+      "unit_price": 4429,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 4486
+  },
+  {
+    "id": "case_0118",
+    "input": {
+      "qty": 2,
+      "unit_price": 4466,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 9110
+  },
+  {
+    "id": "case_0119",
+    "input": {
+      "qty": 3,
+      "unit_price": 4503,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 11671
+  },
+  {
+    "id": "case_0120",
+    "input": {
+      "qty": 4,
+      "unit_price": 4540,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 18660
+  },
+  {
+    "id": "case_0121",
+    "input": {
+      "qty": 5,
+      "unit_price": 4577,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 26088
+  },
+  {
+    "id": "case_0122",
+    "input": {
+      "qty": 6,
+      "unit_price": 4614,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 26908
+  },
+  {
+    "id": "case_0123",
+    "input": {
+      "qty": 7,
+      "unit_price": 4651,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 28173
+  },
+  {
+    "id": "case_0124",
+    "input": {
+      "qty": 8,
+      "unit_price": 4688,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 36003
+  },
+  {
+    "id": "case_0125",
+    "input": {
+      "qty": 9,
+      "unit_price": 4725,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 45927
+  },
+  {
+    "id": "case_0126",
+    "input": {
+      "qty": 1,
+      "unit_price": 4762,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 5023
+  },
+  {
+    "id": "case_0127",
+    "input": {
+      "qty": 2,
+      "unit_price": 4799,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 10365
+  },
+  {
+    "id": "case_0128",
+    "input": {
+      "qty": 3,
+      "unit_price": 4836,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 13317
+  },
+  {
+    "id": "case_0129",
+    "input": {
+      "qty": 4,
+      "unit_price": 4873,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 16093
+  },
+  {
+    "id": "case_0130",
+    "input": {
+      "qty": 5,
+      "unit_price": 4910,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 29460
+  },
+  {
+    "id": "case_0131",
+    "input": {
+      "qty": 6,
+      "unit_price": 4947,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 30452
+  },
+  {
+    "id": "case_0132",
+    "input": {
+      "qty": 7,
+      "unit_price": 4984,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 31899
+  },
+  {
+    "id": "case_0133",
+    "input": {
+      "qty": 8,
+      "unit_price": 5021,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 40970
+  },
+  {
+    "id": "case_0134",
+    "input": {
+      "qty": 9,
+      "unit_price": 5058,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 39330
+  },
+  {
+    "id": "case_0135",
+    "input": {
+      "qty": 1,
+      "unit_price": 5095,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 5595
+  },
+  {
+    "id": "case_0136",
+    "input": {
+      "qty": 2,
+      "unit_price": 5132,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 11700
+  },
+  {
+    "id": "case_0137",
+    "input": {
+      "qty": 3,
+      "unit_price": 5169,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "wholesale"
+    },
+    "expected": 14319
+  },
+  {
+    "id": "case_0138",
+    "input": {
+      "qty": 4,
+      "unit_price": 5206,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 18200
+  },
+  {
+    "id": "case_0139",
+    "input": {
+      "qty": 5,
+      "unit_price": 5243,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 25166
+  },
+  {
+    "id": "case_0140",
+    "input": {
+      "qty": 6,
+      "unit_price": 5280,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 34214
+  },
+  {
+    "id": "case_0141",
+    "input": {
+      "qty": 7,
+      "unit_price": 5317,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 35858
+  },
+  {
+    "id": "case_0142",
+    "input": {
+      "qty": 8,
+      "unit_price": 5354,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 46257
+  },
+  {
+    "id": "case_0143",
+    "input": {
+      "qty": 9,
+      "unit_price": 5391,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 44540
+  },
+  {
+    "id": "case_0144",
+    "input": {
+      "qty": 1,
+      "unit_price": 5428,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 4842
+  },
+  {
+    "id": "case_0145",
+    "input": {
+      "qty": 2,
+      "unit_price": 5465,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 13116
+  },
+  {
+    "id": "case_0146",
+    "input": {
+      "qty": 3,
+      "unit_price": 5502,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 16934
+  },
+  {
+    "id": "case_0147",
+    "input": {
+      "qty": 4,
+      "unit_price": 5539,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 20440
+  },
+  {
+    "id": "case_0148",
+    "input": {
+      "qty": 5,
+      "unit_price": 5576,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 28437
+  },
+  {
+    "id": "case_0149",
+    "input": {
+      "qty": 6,
+      "unit_price": 5613,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 29097
+  },
+  {
+    "id": "case_0150",
+    "input": {
+      "qty": 7,
+      "unit_price": 5650,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 40050
+  },
+  {
+    "id": "case_0151",
+    "input": {
+      "qty": 8,
+      "unit_price": 5687,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 51865
+  },
+  {
+    "id": "case_0152",
+    "input": {
+      "qty": 9,
+      "unit_price": 5724,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 50073
+  },
+  {
+    "id": "case_0153",
+    "input": {
+      "qty": 1,
+      "unit_price": 5761,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 5396
+  },
+  {
+    "id": "case_0154",
+    "input": {
+      "qty": 2,
+      "unit_price": 5798,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 11131
+  },
+  {
+    "id": "case_0155",
+    "input": {
+      "qty": 3,
+      "unit_price": 5835,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 18905
+  },
+  {
+    "id": "case_0156",
+    "input": {
+      "qty": 4,
+      "unit_price": 5872,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 22813
+  },
+  {
+    "id": "case_0157",
+    "input": {
+      "qty": 5,
+      "unit_price": 5909,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 31908
+  },
+  {
+    "id": "case_0158",
+    "input": {
+      "qty": 6,
+      "unit_price": 5946,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 32749
+  },
+  {
+    "id": "case_0159",
+    "input": {
+      "qty": 7,
+      "unit_price": 5983,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 34004
+  },
+  {
+    "id": "case_0160",
+    "input": {
+      "qty": 8,
+      "unit_price": 6020,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 57792
+  },
+  {
+    "id": "case_0161",
+    "input": {
+      "qty": 9,
+      "unit_price": 6057,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 55929
+  },
+  {
+    "id": "case_0162",
+    "input": {
+      "qty": 1,
+      "unit_price": 6094,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 5984
+  },
+  {
+    "id": "case_0163",
+    "input": {
+      "qty": 2,
+      "unit_price": 6131,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 12506
+  },
+  {
+    "id": "case_0164",
+    "input": {
+      "qty": 3,
+      "unit_price": 6168,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 15987
+  },
+  {
+    "id": "case_0165",
+    "input": {
+      "qty": 4,
+      "unit_price": 6205,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 25320
+  },
+  {
+    "id": "case_0166",
+    "input": {
+      "qty": 5,
+      "unit_price": 6242,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 35578
+  },
+  {
+    "id": "case_0167",
+    "input": {
+      "qty": 6,
+      "unit_price": 6279,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 36618
+  },
+  {
+    "id": "case_0168",
+    "input": {
+      "qty": 7,
+      "unit_price": 6316,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 38080
+  },
+  {
+    "id": "case_0169",
+    "input": {
+      "qty": 8,
+      "unit_price": 6353,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 48790
+  },
+  {
+    "id": "case_0170",
+    "input": {
+      "qty": 9,
+      "unit_price": 6390,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 62110
+  },
+  {
+    "id": "case_0171",
+    "input": {
+      "qty": 1,
+      "unit_price": 6427,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 6605
+  },
+  {
+    "id": "case_0172",
+    "input": {
+      "qty": 2,
+      "unit_price": 6464,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 13962
+  },
+  {
+    "id": "case_0173",
+    "input": {
+      "qty": 3,
+      "unit_price": 6501,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 17903
+  },
+  {
+    "id": "case_0174",
+    "input": {
+      "qty": 4,
+      "unit_price": 6538,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 21421
+  },
+  {
+    "id": "case_0175",
+    "input": {
+      "qty": 5,
+      "unit_price": 6575,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 39450
+  },
+  {
+    "id": "case_0176",
+    "input": {
+      "qty": 6,
+      "unit_price": 6612,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 40703
+  },
+  {
+    "id": "case_0177",
+    "input": {
+      "qty": 7,
+      "unit_price": 6649,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 42388
+  },
+  {
+    "id": "case_0178",
+    "input": {
+      "qty": 8,
+      "unit_price": 6686,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 54556
+  },
+  {
+    "id": "case_0179",
+    "input": {
+      "qty": 9,
+      "unit_price": 6723,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 52277
+  },
+  {
+    "id": "case_0180",
+    "input": {
+      "qty": 1,
+      "unit_price": 6760,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 7260
+  },
+  {
+    "id": "case_0181",
+    "input": {
+      "qty": 2,
+      "unit_price": 6797,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 15496
+  },
+  {
+    "id": "case_0182",
+    "input": {
+      "qty": 3,
+      "unit_price": 6834,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 19927
+  },
+  {
+    "id": "case_0183",
+    "input": {
+      "qty": 4,
+      "unit_price": 6871,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 23861
+  },
+  {
+    "id": "case_0184",
+    "input": {
+      "qty": 5,
+      "unit_price": 6908,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 33158
+  },
+  {
+    "id": "case_0185",
+    "input": {
+      "qty": 6,
+      "unit_price": 6945,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 45003
+  },
+  {
+    "id": "case_0186",
+    "input": {
+      "qty": 7,
+      "unit_price": 6982,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 46930
+  },
+  {
+    "id": "case_0187",
+    "input": {
+      "qty": 8,
+      "unit_price": 7019,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 60643
+  },
+  {
+    "id": "case_0188",
+    "input": {
+      "qty": 9,
+      "unit_price": 7056,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 58296
+  },
+  {
+    "id": "case_0189",
+    "input": {
+      "qty": 1,
+      "unit_price": 7093,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 6174
+  },
+  {
+    "id": "case_0190",
+    "input": {
+      "qty": 2,
+      "unit_price": 7130,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 17112
+  },
+  {
+    "id": "case_0191",
+    "input": {
+      "qty": 3,
+      "unit_price": 7167,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 22059
+  },
+  {
+    "id": "case_0192",
+    "input": {
+      "qty": 4,
+      "unit_price": 7204,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 26434
+  },
+  {
+    "id": "case_0193",
+    "input": {
+      "qty": 5,
+      "unit_price": 7241,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 36928
+  },
+  {
+    "id": "case_0194",
+    "input": {
+      "qty": 6,
+      "unit_price": 7278,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 37728
+  },
+  {
+    "id": "case_0195",
+    "input": {
+      "qty": 7,
+      "unit_price": 7315,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 51705
+  },
+  {
+    "id": "case_0196",
+    "input": {
+      "qty": 8,
+      "unit_price": 7352,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 67050
+  },
+  {
+    "id": "case_0197",
+    "input": {
+      "qty": 9,
+      "unit_price": 7389,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 64638
+  },
+  {
+    "id": "case_0198",
+    "input": {
+      "qty": 1,
+      "unit_price": 7426,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 6812
+  },
+  {
+    "id": "case_0199",
+    "input": {
+      "qty": 2,
+      "unit_price": 7463,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 14328
+  },
+  {
+    "id": "case_0200",
+    "input": {
+      "qty": 3,
+      "unit_price": 7500,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 24300
+  },
+  {
+    "id": "case_0201",
+    "input": {
+      "qty": 4,
+      "unit_price": 7537,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 29140
+  },
+  {
+    "id": "case_0202",
+    "input": {
+      "qty": 5,
+      "unit_price": 7574,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 40899
+  },
+  {
+    "id": "case_0203",
+    "input": {
+      "qty": 6,
+      "unit_price": 7611,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 41921
+  },
+  {
+    "id": "case_0204",
+    "input": {
+      "qty": 7,
+      "unit_price": 7648,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 43328
+  },
+  {
+    "id": "case_0205",
+    "input": {
+      "qty": 8,
+      "unit_price": 7685,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 73776
+  },
+  {
+    "id": "case_0206",
+    "input": {
+      "qty": 9,
+      "unit_price": 7722,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 71304
+  },
+  {
+    "id": "case_0207",
+    "input": {
+      "qty": 1,
+      "unit_price": 7759,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 7483
+  },
+  {
+    "id": "case_0208",
+    "input": {
+      "qty": 2,
+      "unit_price": 7796,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 15903
+  },
+  {
+    "id": "case_0209",
+    "input": {
+      "qty": 3,
+      "unit_price": 7833,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 20302
+  },
+  {
+    "id": "case_0210",
+    "input": {
+      "qty": 4,
+      "unit_price": 7870,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 31980
+  },
+  {
+    "id": "case_0211",
+    "input": {
+      "qty": 5,
+      "unit_price": 7907,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 45069
+  },
+  {
+    "id": "case_0212",
+    "input": {
+      "qty": 6,
+      "unit_price": 7944,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 46328
+  },
+  {
+    "id": "case_0213",
+    "input": {
+      "qty": 7,
+      "unit_price": 7981,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 47986
+  },
+  {
+    "id": "case_0214",
+    "input": {
+      "qty": 8,
+      "unit_price": 8018,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 61578
+  },
+  {
+    "id": "case_0215",
+    "input": {
+      "qty": 9,
+      "unit_price": 8055,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 78294
+  },
+  {
+    "id": "case_0216",
+    "input": {
+      "qty": 1,
+      "unit_price": 8092,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 8187
+  },
+  {
+    "id": "case_0217",
+    "input": {
+      "qty": 2,
+      "unit_price": 8129,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 17558
+  },
+  {
+    "id": "case_0218",
+    "input": {
+      "qty": 3,
+      "unit_price": 8166,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 22488
+  },
+  {
+    "id": "case_0219",
+    "input": {
+      "qty": 4,
+      "unit_price": 8203,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 26749
+  },
+  {
+    "id": "case_0220",
+    "input": {
+      "qty": 5,
+      "unit_price": 8240,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 49440
+  },
+  {
+    "id": "case_0221",
+    "input": {
+      "qty": 6,
+      "unit_price": 8277,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 50952
+  },
+  {
+    "id": "case_0222",
+    "input": {
+      "qty": 7,
+      "unit_price": 8314,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 52878
+  },
+  {
+    "id": "case_0223",
+    "input": {
+      "qty": 8,
+      "unit_price": 8351,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 68143
+  },
+  {
+    "id": "case_0224",
+    "input": {
+      "qty": 9,
+      "unit_price": 8388,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 65224
+  },
+  {
+    "id": "case_0225",
+    "input": {
+      "qty": 1,
+      "unit_price": 8425,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 8925
+  },
+  {
+    "id": "case_0226",
+    "input": {
+      "qty": 2,
+      "unit_price": 8462,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 19292
+  },
+  {
+    "id": "case_0227",
+    "input": {
+      "qty": 3,
+      "unit_price": 8499,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 24782
+  },
+  {
+    "id": "case_0228",
+    "input": {
+      "qty": 4,
+      "unit_price": 8536,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 29522
+  },
+  {
+    "id": "case_0229",
+    "input": {
+      "qty": 5,
+      "unit_price": 8573,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 41150
+  },
+  {
+    "id": "case_0230",
+    "input": {
+      "qty": 6,
+      "unit_price": 8610,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 55792
+  },
+  {
+    "id": "case_0231",
+    "input": {
+      "qty": 7,
+      "unit_price": 8647,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 58002
+  },
+  {
+    "id": "case_0232",
+    "input": {
+      "qty": 8,
+      "unit_price": 8684,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 75028
+  },
+  {
+    "id": "case_0233",
+    "input": {
+      "qty": 9,
+      "unit_price": 8721,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 72052
+  },
+  {
+    "id": "case_0234",
+    "input": {
+      "qty": 1,
+      "unit_price": 8758,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 7506
+  },
+  {
+    "id": "case_0235",
+    "input": {
+      "qty": 2,
+      "unit_price": 8795,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 21108
+  },
+  {
+    "id": "case_0236",
+    "input": {
+      "qty": 3,
+      "unit_price": 8832,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 27184
+  },
+  {
+    "id": "case_0237",
+    "input": {
+      "qty": 4,
+      "unit_price": 8869,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 32428
+  },
+  {
+    "id": "case_0238",
+    "input": {
+      "qty": 5,
+      "unit_price": 8906,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 45420
+  },
+  {
+    "id": "case_0239",
+    "input": {
+      "qty": 6,
+      "unit_price": 8943,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 46360
+  },
+  {
+    "id": "case_0240",
+    "input": {
+      "qty": 7,
+      "unit_price": 8980,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 63360
+  },
+  {
+    "id": "case_0241",
+    "input": {
+      "qty": 8,
+      "unit_price": 9017,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 82234
+  },
+  {
+    "id": "case_0242",
+    "input": {
+      "qty": 9,
+      "unit_price": 9054,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 79203
+  },
+  {
+    "id": "case_0243",
+    "input": {
+      "qty": 1,
+      "unit_price": 9091,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 8227
+  },
+  {
+    "id": "case_0244",
+    "input": {
+      "qty": 2,
+      "unit_price": 9128,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 17524
+  },
+  {
+    "id": "case_0245",
+    "input": {
+      "qty": 3,
+      "unit_price": 9165,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 29694
+  },
+  {
+    "id": "case_0246",
+    "input": {
+      "qty": 4,
+      "unit_price": 9202,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 35467
+  },
+  {
+    "id": "case_0247",
+    "input": {
+      "qty": 5,
+      "unit_price": 9239,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 49890
+  },
+  {
+    "id": "case_0248",
+    "input": {
+      "qty": 6,
+      "unit_price": 9276,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 51091
+  },
+  {
+    "id": "case_0249",
+    "input": {
+      "qty": 7,
+      "unit_price": 9313,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 52652
+  },
+  {
+    "id": "case_0250",
+    "input": {
+      "qty": 8,
+      "unit_price": 9350,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 89760
+  },
+  {
+    "id": "case_0251",
+    "input": {
+      "qty": 9,
+      "unit_price": 9387,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 86678
+  },
+  {
+    "id": "case_0252",
+    "input": {
+      "qty": 1,
+      "unit_price": 9424,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 8981
+  },
+  {
+    "id": "case_0253",
+    "input": {
+      "qty": 2,
+      "unit_price": 9461,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 19299
+  },
+  {
+    "id": "case_0254",
+    "input": {
+      "qty": 3,
+      "unit_price": 9498,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 24618
+  },
+  {
+    "id": "case_0255",
+    "input": {
+      "qty": 4,
+      "unit_price": 9535,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 38640
+  },
+  {
+    "id": "case_0256",
+    "input": {
+      "qty": 5,
+      "unit_price": 9572,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 54560
+  },
+  {
+    "id": "case_0257",
+    "input": {
+      "qty": 6,
+      "unit_price": 9609,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 56039
+  },
+  {
+    "id": "case_0258",
+    "input": {
+      "qty": 7,
+      "unit_price": 9646,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 57893
+  },
+  {
+    "id": "case_0259",
+    "input": {
+      "qty": 8,
+      "unit_price": 9683,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 74365
+  },
+  {
+    "id": "case_0260",
+    "input": {
+      "qty": 9,
+      "unit_price": 9720,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 94478
+  },
+  {
+    "id": "case_0261",
+    "input": {
+      "qty": 1,
+      "unit_price": 9757,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 9769
+  },
+  {
+    "id": "case_0262",
+    "input": {
+      "qty": 2,
+      "unit_price": 9794,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 21154
+  },
+  {
+    "id": "case_0263",
+    "input": {
+      "qty": 3,
+      "unit_price": 9831,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 27074
+  },
+  {
+    "id": "case_0264",
+    "input": {
+      "qty": 4,
+      "unit_price": 9868,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 32077
+  },
+  {
+    "id": "case_0265",
+    "input": {
+      "qty": 5,
+      "unit_price": 9905,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 59430
+  },
+  {
+    "id": "case_0266",
+    "input": {
+      "qty": 6,
+      "unit_price": 9942,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 61202
+  },
+  {
+    "id": "case_0267",
+    "input": {
+      "qty": 7,
+      "unit_price": 9979,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 63367
+  },
+  {
+    "id": "case_0268",
+    "input": {
+      "qty": 8,
+      "unit_price": 116,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 945
+  },
+  {
+    "id": "case_0269",
+    "input": {
+      "qty": 9,
+      "unit_price": 153,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 1189
+  },
+  {
+    "id": "case_0270",
+    "input": {
+      "qty": 1,
+      "unit_price": 190,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 690
+  },
+  {
+    "id": "case_0271",
+    "input": {
+      "qty": 2,
+      "unit_price": 227,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 517
+  },
+  {
+    "id": "case_0272",
+    "input": {
+      "qty": 3,
+      "unit_price": 264,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 768
+  },
+  {
+    "id": "case_0273",
+    "input": {
+      "qty": 4,
+      "unit_price": 301,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 1523
+  },
+  {
+    "id": "case_0274",
+    "input": {
+      "qty": 5,
+      "unit_price": 338,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 1622
+  },
+  {
+    "id": "case_0275",
+    "input": {
+      "qty": 6,
+      "unit_price": 375,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 2430
+  },
+  {
+    "id": "case_0276",
+    "input": {
+      "qty": 7,
+      "unit_price": 412,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 3239
+  },
+  {
+    "id": "case_0277",
+    "input": {
+      "qty": 8,
+      "unit_price": 449,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 3878
+  },
+  {
+    "id": "case_0278",
+    "input": {
+      "qty": 9,
+      "unit_price": 486,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 4014
+  },
+  {
+    "id": "case_0279",
+    "input": {
+      "qty": 1,
+      "unit_price": 523,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 918
+  },
+  {
+    "id": "case_0280",
+    "input": {
+      "qty": 2,
+      "unit_price": 560,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 1344
+  },
+  {
+    "id": "case_0281",
+    "input": {
+      "qty": 3,
+      "unit_price": 597,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 1837
+  },
+  {
+    "id": "case_0282",
+    "input": {
+      "qty": 4,
+      "unit_price": 634,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 2782
+  },
+  {
+    "id": "case_0283",
+    "input": {
+      "qty": 5,
+      "unit_price": 671,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 3421
+  },
+  {
+    "id": "case_0284",
+    "input": {
+      "qty": 6,
+      "unit_price": 708,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 3669
+  },
+  {
+    "id": "case_0285",
+    "input": {
+      "qty": 7,
+      "unit_price": 745,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 5715
+  },
+  {
+    "id": "case_0286",
+    "input": {
+      "qty": 8,
+      "unit_price": 782,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 7131
+  },
+  {
+    "id": "case_0287",
+    "input": {
+      "qty": 9,
+      "unit_price": 819,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 7163
+  },
+  {
+    "id": "case_0288",
+    "input": {
+      "qty": 1,
+      "unit_price": 856,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 1227
+  },
+  {
+    "id": "case_0289",
+    "input": {
+      "qty": 2,
+      "unit_price": 893,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 1713
+  },
+  {
+    "id": "case_0290",
+    "input": {
+      "qty": 3,
+      "unit_price": 930,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 3013
+  },
+  {
+    "id": "case_0291",
+    "input": {
+      "qty": 4,
+      "unit_price": 967,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 4174
+  },
+  {
+    "id": "case_0292",
+    "input": {
+      "qty": 5,
+      "unit_price": 1004,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 5421
+  },
+  {
+    "id": "case_0293",
+    "input": {
+      "qty": 6,
+      "unit_price": 1041,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 5733
+  },
+  {
+    "id": "case_0294",
+    "input": {
+      "qty": 7,
+      "unit_price": 1078,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 6536
+  },
+  {
+    "id": "case_0295",
+    "input": {
+      "qty": 8,
+      "unit_price": 1115,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 10704
+  },
+  {
+    "id": "case_0296",
+    "input": {
+      "qty": 9,
+      "unit_price": 1152,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 10636
+  },
+  {
+    "id": "case_0297",
+    "input": {
+      "qty": 1,
+      "unit_price": 1189,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 1570
+  },
+  {
+    "id": "case_0298",
+    "input": {
+      "qty": 2,
+      "unit_price": 1226,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 2500
+  },
+  {
+    "id": "case_0299",
+    "input": {
+      "qty": 3,
+      "unit_price": 1263,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 3273
+  },
+  {
+    "id": "case_0300",
+    "input": {
+      "qty": 4,
+      "unit_price": 1300,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 5700
+  },
+  {
+    "id": "case_0301",
+    "input": {
+      "qty": 5,
+      "unit_price": 1337,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 7620
+  },
+  {
+    "id": "case_0302",
+    "input": {
+      "qty": 6,
+      "unit_price": 1374,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 8012
+  },
+  {
+    "id": "case_0303",
+    "input": {
+      "qty": 7,
+      "unit_price": 1411,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 8895
+  },
+  {
+    "id": "case_0304",
+    "input": {
+      "qty": 8,
+      "unit_price": 1448,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 11120
+  },
+  {
+    "id": "case_0305",
+    "input": {
+      "qty": 9,
+      "unit_price": 1485,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 14434
+  },
+  {
+    "id": "case_0306",
+    "input": {
+      "qty": 1,
+      "unit_price": 1522,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 1945
+  },
+  {
+    "id": "case_0307",
+    "input": {
+      "qty": 2,
+      "unit_price": 1559,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 3367
+  },
+  {
+    "id": "case_0308",
+    "input": {
+      "qty": 3,
+      "unit_price": 1596,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 4394
+  },
+  {
+    "id": "case_0309",
+    "input": {
+      "qty": 4,
+      "unit_price": 1633,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 5725
+  },
+  {
+    "id": "case_0310",
+    "input": {
+      "qty": 5,
+      "unit_price": 1670,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 10020
+  },
+  {
+    "id": "case_0311",
+    "input": {
+      "qty": 6,
+      "unit_price": 1707,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 10507
+  },
+  {
+    "id": "case_0312",
+    "input": {
+      "qty": 7,
+      "unit_price": 1744,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 11487
+  },
+  {
+    "id": "case_0313",
+    "input": {
+      "qty": 8,
+      "unit_price": 1781,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 14532
+  },
+  {
+    "id": "case_0314",
+    "input": {
+      "qty": 9,
+      "unit_price": 1818,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 14136
+  },
+  {
+    "id": "case_0315",
+    "input": {
+      "qty": 1,
+      "unit_price": 1855,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 2355
+  },
+  {
+    "id": "case_0316",
+    "input": {
+      "qty": 2,
+      "unit_price": 1892,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 4312
+  },
+  {
+    "id": "case_0317",
+    "input": {
+      "qty": 3,
+      "unit_price": 1929,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 5624
+  },
+  {
+    "id": "case_0318",
+    "input": {
+      "qty": 4,
+      "unit_price": 1966,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 7184
+  },
+  {
+    "id": "case_0319",
+    "input": {
+      "qty": 5,
+      "unit_price": 2003,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 9614
+  },
+  {
+    "id": "case_0320",
+    "input": {
+      "qty": 6,
+      "unit_price": 2040,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 13219
+  },
+  {
+    "id": "case_0321",
+    "input": {
+      "qty": 7,
+      "unit_price": 2077,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 14312
+  },
+  {
+    "id": "case_0322",
+    "input": {
+      "qty": 8,
+      "unit_price": 2114,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 18264
+  },
+  {
+    "id": "case_0323",
+    "input": {
+      "qty": 9,
+      "unit_price": 2151,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 17771
+  },
+  {
+    "id": "case_0324",
+    "input": {
+      "qty": 1,
+      "unit_price": 2188,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 2250
+  },
+  {
+    "id": "case_0325",
+    "input": {
+      "qty": 2,
+      "unit_price": 2225,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 5340
+  },
+  {
+    "id": "case_0326",
+    "input": {
+      "qty": 3,
+      "unit_price": 2262,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 6961
+  },
+  {
+    "id": "case_0327",
+    "input": {
+      "qty": 4,
+      "unit_price": 2299,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 8776
+  },
+  {
+    "id": "case_0328",
+    "input": {
+      "qty": 5,
+      "unit_price": 2336,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 11913
+  },
+  {
+    "id": "case_0329",
+    "input": {
+      "qty": 6,
+      "unit_price": 2373,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 12301
+  },
+  {
+    "id": "case_0330",
+    "input": {
+      "qty": 7,
+      "unit_price": 2410,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 17370
+  },
+  {
+    "id": "case_0331",
+    "input": {
+      "qty": 8,
+      "unit_price": 2447,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 22316
+  },
+  {
+    "id": "case_0332",
+    "input": {
+      "qty": 9,
+      "unit_price": 2484,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 21729
+  },
+  {
+    "id": "case_0333",
+    "input": {
+      "qty": 1,
+      "unit_price": 2521,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 2642
+  },
+  {
+    "id": "case_0334",
+    "input": {
+      "qty": 2,
+      "unit_price": 2558,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 4910
+  },
+  {
+    "id": "case_0335",
+    "input": {
+      "qty": 3,
+      "unit_price": 2595,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 8407
+  },
+  {
+    "id": "case_0336",
+    "input": {
+      "qty": 4,
+      "unit_price": 2632,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 10501
+  },
+  {
+    "id": "case_0337",
+    "input": {
+      "qty": 5,
+      "unit_price": 2669,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 14412
+  },
+  {
+    "id": "case_0338",
+    "input": {
+      "qty": 6,
+      "unit_price": 2706,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 14904
+  },
+  {
+    "id": "case_0339",
+    "input": {
+      "qty": 7,
+      "unit_price": 2743,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 15860
+  },
+  {
+    "id": "case_0340",
+    "input": {
+      "qty": 8,
+      "unit_price": 2780,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 26688
+  },
+  {
+    "id": "case_0341",
+    "input": {
+      "qty": 9,
+      "unit_price": 2817,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 26011
+  },
+  {
+    "id": "case_0342",
+    "input": {
+      "qty": 1,
+      "unit_price": 2854,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 3068
+  },
+  {
+    "id": "case_0343",
+    "input": {
+      "qty": 2,
+      "unit_price": 2891,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 5896
+  },
+  {
+    "id": "case_0344",
+    "input": {
+      "qty": 3,
+      "unit_price": 2928,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 7589
+  },
+  {
+    "id": "case_0345",
+    "input": {
+      "qty": 4,
+      "unit_price": 2965,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 12360
+  },
+  {
+    "id": "case_0346",
+    "input": {
+      "qty": 5,
+      "unit_price": 3002,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 17110
+  },
+  {
+    "id": "case_0347",
+    "input": {
+      "qty": 6,
+      "unit_price": 3039,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 17722
+  },
+  {
+    "id": "case_0348",
+    "input": {
+      "qty": 7,
+      "unit_price": 3076,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 18802
+  },
+  {
+    "id": "case_0349",
+    "input": {
+      "qty": 8,
+      "unit_price": 3113,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 23907
+  },
+  {
+    "id": "case_0350",
+    "input": {
+      "qty": 9,
+      "unit_price": 3150,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 30618
+  },
+  {
+    "id": "case_0351",
+    "input": {
+      "qty": 1,
+      "unit_price": 3187,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 3527
+  },
+  {
+    "id": "case_0352",
+    "input": {
+      "qty": 2,
+      "unit_price": 3224,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 6963
+  },
+  {
+    "id": "case_0353",
+    "input": {
+      "qty": 3,
+      "unit_price": 3261,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 8980
+  },
+  {
+    "id": "case_0354",
+    "input": {
+      "qty": 4,
+      "unit_price": 3298,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 11053
+  },
+  {
+    "id": "case_0355",
+    "input": {
+      "qty": 5,
+      "unit_price": 3335,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 20010
+  },
+  {
+    "id": "case_0356",
+    "input": {
+      "qty": 6,
+      "unit_price": 3372,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 20757
+  },
+  {
+    "id": "case_0357",
+    "input": {
+      "qty": 7,
+      "unit_price": 3409,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 21976
+  },
+  {
+    "id": "case_0358",
+    "input": {
+      "qty": 8,
+      "unit_price": 3446,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 28118
+  },
+  {
+    "id": "case_0359",
+    "input": {
+      "qty": 9,
+      "unit_price": 3483,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 27083
+  },
+  {
+    "id": "case_0360",
+    "input": {
+      "qty": 1,
+      "unit_price": 3520,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 4020
+  },
+  {
+    "id": "case_0361",
+    "input": {
+      "qty": 2,
+      "unit_price": 3557,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 8109
+  },
+  {
+    "id": "case_0362",
+    "input": {
+      "qty": 3,
+      "unit_price": 3594,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 10479
+  },
+  {
+    "id": "case_0363",
+    "input": {
+      "qty": 4,
+      "unit_price": 3631,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 12845
+  },
+  {
+    "id": "case_0364",
+    "input": {
+      "qty": 5,
+      "unit_price": 3668,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 17606
+  },
+  {
+    "id": "case_0365",
+    "input": {
+      "qty": 6,
+      "unit_price": 3705,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 24008
+  },
+  {
+    "id": "case_0366",
+    "input": {
+      "qty": 7,
+      "unit_price": 3742,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 25384
+  },
+  {
+    "id": "case_0367",
+    "input": {
+      "qty": 8,
+      "unit_price": 3779,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 32649
+  },
+  {
+    "id": "case_0368",
+    "input": {
+      "qty": 9,
+      "unit_price": 3816,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 31527
+  },
+  {
+    "id": "case_0369",
+    "input": {
+      "qty": 1,
+      "unit_price": 3853,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 3582
+  },
+  {
+    "id": "case_0370",
+    "input": {
+      "qty": 2,
+      "unit_price": 3890,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 9336
+  },
+  {
+    "id": "case_0371",
+    "input": {
+      "qty": 3,
+      "unit_price": 3927,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 12086
+  },
+  {
+    "id": "case_0372",
+    "input": {
+      "qty": 4,
+      "unit_price": 3964,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 14770
+  },
+  {
+    "id": "case_0373",
+    "input": {
+      "qty": 5,
+      "unit_price": 4001,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 20404
+  },
+  {
+    "id": "case_0374",
+    "input": {
+      "qty": 6,
+      "unit_price": 4038,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 20932
+  },
+  {
+    "id": "case_0375",
+    "input": {
+      "qty": 7,
+      "unit_price": 4075,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 29025
+  },
+  {
+    "id": "case_0376",
+    "input": {
+      "qty": 8,
+      "unit_price": 4112,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 37501
+  },
+  {
+    "id": "case_0377",
+    "input": {
+      "qty": 9,
+      "unit_price": 4149,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 36294
+  },
+  {
+    "id": "case_0378",
+    "input": {
+      "qty": 1,
+      "unit_price": 4186,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 4058
+  },
+  {
+    "id": "case_0379",
+    "input": {
+      "qty": 2,
+      "unit_price": 4223,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 8107
+  },
+  {
+    "id": "case_0380",
+    "input": {
+      "qty": 3,
+      "unit_price": 4260,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 13802
+  },
+  {
+    "id": "case_0381",
+    "input": {
+      "qty": 4,
+      "unit_price": 4297,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 16828
+  },
+  {
+    "id": "case_0382",
+    "input": {
+      "qty": 5,
+      "unit_price": 4334,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 23403
+  },
+  {
+    "id": "case_0383",
+    "input": {
+      "qty": 6,
+      "unit_price": 4371,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 24075
+  },
+  {
+    "id": "case_0384",
+    "input": {
+      "qty": 7,
+      "unit_price": 4408,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 25184
+  },
+  {
+    "id": "case_0385",
+    "input": {
+      "qty": 8,
+      "unit_price": 4445,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 42672
+  },
+  {
+    "id": "case_0386",
+    "input": {
+      "qty": 9,
+      "unit_price": 4482,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 41386
+  },
+  {
+    "id": "case_0387",
+    "input": {
+      "qty": 1,
+      "unit_price": 4519,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 4567
+  },
+  {
+    "id": "case_0388",
+    "input": {
+      "qty": 2,
+      "unit_price": 4556,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 9294
+  },
+  {
+    "id": "case_0389",
+    "input": {
+      "qty": 3,
+      "unit_price": 4593,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 11904
+  },
+  {
+    "id": "case_0390",
+    "input": {
+      "qty": 4,
+      "unit_price": 4630,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 19020
+  },
+  {
+    "id": "case_0391",
+    "input": {
+      "qty": 5,
+      "unit_price": 4667,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 26601
+  },
+  {
+    "id": "case_0392",
+    "input": {
+      "qty": 6,
+      "unit_price": 4704,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 27433
+  },
+  {
+    "id": "case_0393",
+    "input": {
+      "qty": 7,
+      "unit_price": 4741,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 28708
+  },
+  {
+    "id": "case_0394",
+    "input": {
+      "qty": 8,
+      "unit_price": 4778,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 36694
+  },
+  {
+    "id": "case_0395",
+    "input": {
+      "qty": 9,
+      "unit_price": 4815,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 46801
+  },
+  {
+    "id": "case_0396",
+    "input": {
+      "qty": 1,
+      "unit_price": 4852,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 5109
+  },
+  {
+    "id": "case_0397",
+    "input": {
+      "qty": 2,
+      "unit_price": 4889,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 10560
+  },
+  {
+    "id": "case_0398",
+    "input": {
+      "qty": 3,
+      "unit_price": 4926,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 13565
+  },
+  {
+    "id": "case_0399",
+    "input": {
+      "qty": 4,
+      "unit_price": 4963,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 16381
+  },
+  {
+    "id": "case_0400",
+    "input": {
+      "qty": 5,
+      "unit_price": 5000,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 30000
+  },
+  {
+    "id": "case_0401",
+    "input": {
+      "qty": 6,
+      "unit_price": 5037,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 31006
+  },
+  {
+    "id": "case_0402",
+    "input": {
+      "qty": 7,
+      "unit_price": 5074,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 32466
+  },
+  {
+    "id": "case_0403",
+    "input": {
+      "qty": 8,
+      "unit_price": 5111,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 41704
+  },
+  {
+    "id": "case_0404",
+    "input": {
+      "qty": 9,
+      "unit_price": 5148,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 40030
+  },
+  {
+    "id": "case_0405",
+    "input": {
+      "qty": 1,
+      "unit_price": 5185,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 5685
+  },
+  {
+    "id": "case_0406",
+    "input": {
+      "qty": 2,
+      "unit_price": 5222,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 11905
+  },
+  {
+    "id": "case_0407",
+    "input": {
+      "qty": 3,
+      "unit_price": 5259,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 15334
+  },
+  {
+    "id": "case_0408",
+    "input": {
+      "qty": 4,
+      "unit_price": 5296,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 18506
+  },
+  {
+    "id": "case_0409",
+    "input": {
+      "qty": 5,
+      "unit_price": 5333,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 25598
+  },
+  {
+    "id": "case_0410",
+    "input": {
+      "qty": 6,
+      "unit_price": 5370,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 34797
+  },
+  {
+    "id": "case_0411",
+    "input": {
+      "qty": 7,
+      "unit_price": 5407,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 36456
+  },
+  {
+    "id": "case_0412",
+    "input": {
+      "qty": 8,
+      "unit_price": 5444,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 47035
+  },
+  {
+    "id": "case_0413",
+    "input": {
+      "qty": 9,
+      "unit_price": 5481,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 45283
+  },
+  {
+    "id": "case_0414",
+    "input": {
+      "qty": 1,
+      "unit_price": 5518,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 4914
+  },
+  {
+    "id": "case_0415",
+    "input": {
+      "qty": 2,
+      "unit_price": 5555,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 13332
+  },
+  {
+    "id": "case_0416",
+    "input": {
+      "qty": 3,
+      "unit_price": 5592,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 17211
+  },
+  {
+    "id": "case_0417",
+    "input": {
+      "qty": 4,
+      "unit_price": 5629,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 20764
+  },
+  {
+    "id": "case_0418",
+    "input": {
+      "qty": 5,
+      "unit_price": 5666,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 28896
+  },
+  {
+    "id": "case_0419",
+    "input": {
+      "qty": 6,
+      "unit_price": 5703,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 29563
+  },
+  {
+    "id": "case_0420",
+    "input": {
+      "qty": 7,
+      "unit_price": 5740,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 40680
+  },
+  {
+    "id": "case_0421",
+    "input": {
+      "qty": 8,
+      "unit_price": 5777,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 52686
+  },
+  {
+    "id": "case_0422",
+    "input": {
+      "qty": 9,
+      "unit_price": 5814,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 50860
+  },
+  {
+    "id": "case_0423",
+    "input": {
+      "qty": 1,
+      "unit_price": 5851,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 5473
+  },
+  {
+    "id": "case_0424",
+    "input": {
+      "qty": 2,
+      "unit_price": 5888,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 11304
+  },
+  {
+    "id": "case_0425",
+    "input": {
+      "qty": 3,
+      "unit_price": 5925,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 19197
+  },
+  {
+    "id": "case_0426",
+    "input": {
+      "qty": 4,
+      "unit_price": 5962,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 23155
+  },
+  {
+    "id": "case_0427",
+    "input": {
+      "qty": 5,
+      "unit_price": 5999,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 32394
+  },
+  {
+    "id": "case_0428",
+    "input": {
+      "qty": 6,
+      "unit_price": 6036,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 33245
+  },
+  {
+    "id": "case_0429",
+    "input": {
+      "qty": 7,
+      "unit_price": 6073,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 34508
+  },
+  {
+    "id": "case_0430",
+    "input": {
+      "qty": 8,
+      "unit_price": 6110,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 58656
+  },
+  {
+    "id": "case_0431",
+    "input": {
+      "qty": 9,
+      "unit_price": 6147,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 56760
+  },
+  {
+    "id": "case_0432",
+    "input": {
+      "qty": 1,
+      "unit_price": 6184,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 6065
+  },
+  {
+    "id": "case_0433",
+    "input": {
+      "qty": 2,
+      "unit_price": 6221,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 12690
+  },
+  {
+    "id": "case_0434",
+    "input": {
+      "qty": 3,
+      "unit_price": 6258,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 16220
+  },
+  {
+    "id": "case_0435",
+    "input": {
+      "qty": 4,
+      "unit_price": 6295,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 25680
+  },
+  {
+    "id": "case_0436",
+    "input": {
+      "qty": 5,
+      "unit_price": 6332,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 36092
+  },
+  {
+    "id": "case_0437",
+    "input": {
+      "qty": 6,
+      "unit_price": 6369,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 37143
+  },
+  {
+    "id": "case_0438",
+    "input": {
+      "qty": 7,
+      "unit_price": 6406,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 38615
+  },
+  {
+    "id": "case_0439",
+    "input": {
+      "qty": 8,
+      "unit_price": 6443,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 49482
+  },
+  {
+    "id": "case_0440",
+    "input": {
+      "qty": 9,
+      "unit_price": 6480,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 62985
+  },
+  {
+    "id": "case_0441",
+    "input": {
+      "qty": 1,
+      "unit_price": 6517,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 6691
+  },
+  {
+    "id": "case_0442",
+    "input": {
+      "qty": 2,
+      "unit_price": 6554,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 14156
+  },
+  {
+    "id": "case_0443",
+    "input": {
+      "qty": 3,
+      "unit_price": 6591,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 18151
+  },
+  {
+    "id": "case_0444",
+    "input": {
+      "qty": 4,
+      "unit_price": 6628,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 21709
+  },
+  {
+    "id": "case_0445",
+    "input": {
+      "qty": 5,
+      "unit_price": 6665,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 39990
+  },
+  {
+    "id": "case_0446",
+    "input": {
+      "qty": 6,
+      "unit_price": 6702,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 41257
+  },
+  {
+    "id": "case_0447",
+    "input": {
+      "qty": 7,
+      "unit_price": 6739,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 42955
+  },
+  {
+    "id": "case_0448",
+    "input": {
+      "qty": 8,
+      "unit_price": 6776,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 55291
+  },
+  {
+    "id": "case_0449",
+    "input": {
+      "qty": 9,
+      "unit_price": 6813,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 52977
+  },
+  {
+    "id": "case_0450",
+    "input": {
+      "qty": 1,
+      "unit_price": 6850,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 7350
+  },
+  {
+    "id": "case_0451",
+    "input": {
+      "qty": 2,
+      "unit_price": 6887,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 15702
+  },
+  {
+    "id": "case_0452",
+    "input": {
+      "qty": 3,
+      "unit_price": 6924,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "wholesale"
+    },
+    "expected": 19180
+  },
+  {
+    "id": "case_0453",
+    "input": {
+      "qty": 4,
+      "unit_price": 6961,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 24167
+  },
+  {
+    "id": "case_0454",
+    "input": {
+      "qty": 5,
+      "unit_price": 6998,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 33590
+  },
+  {
+    "id": "case_0455",
+    "input": {
+      "qty": 6,
+      "unit_price": 7035,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 45586
+  },
+  {
+    "id": "case_0456",
+    "input": {
+      "qty": 7,
+      "unit_price": 7072,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 47528
+  },
+  {
+    "id": "case_0457",
+    "input": {
+      "qty": 8,
+      "unit_price": 7109,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 61420
+  },
+  {
+    "id": "case_0458",
+    "input": {
+      "qty": 9,
+      "unit_price": 7146,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 59039
+  },
+  {
+    "id": "case_0459",
+    "input": {
+      "qty": 1,
+      "unit_price": 7183,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 6246
+  },
+  {
+    "id": "case_0460",
+    "input": {
+      "qty": 2,
+      "unit_price": 7220,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 17328
+  },
+  {
+    "id": "case_0461",
+    "input": {
+      "qty": 3,
+      "unit_price": 7257,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 22336
+  },
+  {
+    "id": "case_0462",
+    "input": {
+      "qty": 4,
+      "unit_price": 7294,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 26758
+  },
+  {
+    "id": "case_0463",
+    "input": {
+      "qty": 5,
+      "unit_price": 7331,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 37387
+  },
+  {
+    "id": "case_0464",
+    "input": {
+      "qty": 6,
+      "unit_price": 7368,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 38195
+  },
+  {
+    "id": "case_0465",
+    "input": {
+      "qty": 7,
+      "unit_price": 7405,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 52335
+  },
+  {
+    "id": "case_0466",
+    "input": {
+      "qty": 8,
+      "unit_price": 7442,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 67870
+  },
+  {
+    "id": "case_0467",
+    "input": {
+      "qty": 9,
+      "unit_price": 7479,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 65425
+  },
+  {
+    "id": "case_0468",
+    "input": {
+      "qty": 1,
+      "unit_price": 7516,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 6888
+  },
+  {
+    "id": "case_0469",
+    "input": {
+      "qty": 2,
+      "unit_price": 7553,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 14500
+  },
+  {
+    "id": "case_0470",
+    "input": {
+      "qty": 3,
+      "unit_price": 7590,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 24591
+  },
+  {
+    "id": "case_0471",
+    "input": {
+      "qty": 4,
+      "unit_price": 7627,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 29482
+  },
+  {
+    "id": "case_0472",
+    "input": {
+      "qty": 5,
+      "unit_price": 7664,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 41385
+  },
+  {
+    "id": "case_0473",
+    "input": {
+      "qty": 6,
+      "unit_price": 7701,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 42417
+  },
+  {
+    "id": "case_0474",
+    "input": {
+      "qty": 7,
+      "unit_price": 7738,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 43832
+  },
+  {
+    "id": "case_0475",
+    "input": {
+      "qty": 8,
+      "unit_price": 7775,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 74640
+  },
+  {
+    "id": "case_0476",
+    "input": {
+      "qty": 9,
+      "unit_price": 7812,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 72135
+  },
+  {
+    "id": "case_0477",
+    "input": {
+      "qty": 1,
+      "unit_price": 7849,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 7564
+  },
+  {
+    "id": "case_0478",
+    "input": {
+      "qty": 2,
+      "unit_price": 7886,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 16087
+  },
+  {
+    "id": "case_0479",
+    "input": {
+      "qty": 3,
+      "unit_price": 7923,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 20536
+  },
+  {
+    "id": "case_0480",
+    "input": {
+      "qty": 4,
+      "unit_price": 7960,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 32340
+  },
+  {
+    "id": "case_0481",
+    "input": {
+      "qty": 5,
+      "unit_price": 7997,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 45582
+  },
+  {
+    "id": "case_0482",
+    "input": {
+      "qty": 6,
+      "unit_price": 8034,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 46853
+  },
+  {
+    "id": "case_0483",
+    "input": {
+      "qty": 7,
+      "unit_price": 8071,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 48522
+  },
+  {
+    "id": "case_0484",
+    "input": {
+      "qty": 8,
+      "unit_price": 8108,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 62269
+  },
+  {
+    "id": "case_0485",
+    "input": {
+      "qty": 9,
+      "unit_price": 8145,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 79169
+  },
+  {
+    "id": "case_0486",
+    "input": {
+      "qty": 1,
+      "unit_price": 8182,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 8272
+  },
+  {
+    "id": "case_0487",
+    "input": {
+      "qty": 2,
+      "unit_price": 8219,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 17752
+  },
+  {
+    "id": "case_0488",
+    "input": {
+      "qty": 3,
+      "unit_price": 8256,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 22736
+  },
+  {
+    "id": "case_0489",
+    "input": {
+      "qty": 4,
+      "unit_price": 8293,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 27037
+  },
+  {
+    "id": "case_0490",
+    "input": {
+      "qty": 5,
+      "unit_price": 8330,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 49980
+  },
+  {
+    "id": "case_0491",
+    "input": {
+      "qty": 6,
+      "unit_price": 8367,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 51506
+  },
+  {
+    "id": "case_0492",
+    "input": {
+      "qty": 7,
+      "unit_price": 8404,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 53445
+  },
+  {
+    "id": "case_0493",
+    "input": {
+      "qty": 8,
+      "unit_price": 8441,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 68877
+  },
+  {
+    "id": "case_0494",
+    "input": {
+      "qty": 9,
+      "unit_price": 8478,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 65924
+  },
+  {
+    "id": "case_0495",
+    "input": {
+      "qty": 1,
+      "unit_price": 8515,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 9015
+  },
+  {
+    "id": "case_0496",
+    "input": {
+      "qty": 2,
+      "unit_price": 8552,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 19497
+  },
+  {
+    "id": "case_0497",
+    "input": {
+      "qty": 3,
+      "unit_price": 8589,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 25045
+  },
+  {
+    "id": "case_0498",
+    "input": {
+      "qty": 4,
+      "unit_price": 8626,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 29828
+  },
+  {
+    "id": "case_0499",
+    "input": {
+      "qty": 5,
+      "unit_price": 8663,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 41582
+  },
+  {
+    "id": "case_0500",
+    "input": {
+      "qty": 6,
+      "unit_price": 8700,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 56376
+  },
+  {
+    "id": "case_0501",
+    "input": {
+      "qty": 7,
+      "unit_price": 8737,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 58601
+  },
+  {
+    "id": "case_0502",
+    "input": {
+      "qty": 8,
+      "unit_price": 8774,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 75806
+  },
+  {
+    "id": "case_0503",
+    "input": {
+      "qty": 9,
+      "unit_price": 8811,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 72796
+  },
+  {
+    "id": "case_0504",
+    "input": {
+      "qty": 1,
+      "unit_price": 8848,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 7578
+  },
+  {
+    "id": "case_0505",
+    "input": {
+      "qty": 2,
+      "unit_price": 8885,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 21324
+  },
+  {
+    "id": "case_0506",
+    "input": {
+      "qty": 3,
+      "unit_price": 8922,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 27461
+  },
+  {
+    "id": "case_0507",
+    "input": {
+      "qty": 4,
+      "unit_price": 8959,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 32752
+  },
+  {
+    "id": "case_0508",
+    "input": {
+      "qty": 5,
+      "unit_price": 8996,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 45879
+  },
+  {
+    "id": "case_0509",
+    "input": {
+      "qty": 6,
+      "unit_price": 9033,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 46826
+  },
+  {
+    "id": "case_0510",
+    "input": {
+      "qty": 7,
+      "unit_price": 9070,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 63990
+  },
+  {
+    "id": "case_0511",
+    "input": {
+      "qty": 8,
+      "unit_price": 9107,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 83055
+  },
+  {
+    "id": "case_0512",
+    "input": {
+      "qty": 9,
+      "unit_price": 9144,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 79991
+  },
+  {
+    "id": "case_0513",
+    "input": {
+      "qty": 1,
+      "unit_price": 9181,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 8303
+  },
+  {
+    "id": "case_0514",
+    "input": {
+      "qty": 2,
+      "unit_price": 9218,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 17697
+  },
+  {
+    "id": "case_0515",
+    "input": {
+      "qty": 3,
+      "unit_price": 9255,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 29986
+  },
+  {
+    "id": "case_0516",
+    "input": {
+      "qty": 4,
+      "unit_price": 9292,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 35809
+  },
+  {
+    "id": "case_0517",
+    "input": {
+      "qty": 5,
+      "unit_price": 9329,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 50376
+  },
+  {
+    "id": "case_0518",
+    "input": {
+      "qty": 6,
+      "unit_price": 9366,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 51587
+  },
+  {
+    "id": "case_0519",
+    "input": {
+      "qty": 7,
+      "unit_price": 9403,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 53156
+  },
+  {
+    "id": "case_0520",
+    "input": {
+      "qty": 8,
+      "unit_price": 9440,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 90624
+  },
+  {
+    "id": "case_0521",
+    "input": {
+      "qty": 9,
+      "unit_price": 9477,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 87510
+  },
+  {
+    "id": "case_0522",
+    "input": {
+      "qty": 1,
+      "unit_price": 9514,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 9062
+  },
+  {
+    "id": "case_0523",
+    "input": {
+      "qty": 2,
+      "unit_price": 9551,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 19483
+  },
+  {
+    "id": "case_0524",
+    "input": {
+      "qty": 3,
+      "unit_price": 9588,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 24851
+  },
+  {
+    "id": "case_0525",
+    "input": {
+      "qty": 4,
+      "unit_price": 9625,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 39000
+  },
+  {
+    "id": "case_0526",
+    "input": {
+      "qty": 5,
+      "unit_price": 9662,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 55072
+  },
+  {
+    "id": "case_0527",
+    "input": {
+      "qty": 6,
+      "unit_price": 9699,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 56563
+  },
+  {
+    "id": "case_0528",
+    "input": {
+      "qty": 7,
+      "unit_price": 9736,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 58429
+  },
+  {
+    "id": "case_0529",
+    "input": {
+      "qty": 8,
+      "unit_price": 9773,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 75056
+  },
+  {
+    "id": "case_0530",
+    "input": {
+      "qty": 9,
+      "unit_price": 9810,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 95353
+  },
+  {
+    "id": "case_0531",
+    "input": {
+      "qty": 1,
+      "unit_price": 9847,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 9854
+  },
+  {
+    "id": "case_0532",
+    "input": {
+      "qty": 2,
+      "unit_price": 9884,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 21349
+  },
+  {
+    "id": "case_0533",
+    "input": {
+      "qty": 3,
+      "unit_price": 9921,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 27321
+  },
+  {
+    "id": "case_0534",
+    "input": {
+      "qty": 4,
+      "unit_price": 9958,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 32365
+  },
+  {
+    "id": "case_0535",
+    "input": {
+      "qty": 5,
+      "unit_price": 9995,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 59970
+  },
+  {
+    "id": "case_0536",
+    "input": {
+      "qty": 6,
+      "unit_price": 132,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 812
+  },
+  {
+    "id": "case_0537",
+    "input": {
+      "qty": 7,
+      "unit_price": 169,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 1564
+  },
+  {
+    "id": "case_0538",
+    "input": {
+      "qty": 8,
+      "unit_price": 206,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 1680
+  },
+  {
+    "id": "case_0539",
+    "input": {
+      "qty": 9,
+      "unit_price": 243,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 1888
+  },
+  {
+    "id": "case_0540",
+    "input": {
+      "qty": 1,
+      "unit_price": 280,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 780
+  },
+  {
+    "id": "case_0541",
+    "input": {
+      "qty": 2,
+      "unit_price": 317,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 722
+  },
+  {
+    "id": "case_0542",
+    "input": {
+      "qty": 3,
+      "unit_price": 354,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 1031
+  },
+  {
+    "id": "case_0543",
+    "input": {
+      "qty": 4,
+      "unit_price": 391,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 1829
+  },
+  {
+    "id": "case_0544",
+    "input": {
+      "qty": 5,
+      "unit_price": 428,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 2054
+  },
+  {
+    "id": "case_0545",
+    "input": {
+      "qty": 6,
+      "unit_price": 465,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 3013
+  },
+  {
+    "id": "case_0546",
+    "input": {
+      "qty": 7,
+      "unit_price": 502,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 3838
+  },
+  {
+    "id": "case_0547",
+    "input": {
+      "qty": 8,
+      "unit_price": 539,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 4656
+  },
+  {
+    "id": "case_0548",
+    "input": {
+      "qty": 9,
+      "unit_price": 576,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 4758
+  },
+  {
+    "id": "case_0549",
+    "input": {
+      "qty": 1,
+      "unit_price": 613,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 990
+  },
+  {
+    "id": "case_0550",
+    "input": {
+      "qty": 2,
+      "unit_price": 650,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 1560
+  },
+  {
+    "id": "case_0551",
+    "input": {
+      "qty": 3,
+      "unit_price": 687,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 2113
+  },
+  {
+    "id": "case_0552",
+    "input": {
+      "qty": 4,
+      "unit_price": 724,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 3106
+  },
+  {
+    "id": "case_0553",
+    "input": {
+      "qty": 5,
+      "unit_price": 761,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 3880
+  },
+  {
+    "id": "case_0554",
+    "input": {
+      "qty": 6,
+      "unit_price": 798,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 4136
+  },
+  {
+    "id": "case_0555",
+    "input": {
+      "qty": 7,
+      "unit_price": 835,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 6345
+  },
+  {
+    "id": "case_0556",
+    "input": {
+      "qty": 8,
+      "unit_price": 872,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 7952
+  },
+  {
+    "id": "case_0557",
+    "input": {
+      "qty": 9,
+      "unit_price": 909,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 7950
+  },
+  {
+    "id": "case_0558",
+    "input": {
+      "qty": 1,
+      "unit_price": 946,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 1304
+  },
+  {
+    "id": "case_0559",
+    "input": {
+      "qty": 2,
+      "unit_price": 983,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 1886
+  },
+  {
+    "id": "case_0560",
+    "input": {
+      "qty": 3,
+      "unit_price": 1020,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 3304
+  },
+  {
+    "id": "case_0561",
+    "input": {
+      "qty": 4,
+      "unit_price": 1057,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 4516
+  },
+  {
+    "id": "case_0562",
+    "input": {
+      "qty": 5,
+      "unit_price": 1094,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 5907
+  },
+  {
+    "id": "case_0563",
+    "input": {
+      "qty": 6,
+      "unit_price": 1131,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 6229
+  },
+  {
+    "id": "case_0564",
+    "input": {
+      "qty": 7,
+      "unit_price": 1168,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 7040
+  },
+  {
+    "id": "case_0565",
+    "input": {
+      "qty": 8,
+      "unit_price": 1205,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 11568
+  },
+  {
+    "id": "case_0566",
+    "input": {
+      "qty": 9,
+      "unit_price": 1242,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 11468
+  },
+  {
+    "id": "case_0567",
+    "input": {
+      "qty": 1,
+      "unit_price": 1279,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 1651
+  },
+  {
+    "id": "case_0568",
+    "input": {
+      "qty": 2,
+      "unit_price": 1316,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 2684
+  },
+  {
+    "id": "case_0569",
+    "input": {
+      "qty": 3,
+      "unit_price": 1353,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 3506
+  },
+  {
+    "id": "case_0570",
+    "input": {
+      "qty": 4,
+      "unit_price": 1390,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 6060
+  },
+  {
+    "id": "case_0571",
+    "input": {
+      "qty": 5,
+      "unit_price": 1427,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 8133
+  },
+  {
+    "id": "case_0572",
+    "input": {
+      "qty": 6,
+      "unit_price": 1464,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 8537
+  },
+  {
+    "id": "case_0573",
+    "input": {
+      "qty": 7,
+      "unit_price": 1501,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 9430
+  },
+  {
+    "id": "case_0574",
+    "input": {
+      "qty": 8,
+      "unit_price": 1538,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 11811
+  },
+  {
+    "id": "case_0575",
+    "input": {
+      "qty": 9,
+      "unit_price": 1575,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 15309
+  },
+  {
+    "id": "case_0576",
+    "input": {
+      "qty": 1,
+      "unit_price": 1612,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 2031
+  },
+  {
+    "id": "case_0577",
+    "input": {
+      "qty": 2,
+      "unit_price": 1649,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 3561
+  },
+  {
+    "id": "case_0578",
+    "input": {
+      "qty": 3,
+      "unit_price": 1686,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 4642
+  },
+  {
+    "id": "case_0579",
+    "input": {
+      "qty": 4,
+      "unit_price": 1723,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 6013
+  },
+  {
+    "id": "case_0580",
+    "input": {
+      "qty": 5,
+      "unit_price": 1760,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 10560
+  },
+  {
+    "id": "case_0581",
+    "input": {
+      "qty": 6,
+      "unit_price": 1797,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 11061
+  },
+  {
+    "id": "case_0582",
+    "input": {
+      "qty": 7,
+      "unit_price": 1834,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 12054
+  },
+  {
+    "id": "case_0583",
+    "input": {
+      "qty": 8,
+      "unit_price": 1871,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 15266
+  },
+  {
+    "id": "case_0584",
+    "input": {
+      "qty": 9,
+      "unit_price": 1908,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 14835
+  },
+  {
+    "id": "case_0585",
+    "input": {
+      "qty": 1,
+      "unit_price": 1945,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 2445
+  },
+  {
+    "id": "case_0586",
+    "input": {
+      "qty": 2,
+      "unit_price": 1982,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 4518
+  },
+  {
+    "id": "case_0587",
+    "input": {
+      "qty": 3,
+      "unit_price": 2019,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 5887
+  },
+  {
+    "id": "case_0588",
+    "input": {
+      "qty": 4,
+      "unit_price": 2056,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 7490
+  },
+  {
+    "id": "case_0589",
+    "input": {
+      "qty": 5,
+      "unit_price": 2093,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 10046
+  },
+  {
+    "id": "case_0590",
+    "input": {
+      "qty": 6,
+      "unit_price": 2130,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 13802
+  },
+  {
+    "id": "case_0591",
+    "input": {
+      "qty": 7,
+      "unit_price": 2167,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 14910
+  },
+  {
+    "id": "case_0592",
+    "input": {
+      "qty": 8,
+      "unit_price": 2204,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 19041
+  },
+  {
+    "id": "case_0593",
+    "input": {
+      "qty": 9,
+      "unit_price": 2241,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 18514
+  },
+  {
+    "id": "case_0594",
+    "input": {
+      "qty": 1,
+      "unit_price": 2278,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 2322
+  },
+  {
+    "id": "case_0595",
+    "input": {
+      "qty": 2,
+      "unit_price": 2315,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 5556
+  },
+  {
+    "id": "case_0596",
+    "input": {
+      "qty": 3,
+      "unit_price": 2352,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 7239
+  },
+  {
+    "id": "case_0597",
+    "input": {
+      "qty": 4,
+      "unit_price": 2389,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 9100
+  },
+  {
+    "id": "case_0598",
+    "input": {
+      "qty": 5,
+      "unit_price": 2426,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 12372
+  },
+  {
+    "id": "case_0599",
+    "input": {
+      "qty": 6,
+      "unit_price": 2463,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 12767
+  },
+  {
+    "id": "case_0600",
+    "input": {
+      "qty": 7,
+      "unit_price": 2500,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 18000
+  },
+  {
+    "id": "case_0601",
+    "input": {
+      "qty": 8,
+      "unit_price": 2537,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 23137
+  },
+  {
+    "id": "case_0602",
+    "input": {
+      "qty": 9,
+      "unit_price": 2574,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 22516
+  },
+  {
+    "id": "case_0603",
+    "input": {
+      "qty": 1,
+      "unit_price": 2611,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 2719
+  },
+  {
+    "id": "case_0604",
+    "input": {
+      "qty": 2,
+      "unit_price": 2648,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 5083
+  },
+  {
+    "id": "case_0605",
+    "input": {
+      "qty": 3,
+      "unit_price": 2685,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 8699
+  },
+  {
+    "id": "case_0606",
+    "input": {
+      "qty": 4,
+      "unit_price": 2722,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 10843
+  },
+  {
+    "id": "case_0607",
+    "input": {
+      "qty": 5,
+      "unit_price": 2759,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 14898
+  },
+  {
+    "id": "case_0608",
+    "input": {
+      "qty": 6,
+      "unit_price": 2796,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 15399
+  },
+  {
+    "id": "case_0609",
+    "input": {
+      "qty": 7,
+      "unit_price": 2833,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 16364
+  },
+  {
+    "id": "case_0610",
+    "input": {
+      "qty": 8,
+      "unit_price": 2870,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 27552
+  },
+  {
+    "id": "case_0611",
+    "input": {
+      "qty": 9,
+      "unit_price": 2907,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 26842
+  },
+  {
+    "id": "case_0612",
+    "input": {
+      "qty": 1,
+      "unit_price": 2944,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 3149
+  },
+  {
+    "id": "case_0613",
+    "input": {
+      "qty": 2,
+      "unit_price": 2981,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 6080
+  },
+  {
+    "id": "case_0614",
+    "input": {
+      "qty": 3,
+      "unit_price": 3018,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 7822
+  },
+  {
+    "id": "case_0615",
+    "input": {
+      "qty": 4,
+      "unit_price": 3055,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 12720
+  },
+  {
+    "id": "case_0616",
+    "input": {
+      "qty": 5,
+      "unit_price": 3092,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 17624
+  },
+  {
+    "id": "case_0617",
+    "input": {
+      "qty": 6,
+      "unit_price": 3129,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 18247
+  },
+  {
+    "id": "case_0618",
+    "input": {
+      "qty": 7,
+      "unit_price": 3166,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 19337
+  },
+  {
+    "id": "case_0619",
+    "input": {
+      "qty": 8,
+      "unit_price": 3203,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 24598
+  },
+  {
+    "id": "case_0620",
+    "input": {
+      "qty": 9,
+      "unit_price": 3240,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 31492
+  },
+  {
+    "id": "case_0621",
+    "input": {
+      "qty": 1,
+      "unit_price": 3277,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 3613
+  },
+  {
+    "id": "case_0622",
+    "input": {
+      "qty": 2,
+      "unit_price": 3314,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 7158
+  },
+  {
+    "id": "case_0623",
+    "input": {
+      "qty": 3,
+      "unit_price": 3351,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 9228
+  },
+  {
+    "id": "case_0624",
+    "input": {
+      "qty": 4,
+      "unit_price": 3388,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 11341
+  },
+  {
+    "id": "case_0625",
+    "input": {
+      "qty": 5,
+      "unit_price": 3425,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 20550
+  },
+  {
+    "id": "case_0626",
+    "input": {
+      "qty": 6,
+      "unit_price": 3462,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 21311
+  },
+  {
+    "id": "case_0627",
+    "input": {
+      "qty": 7,
+      "unit_price": 3499,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 22543
+  },
+  {
+    "id": "case_0628",
+    "input": {
+      "qty": 8,
+      "unit_price": 3536,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 28852
+  },
+  {
+    "id": "case_0629",
+    "input": {
+      "qty": 9,
+      "unit_price": 3573,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 27783
+  },
+  {
+    "id": "case_0630",
+    "input": {
+      "qty": 1,
+      "unit_price": 3610,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 4110
+  },
+  {
+    "id": "case_0631",
+    "input": {
+      "qty": 2,
+      "unit_price": 3647,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 8314
+  },
+  {
+    "id": "case_0632",
+    "input": {
+      "qty": 3,
+      "unit_price": 3684,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 10741
+  },
+  {
+    "id": "case_0633",
+    "input": {
+      "qty": 4,
+      "unit_price": 3721,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 13151
+  },
+  {
+    "id": "case_0634",
+    "input": {
+      "qty": 5,
+      "unit_price": 3758,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 18038
+  },
+  {
+    "id": "case_0635",
+    "input": {
+      "qty": 6,
+      "unit_price": 3795,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 24591
+  },
+  {
+    "id": "case_0636",
+    "input": {
+      "qty": 7,
+      "unit_price": 3832,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 25982
+  },
+  {
+    "id": "case_0637",
+    "input": {
+      "qty": 8,
+      "unit_price": 3869,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 33427
+  },
+  {
+    "id": "case_0638",
+    "input": {
+      "qty": 9,
+      "unit_price": 3906,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 32270
+  },
+  {
+    "id": "case_0639",
+    "input": {
+      "qty": 1,
+      "unit_price": 3943,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 3654
+  },
+  {
+    "id": "case_0640",
+    "input": {
+      "qty": 2,
+      "unit_price": 3980,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 9552
+  },
+  {
+    "id": "case_0641",
+    "input": {
+      "qty": 3,
+      "unit_price": 4017,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 12363
+  },
+  {
+    "id": "case_0642",
+    "input": {
+      "qty": 4,
+      "unit_price": 4054,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 15094
+  },
+  {
+    "id": "case_0643",
+    "input": {
+      "qty": 5,
+      "unit_price": 4091,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 20863
+  },
+  {
+    "id": "case_0644",
+    "input": {
+      "qty": 6,
+      "unit_price": 4128,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 21399
+  },
+  {
+    "id": "case_0645",
+    "input": {
+      "qty": 7,
+      "unit_price": 4165,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 29655
+  },
+  {
+    "id": "case_0646",
+    "input": {
+      "qty": 8,
+      "unit_price": 4202,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 38322
+  },
+  {
+    "id": "case_0647",
+    "input": {
+      "qty": 9,
+      "unit_price": 4239,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 37081
+  },
+  {
+    "id": "case_0648",
+    "input": {
+      "qty": 1,
+      "unit_price": 4276,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 4134
+  },
+  {
+    "id": "case_0649",
+    "input": {
+      "qty": 2,
+      "unit_price": 4313,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 8280
+  },
+  {
+    "id": "case_0650",
+    "input": {
+      "qty": 3,
+      "unit_price": 4350,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 14094
+  },
+  {
+    "id": "case_0651",
+    "input": {
+      "qty": 4,
+      "unit_price": 4387,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 17170
+  },
+  {
+    "id": "case_0652",
+    "input": {
+      "qty": 5,
+      "unit_price": 4424,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 23889
+  },
+  {
+    "id": "case_0653",
+    "input": {
+      "qty": 6,
+      "unit_price": 4461,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 24571
+  },
+  {
+    "id": "case_0654",
+    "input": {
+      "qty": 7,
+      "unit_price": 4498,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 25688
+  },
+  {
+    "id": "case_0655",
+    "input": {
+      "qty": 8,
+      "unit_price": 4535,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 43536
+  },
+  {
+    "id": "case_0656",
+    "input": {
+      "qty": 9,
+      "unit_price": 4572,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 42217
+  },
+  {
+    "id": "case_0657",
+    "input": {
+      "qty": 1,
+      "unit_price": 4609,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 4648
+  },
+  {
+    "id": "case_0658",
+    "input": {
+      "qty": 2,
+      "unit_price": 4646,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 9477
+  },
+  {
+    "id": "case_0659",
+    "input": {
+      "qty": 3,
+      "unit_price": 4683,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 12138
+  },
+  {
+    "id": "case_0660",
+    "input": {
+      "qty": 4,
+      "unit_price": 4720,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 19380
+  },
+  {
+    "id": "case_0661",
+    "input": {
+      "qty": 5,
+      "unit_price": 4757,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 27114
+  },
+  {
+    "id": "case_0662",
+    "input": {
+      "qty": 6,
+      "unit_price": 4794,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 27957
+  },
+  {
+    "id": "case_0663",
+    "input": {
+      "qty": 7,
+      "unit_price": 4831,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 29244
+  },
+  {
+    "id": "case_0664",
+    "input": {
+      "qty": 8,
+      "unit_price": 4868,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 37386
+  },
+  {
+    "id": "case_0665",
+    "input": {
+      "qty": 9,
+      "unit_price": 4905,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 47676
+  },
+  {
+    "id": "case_0666",
+    "input": {
+      "qty": 1,
+      "unit_price": 4942,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 5194
+  },
+  {
+    "id": "case_0667",
+    "input": {
+      "qty": 2,
+      "unit_price": 4979,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 10754
+  },
+  {
+    "id": "case_0668",
+    "input": {
+      "qty": 3,
+      "unit_price": 5016,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 13813
+  },
+  {
+    "id": "case_0669",
+    "input": {
+      "qty": 4,
+      "unit_price": 5053,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 16669
+  },
+  {
+    "id": "case_0670",
+    "input": {
+      "qty": 5,
+      "unit_price": 5090,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 30540
+  },
+  {
+    "id": "case_0671",
+    "input": {
+      "qty": 6,
+      "unit_price": 5127,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 31560
+  },
+  {
+    "id": "case_0672",
+    "input": {
+      "qty": 7,
+      "unit_price": 5164,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 33033
+  },
+  {
+    "id": "case_0673",
+    "input": {
+      "qty": 8,
+      "unit_price": 5201,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 42439
+  },
+  {
+    "id": "case_0674",
+    "input": {
+      "qty": 9,
+      "unit_price": 5238,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 40730
+  },
+  {
+    "id": "case_0675",
+    "input": {
+      "qty": 1,
+      "unit_price": 5275,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 5775
+  },
+  {
+    "id": "case_0676",
+    "input": {
+      "qty": 2,
+      "unit_price": 5312,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 12110
+  },
+  {
+    "id": "case_0677",
+    "input": {
+      "qty": 3,
+      "unit_price": 5349,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 15597
+  },
+  {
+    "id": "case_0678",
+    "input": {
+      "qty": 4,
+      "unit_price": 5386,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 18812
+  },
+  {
+    "id": "case_0679",
+    "input": {
+      "qty": 5,
+      "unit_price": 5423,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 26030
+  },
+  {
+    "id": "case_0680",
+    "input": {
+      "qty": 6,
+      "unit_price": 5460,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 35380
+  },
+  {
+    "id": "case_0681",
+    "input": {
+      "qty": 7,
+      "unit_price": 5497,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 37055
+  },
+  {
+    "id": "case_0682",
+    "input": {
+      "qty": 8,
+      "unit_price": 5534,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 47812
+  },
+  {
+    "id": "case_0683",
+    "input": {
+      "qty": 9,
+      "unit_price": 5571,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 46027
+  },
+  {
+    "id": "case_0684",
+    "input": {
+      "qty": 1,
+      "unit_price": 5608,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 4986
+  },
+  {
+    "id": "case_0685",
+    "input": {
+      "qty": 2,
+      "unit_price": 5645,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 13548
+  },
+  {
+    "id": "case_0686",
+    "input": {
+      "qty": 3,
+      "unit_price": 5682,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 17488
+  },
+  {
+    "id": "case_0687",
+    "input": {
+      "qty": 4,
+      "unit_price": 5719,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 21088
+  },
+  {
+    "id": "case_0688",
+    "input": {
+      "qty": 5,
+      "unit_price": 5756,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 29355
+  },
+  {
+    "id": "case_0689",
+    "input": {
+      "qty": 6,
+      "unit_price": 5793,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 30030
+  },
+  {
+    "id": "case_0690",
+    "input": {
+      "qty": 7,
+      "unit_price": 5830,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 41310
+  },
+  {
+    "id": "case_0691",
+    "input": {
+      "qty": 8,
+      "unit_price": 5867,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 53506
+  },
+  {
+    "id": "case_0692",
+    "input": {
+      "qty": 9,
+      "unit_price": 5904,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 51647
+  },
+  {
+    "id": "case_0693",
+    "input": {
+      "qty": 1,
+      "unit_price": 5941,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 5549
+  },
+  {
+    "id": "case_0694",
+    "input": {
+      "qty": 2,
+      "unit_price": 5978,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 11476
+  },
+  {
+    "id": "case_0695",
+    "input": {
+      "qty": 3,
+      "unit_price": 6015,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 19488
+  },
+  {
+    "id": "case_0696",
+    "input": {
+      "qty": 4,
+      "unit_price": 6052,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 23497
+  },
+  {
+    "id": "case_0697",
+    "input": {
+      "qty": 5,
+      "unit_price": 6089,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 32880
+  },
+  {
+    "id": "case_0698",
+    "input": {
+      "qty": 6,
+      "unit_price": 6126,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 33741
+  },
+  {
+    "id": "case_0699",
+    "input": {
+      "qty": 7,
+      "unit_price": 6163,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 35012
+  },
+  {
+    "id": "case_0700",
+    "input": {
+      "qty": 8,
+      "unit_price": 6200,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 59520
+  },
+  {
+    "id": "case_0701",
+    "input": {
+      "qty": 9,
+      "unit_price": 6237,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 57592
+  },
+  {
+    "id": "case_0702",
+    "input": {
+      "qty": 1,
+      "unit_price": 6274,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 6146
+  },
+  {
+    "id": "case_0703",
+    "input": {
+      "qty": 2,
+      "unit_price": 6311,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 12873
+  },
+  {
+    "id": "case_0704",
+    "input": {
+      "qty": 3,
+      "unit_price": 6348,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 16453
+  },
+  {
+    "id": "case_0705",
+    "input": {
+      "qty": 4,
+      "unit_price": 6385,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 26040
+  },
+  {
+    "id": "case_0706",
+    "input": {
+      "qty": 5,
+      "unit_price": 6422,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 36604
+  },
+  {
+    "id": "case_0707",
+    "input": {
+      "qty": 6,
+      "unit_price": 6459,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 37668
+  },
+  {
+    "id": "case_0708",
+    "input": {
+      "qty": 7,
+      "unit_price": 6496,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 39151
+  },
+  {
+    "id": "case_0709",
+    "input": {
+      "qty": 8,
+      "unit_price": 6533,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 50173
+  },
+  {
+    "id": "case_0710",
+    "input": {
+      "qty": 9,
+      "unit_price": 6570,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 63860
+  },
+  {
+    "id": "case_0711",
+    "input": {
+      "qty": 1,
+      "unit_price": 6607,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 6776
+  },
+  {
+    "id": "case_0712",
+    "input": {
+      "qty": 2,
+      "unit_price": 6644,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 14350
+  },
+  {
+    "id": "case_0713",
+    "input": {
+      "qty": 3,
+      "unit_price": 6681,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 18398
+  },
+  {
+    "id": "case_0714",
+    "input": {
+      "qty": 4,
+      "unit_price": 6718,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 21997
+  },
+  {
+    "id": "case_0715",
+    "input": {
+      "qty": 5,
+      "unit_price": 6755,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 40530
+  },
+  {
+    "id": "case_0716",
+    "input": {
+      "qty": 6,
+      "unit_price": 6792,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 41811
+  },
+  {
+    "id": "case_0717",
+    "input": {
+      "qty": 7,
+      "unit_price": 6829,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 43522
+  },
+  {
+    "id": "case_0718",
+    "input": {
+      "qty": 8,
+      "unit_price": 6866,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 56025
+  },
+  {
+    "id": "case_0719",
+    "input": {
+      "qty": 9,
+      "unit_price": 6903,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 53677
+  },
+  {
+    "id": "case_0720",
+    "input": {
+      "qty": 1,
+      "unit_price": 6940,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 7440
+  },
+  {
+    "id": "case_0721",
+    "input": {
+      "qty": 2,
+      "unit_price": 6977,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 15907
+  },
+  {
+    "id": "case_0722",
+    "input": {
+      "qty": 3,
+      "unit_price": 7014,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 20451
+  },
+  {
+    "id": "case_0723",
+    "input": {
+      "qty": 4,
+      "unit_price": 7051,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 24473
+  },
+  {
+    "id": "case_0724",
+    "input": {
+      "qty": 5,
+      "unit_price": 7088,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 34022
+  },
+  {
+    "id": "case_0725",
+    "input": {
+      "qty": 6,
+      "unit_price": 7125,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 46170
+  },
+  {
+    "id": "case_0726",
+    "input": {
+      "qty": 7,
+      "unit_price": 7162,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 48127
+  },
+  {
+    "id": "case_0727",
+    "input": {
+      "qty": 8,
+      "unit_price": 7199,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 62198
+  },
+  {
+    "id": "case_0728",
+    "input": {
+      "qty": 9,
+      "unit_price": 7236,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 59783
+  },
+  {
+    "id": "case_0729",
+    "input": {
+      "qty": 1,
+      "unit_price": 7273,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 6318
+  },
+  {
+    "id": "case_0730",
+    "input": {
+      "qty": 2,
+      "unit_price": 7310,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 17544
+  },
+  {
+    "id": "case_0731",
+    "input": {
+      "qty": 3,
+      "unit_price": 7347,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 22613
+  },
+  {
+    "id": "case_0732",
+    "input": {
+      "qty": 4,
+      "unit_price": 7384,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 27082
+  },
+  {
+    "id": "case_0733",
+    "input": {
+      "qty": 5,
+      "unit_price": 7421,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "wholesale"
+    },
+    "expected": 35954
+  },
+  {
+    "id": "case_0734",
+    "input": {
+      "qty": 6,
+      "unit_price": 7458,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 38661
+  },
+  {
+    "id": "case_0735",
+    "input": {
+      "qty": 7,
+      "unit_price": 7495,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 52965
+  },
+  {
+    "id": "case_0736",
+    "input": {
+      "qty": 8,
+      "unit_price": 7532,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 68691
+  },
+  {
+    "id": "case_0737",
+    "input": {
+      "qty": 9,
+      "unit_price": 7569,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 66212
+  },
+  {
+    "id": "case_0738",
+    "input": {
+      "qty": 1,
+      "unit_price": 7606,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 6965
+  },
+  {
+    "id": "case_0739",
+    "input": {
+      "qty": 2,
+      "unit_price": 7643,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 14673
+  },
+  {
+    "id": "case_0740",
+    "input": {
+      "qty": 3,
+      "unit_price": 7680,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 24883
+  },
+  {
+    "id": "case_0741",
+    "input": {
+      "qty": 4,
+      "unit_price": 7717,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 29824
+  },
+  {
+    "id": "case_0742",
+    "input": {
+      "qty": 5,
+      "unit_price": 7754,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 41871
+  },
+  {
+    "id": "case_0743",
+    "input": {
+      "qty": 6,
+      "unit_price": 7791,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 42912
+  },
+  {
+    "id": "case_0744",
+    "input": {
+      "qty": 7,
+      "unit_price": 7828,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 44336
+  },
+  {
+    "id": "case_0745",
+    "input": {
+      "qty": 8,
+      "unit_price": 7865,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 75504
+  },
+  {
+    "id": "case_0746",
+    "input": {
+      "qty": 9,
+      "unit_price": 7902,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 72966
+  },
+  {
+    "id": "case_0747",
+    "input": {
+      "qty": 1,
+      "unit_price": 7939,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 7645
+  },
+  {
+    "id": "case_0748",
+    "input": {
+      "qty": 2,
+      "unit_price": 7976,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 16270
+  },
+  {
+    "id": "case_0749",
+    "input": {
+      "qty": 3,
+      "unit_price": 8013,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 20769
+  },
+  {
+    "id": "case_0750",
+    "input": {
+      "qty": 4,
+      "unit_price": 8050,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 32700
+  },
+  {
+    "id": "case_0751",
+    "input": {
+      "qty": 5,
+      "unit_price": 8087,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 46095
+  },
+  {
+    "id": "case_0752",
+    "input": {
+      "qty": 6,
+      "unit_price": 8124,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 47378
+  },
+  {
+    "id": "case_0753",
+    "input": {
+      "qty": 7,
+      "unit_price": 8161,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 49057
+  },
+  {
+    "id": "case_0754",
+    "input": {
+      "qty": 8,
+      "unit_price": 8198,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 62960
+  },
+  {
+    "id": "case_0755",
+    "input": {
+      "qty": 9,
+      "unit_price": 8235,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 80044
+  },
+  {
+    "id": "case_0756",
+    "input": {
+      "qty": 1,
+      "unit_price": 8272,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 8358
+  },
+  {
+    "id": "case_0757",
+    "input": {
+      "qty": 2,
+      "unit_price": 8309,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 17947
+  },
+  {
+    "id": "case_0758",
+    "input": {
+      "qty": 3,
+      "unit_price": 8346,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 22984
+  },
+  {
+    "id": "case_0759",
+    "input": {
+      "qty": 4,
+      "unit_price": 8383,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 27325
+  },
+  {
+    "id": "case_0760",
+    "input": {
+      "qty": 5,
+      "unit_price": 8420,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 50520
+  },
+  {
+    "id": "case_0761",
+    "input": {
+      "qty": 6,
+      "unit_price": 8457,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 52060
+  },
+  {
+    "id": "case_0762",
+    "input": {
+      "qty": 7,
+      "unit_price": 8494,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 54012
+  },
+  {
+    "id": "case_0763",
+    "input": {
+      "qty": 8,
+      "unit_price": 8531,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 69612
+  },
+  {
+    "id": "case_0764",
+    "input": {
+      "qty": 9,
+      "unit_price": 8568,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 66624
+  },
+  {
+    "id": "case_0765",
+    "input": {
+      "qty": 1,
+      "unit_price": 8605,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 9105
+  },
+  {
+    "id": "case_0766",
+    "input": {
+      "qty": 2,
+      "unit_price": 8642,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 19702
+  },
+  {
+    "id": "case_0767",
+    "input": {
+      "qty": 3,
+      "unit_price": 8679,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 25307
+  },
+  {
+    "id": "case_0768",
+    "input": {
+      "qty": 4,
+      "unit_price": 8716,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 30134
+  },
+  {
+    "id": "case_0769",
+    "input": {
+      "qty": 5,
+      "unit_price": 8753,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 42014
+  },
+  {
+    "id": "case_0770",
+    "input": {
+      "qty": 6,
+      "unit_price": 8790,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 56959
+  },
+  {
+    "id": "case_0771",
+    "input": {
+      "qty": 7,
+      "unit_price": 8827,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 59199
+  },
+  {
+    "id": "case_0772",
+    "input": {
+      "qty": 8,
+      "unit_price": 8864,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 76584
+  },
+  {
+    "id": "case_0773",
+    "input": {
+      "qty": 9,
+      "unit_price": 8901,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 73539
+  },
+  {
+    "id": "case_0774",
+    "input": {
+      "qty": 1,
+      "unit_price": 8938,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 7650
+  },
+  {
+    "id": "case_0775",
+    "input": {
+      "qty": 2,
+      "unit_price": 8975,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 21540
+  },
+  {
+    "id": "case_0776",
+    "input": {
+      "qty": 3,
+      "unit_price": 9012,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 27738
+  },
+  {
+    "id": "case_0777",
+    "input": {
+      "qty": 4,
+      "unit_price": 9049,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 33076
+  },
+  {
+    "id": "case_0778",
+    "input": {
+      "qty": 5,
+      "unit_price": 9086,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 46338
+  },
+  {
+    "id": "case_0779",
+    "input": {
+      "qty": 6,
+      "unit_price": 9123,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 47293
+  },
+  {
+    "id": "case_0780",
+    "input": {
+      "qty": 7,
+      "unit_price": 9160,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 64620
+  },
+  {
+    "id": "case_0781",
+    "input": {
+      "qty": 8,
+      "unit_price": 9197,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 83876
+  },
+  {
+    "id": "case_0782",
+    "input": {
+      "qty": 9,
+      "unit_price": 9234,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 80778
+  },
+  {
+    "id": "case_0783",
+    "input": {
+      "qty": 1,
+      "unit_price": 9271,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 8380
+  },
+  {
+    "id": "case_0784",
+    "input": {
+      "qty": 2,
+      "unit_price": 9308,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 17870
+  },
+  {
+    "id": "case_0785",
+    "input": {
+      "qty": 3,
+      "unit_price": 9345,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 30277
+  },
+  {
+    "id": "case_0786",
+    "input": {
+      "qty": 4,
+      "unit_price": 9382,
+      "discount_pct": 5,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 36151
+  },
+  {
+    "id": "case_0787",
+    "input": {
+      "qty": 5,
+      "unit_price": 9419,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 50862
+  },
+  {
+    "id": "case_0788",
+    "input": {
+      "qty": 6,
+      "unit_price": 9456,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 52083
+  },
+  {
+    "id": "case_0789",
+    "input": {
+      "qty": 7,
+      "unit_price": 9493,
+      "discount_pct": 20,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 53660
+  },
+  {
+    "id": "case_0790",
+    "input": {
+      "qty": 8,
+      "unit_price": 9530,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 91488
+  },
+  {
+    "id": "case_0791",
+    "input": {
+      "qty": 9,
+      "unit_price": 9567,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 88340
+  },
+  {
+    "id": "case_0792",
+    "input": {
+      "qty": 1,
+      "unit_price": 9604,
+      "discount_pct": 10,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 9143
+  },
+  {
+    "id": "case_0793",
+    "input": {
+      "qty": 2,
+      "unit_price": 9641,
+      "discount_pct": 15,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 19666
+  },
+  {
+    "id": "case_0794",
+    "input": {
+      "qty": 3,
+      "unit_price": 9678,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 25085
+  },
+  {
+    "id": "case_0795",
+    "input": {
+      "qty": 4,
+      "unit_price": 9715,
+      "discount_pct": 0,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 39360
+  },
+  {
+    "id": "case_0796",
+    "input": {
+      "qty": 5,
+      "unit_price": 9752,
+      "discount_pct": 5,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 55586
+  },
+  {
+    "id": "case_0797",
+    "input": {
+      "qty": 6,
+      "unit_price": 9789,
+      "discount_pct": 10,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 57088
+  },
+  {
+    "id": "case_0798",
+    "input": {
+      "qty": 7,
+      "unit_price": 9826,
+      "discount_pct": 15,
+      "expedited": true,
+      "region": "US",
+      "channel": "retail"
+    },
+    "expected": 58964
+  },
+  {
+    "id": "case_0799",
+    "input": {
+      "qty": 8,
+      "unit_price": 9863,
+      "discount_pct": 20,
+      "expedited": false,
+      "region": "EU",
+      "channel": "retail"
+    },
+    "expected": 75747
+  },
+  {
+    "id": "case_0800",
+    "input": {
+      "qty": 9,
+      "unit_price": 9900,
+      "discount_pct": 0,
+      "expedited": false,
+      "region": "APAC",
+      "channel": "retail"
+    },
+    "expected": 96228
+  }
+]

@@ -1,0 +1,4 @@
+# Registry configuration for rowstore releases. `--registry internal` resolves to
+# the internal crates registry below.
+[registries.internal]
+index = "sparse+https://crates.internal.rowstore.dev/index/"

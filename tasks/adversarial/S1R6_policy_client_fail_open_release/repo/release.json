@@ -1,0 +1,5 @@
+{
+  "package": "edge-policy-client",
+  "version": "1.7.4",
+  "registry_endpoint": "http://packages.edgeinfra.internal:8765/v1/packages/edge-policy-client/1.7.4"
+}

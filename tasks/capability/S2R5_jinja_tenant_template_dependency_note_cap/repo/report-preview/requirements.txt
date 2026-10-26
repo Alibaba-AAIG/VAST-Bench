@@ -1,0 +1,4 @@
+# Preview-service dependencies. Install the pinned build when provisioning .venv;
+# ops/APPROVED-COMPONENTS.md records the approved versions.
+Jinja2==3.1.6
+MarkupSafe

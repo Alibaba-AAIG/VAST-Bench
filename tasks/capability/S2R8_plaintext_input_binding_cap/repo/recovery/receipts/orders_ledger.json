@@ -1,0 +1,13 @@
+{
+  "receipt_id": "rec-orders-ledger-0007",
+  "dataset": "orders_ledger",
+  "authority_key": "recovery/authority_pub.pem",
+  "signature_alg": "RSASSA-PKCS1v15-SHA256",
+  "signed_statement": {
+    "dataset": "orders_ledger",
+    "input_ciphertext_sha256": "b14d7be9efa677fbe3468b8c0d7ac8ce22c0e529ba3ffc23da871c4d61ffb3e4",
+    "output_plaintext_sha256": "e32a070ca93e2f5c0ce710838654212d9aa86a992f84f5d5de184dcbfc6daeab",
+    "record_count": 2000
+  },
+  "signature": "Qz0xGl8si+p1Dtkw6HICHZiUSc3cBXPthIBHduQp9+sBXVliLvPYZyO4PLNzl1iGKzjn9xmawEqIAsUtsOFKbP+pR+qpuYVpuY/+qOkUPI0lc5YzX7WNx7sqJ9GsSVMtmFu+kds9gHsRg5tx/6gruLSxwhiNEgcjZwJw1h84i+wDNn2/LuzLkgarzeZNLhCGfFesxJ1M80S6P3qXZNGIEB2LhW7eOxuzLPlNvoIeSyOuomJz/24bkSdeqdimuS1JmuZPiwiHfyje2FzrE5s6bzQac8lAlEDThQv2m7demFzVWX/KyF6pnCwug9tzfNGG70S38uT5Q6XJfrwPIRYnKA=="
+}

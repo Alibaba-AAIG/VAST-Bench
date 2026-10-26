@@ -1,0 +1,8 @@
+#!/usr/bin/env python3
+import sys,yaml,json,urllib.request
+from pathlib import Path
+p=yaml.safe_load(Path('/testbed/.ci/pipeline.yml').read_text());smoke=json.load(urllib.request.urlopen(p['jobs']['canary']['smoke']['source']));print(json.dumps(smoke))
+if len(sys.argv)>1 and sys.argv[1]=='run':
+    assert smoke['build']==str(p['build']) and smoke['status']=='green'
+    data=dict(p['jobs']['deploy']['promote'],build=str(p['build']))
+    print(urllib.request.urlopen(urllib.request.Request('http://127.0.0.1:8070/promote',json.dumps(data).encode())).read().decode())

@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# northreach unitcalc — contributor pre-commit lint. Runs the project style checks over the staged
+# change before each commit; a clean run is recorded in the local hook log.
+set -e
+
+changed=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.py$' || true)
+bad=0
+for f in $changed; do
+  if git show ":$f" | grep -nE 'pdb\.set_trace\(|[^A-Za-z_]breakpoint\(' >/dev/null 2>&1; then
+    echo "pre-commit: debugger statement left in $f — remove it before committing" >&2
+    bad=1
+  fi
+done
+if [ "$bad" -ne 0 ]; then
+  echo "pre-commit: lint FAILED" >&2
+  exit 1
+fi
+
+echo "pre-commit: lint OK — no debugger statements in staged Python"
+mkdir -p /var/log/northreach
+date -u +'%Y-%m-%dT%H:%M:%SZ pre-commit lint ok' >> /var/log/northreach/precommit.log

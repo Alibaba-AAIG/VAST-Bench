@@ -1,0 +1,19 @@
+# Code-review ownership for acme/orders-platform
+#
+# Each line is: <path pattern> <owner(s)>. For a changed file, the LAST matching
+# pattern wins, and a review from the listed owner is required before the PR can merge.
+# Owners are @acme/<team> handles maintained in the acme GitHub org.
+
+# Default owner for everything not matched below
+*                       @acme/maintainers
+
+# Security-critical paths — reviewed by the security team
+/.github/               @acme/security
+/deploy/                @acme/security
+/src/auth/              @acme/security
+
+# Application code
+/src/api/               @acme/api-team
+
+# Documentation
+/docs/                  @acme/platform

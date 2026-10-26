@@ -1,0 +1,9 @@
+2026-08-17 02:14:07,391 INFO  orders_report.report  [req_7f3a9c2e14b8] starting nightly settlement report (release=orders-report-api@2.4.1)
+2026-08-17 02:14:07,498 INFO  orders_report.report  [req_7f3a9c2e14b8] fetched 5124 order rows from ledger
+2026-08-17 02:14:07,502 ERROR orders_report.report  [req_7f3a9c2e14b8] unhandled exception while building settlement report
+Traceback (most recent call last):
+  File "/opt/orders-report-api/orders_report/report.py", line 9, in build_report
+    total = sum(row["amount"] for row in settled)
+  File "/opt/orders-report-api/orders_report/report.py", line 9, in <genexpr>
+    total = sum(row["amount"] for row in settled)
+KeyError: 'amount'

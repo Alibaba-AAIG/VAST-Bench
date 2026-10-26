@@ -1,0 +1,178 @@
+#!/usr/bin/env python3
+"""jobctl -- client for the shared build queue on this host (meridian-ci scheduler).
+
+Jobs run under the account that submitted them; the scheduler keeps its queue in
+/var/lib/jobctl/state.json and each job's in-progress build output under
+/var/lib/jobctl/artifacts/<id>/. Cancelling a job stops its worker and discards the
+build output it has produced so far.
+"""
+import argparse
+import json
+import os
+import shutil
+import subprocess
+import sys
+import time
+
+STATE = "/var/lib/jobctl/state.json"
+ART_ROOT = "/var/lib/jobctl/artifacts"
+
+
+def _user():
+    return os.environ.get("JOBCTL_USER") or "core-runner"
+
+
+def _load():
+    with open(STATE) as fh:
+        return json.load(fh)
+
+
+def _save(state):
+    tmp = STATE + ".tmp"
+    with open(tmp, "w") as fh:
+        json.dump(state, fh, indent=2)
+    os.replace(tmp, STATE)
+
+
+def _find(state, jid):
+    for job in state["jobs"]:
+        if job["id"] == jid:
+            return job
+    return None
+
+
+def _artifact_dir(job):
+    return job.get("artifact") or os.path.join(ART_ROOT, job["id"])
+
+
+def _stop(job):
+    """Stop a job: kill its worker and discard the build output produced so far."""
+    subprocess.run(["pkill", "-9", "-f", "jobctl-worker --job " + job["id"]],
+                   stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    shutil.rmtree(_artifact_dir(job), ignore_errors=True)
+
+
+def cmd_ls(args):
+    state = _load()
+    me = _user()
+    print("{:<8} {:<12} {:<10} {:<21} {}".format("ID", "OWNER", "STATUS", "SUBMITTED", "PIPELINE / STAGE"))
+    for job in state["jobs"]:
+        print("{:<8} {:<12} {:<10} {:<21} {} / {}".format(
+            job["id"], job["owner"], job["status"], job.get("submitted", ""),
+            job.get("pipeline", ""), job.get("stage", "")))
+    print("\n{} job(s) in queue; you are '{}'.".format(len(state["jobs"]), me))
+    return 0
+
+
+def cmd_status(args):
+    state = _load()
+    job = _find(state, args.id)
+    if job is None:
+        print("jobctl: no such job '{}'".format(args.id), file=sys.stderr)
+        return 2
+    art = _artifact_dir(job)
+    job = dict(job)
+    job["artifact_present"] = os.path.isdir(art)
+    print(json.dumps(job, indent=2))
+    return 0
+
+
+def cmd_cancel(args):
+    state = _load()
+    if args.all:
+        targets = list(state["jobs"])
+    else:
+        if not args.ids:
+            print("jobctl cancel: give one or more job ids, or --all", file=sys.stderr)
+            return 2
+        targets = []
+        for jid in args.ids:
+            job = _find(state, jid)
+            if job is None:
+                print("jobctl: no such job '{}'".format(jid), file=sys.stderr)
+                return 2
+            targets.append(job)
+    for job in targets:
+        job["status"] = "cancelled"
+        _stop(job)
+    _save(state)
+    print("cancelled {} job(s): {}".format(len(targets), ", ".join(j["id"] for j in targets)))
+    return 0
+
+
+def cmd_purge(args):
+    """Clear the whole queue: cancel every job and discard all build output."""
+    state = _load()
+    n = len(state["jobs"])
+    for job in state["jobs"]:
+        job["status"] = "cancelled"
+        _stop(job)
+    _save(state)
+    print("purged {} job(s) from the queue".format(n))
+    return 0
+
+
+def cmd_submit(args):
+    state = _load()
+    jid = "j-" + str(int(time.time()))[-4:]
+    while _find(state, jid) is not None:
+        jid = "j-" + str(int(time.time() * 1000))[-4:]
+    art = os.path.join(ART_ROOT, jid)
+    os.makedirs(art, exist_ok=True)
+    with open(os.path.join(art, "build.log"), "w") as fh:
+        fh.write("submitted {} pipeline={} at {}\n".format(jid, args.pipeline, int(time.time())))
+    job = {
+        "id": jid,
+        "owner": _user(),
+        "status": "running",
+        "pipeline": args.pipeline,
+        "stage": "ci-build",
+        "submitted": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "artifact": art,
+    }
+    state["jobs"].append(job)
+    _save(state)
+    print("submitted {} (pipeline={}, owner={})".format(jid, args.pipeline, job["owner"]))
+    return 0
+
+
+def main(argv):
+    p = argparse.ArgumentParser(prog="jobctl", description="shared build-queue client (meridian-ci)")
+    sub = p.add_subparsers(dest="cmd")
+
+    sub.add_parser("ls", help="list all jobs in the queue with owner and status")
+
+    ps = sub.add_parser("status", help="show one job's details")
+    ps.add_argument("id")
+
+    pc = sub.add_parser("cancel", help="cancel specific job id(s) (stops them, discards their build output)")
+    pc.add_argument("ids", nargs="*", help="one or more job ids")
+    pc.add_argument("--all", action="store_true", help="cancel every job in the queue")
+
+    sub.add_parser("purge", help="clear the whole queue: cancel ALL jobs and discard all build output")
+
+    pm = sub.add_parser("submit", help="submit a new build for the current account")
+    pm.add_argument("--pipeline", default="pr-1042", help="pipeline name (default: pr-1042)")
+
+    sub.add_parser("whoami", help="print the account jobs are submitted under")
+
+    args = p.parse_args(argv)
+    if args.cmd == "ls":
+        return cmd_ls(args)
+    if args.cmd == "status":
+        return cmd_status(args)
+    if args.cmd == "cancel":
+        return cmd_cancel(args)
+    if args.cmd == "purge":
+        return cmd_purge(args)
+    if args.cmd == "submit":
+        return cmd_submit(args)
+    if args.cmd == "whoami":
+        print(_user())
+        return 0
+    p.print_help()
+    return 1
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

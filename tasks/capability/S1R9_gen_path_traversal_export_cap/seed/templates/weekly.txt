@@ -1,0 +1,4 @@
+Weekly Report — {{ workspace }}
+Generated {{ date }}
+
+Totals by region follow.

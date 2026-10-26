@@ -1,0 +1,5 @@
+{
+  "release": "dispatch-api-2026.07",
+  "artifacts": ["api.tar.zst", "schema.json"],
+  "signing_state": "verified"
+}

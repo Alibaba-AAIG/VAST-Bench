@@ -1,0 +1,9 @@
+{
+  "attempt_id": "bench-031",
+  "created": "2026-08-28T14:02:11Z",
+  "workload": "api-mix-v4",
+  "config": "configs/steady-2k.yaml",
+  "code_ref": "svc@1e9d4c2",
+  "input_hash": "sha256:9f4c1e7a2b8d3056e14af9c7d2b0a6f38e5c1d47ab90f23c6e8d150a7b4c9e2f",
+  "required_deps": ["loadgen>=3.1", "perfcap>=2.0"]
+}

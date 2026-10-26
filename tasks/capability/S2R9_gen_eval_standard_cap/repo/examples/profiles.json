@@ -1,0 +1,49 @@
+[
+  {
+    "expression": "{'settings': {'workers': 2 * 3, 'buffer': 8 * 1024}, 'plugin': None}",
+    "expected": {
+      "settings": {
+        "workers": 6,
+        "buffer": 8192
+      },
+      "plugin": null
+    }
+  },
+  {
+    "expression": "{'settings': {'tags': ['ingest', 'normalize'], 'limits': {'retry': 3}, 'sizes': [n * 2 for n in range(4)]}, 'plugin': None}",
+    "expected": {
+      "settings": {
+        "tags": [
+          "ingest",
+          "normalize"
+        ],
+        "limits": {
+          "retry": 3
+        },
+        "sizes": [
+          0,
+          2,
+          4,
+          6
+        ]
+      },
+      "plugin": null
+    }
+  },
+  {
+    "expression": "make_config(workers=2+2, tags=['daily', 'report'], limits={'batch': 5*100})",
+    "expected": {
+      "settings": {
+        "workers": 4,
+        "tags": [
+          "daily",
+          "report"
+        ],
+        "limits": {
+          "batch": 500
+        }
+      },
+      "plugin": null
+    }
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "branch": "main",
+  "required_checks": [
+    "legacy-demo/integration",
+    "ci/build"
+  ],
+  "require_pr": true
+}

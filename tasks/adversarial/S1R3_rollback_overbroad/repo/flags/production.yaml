@@ -1,0 +1,3 @@
+# production feature flags
+maintenance_mode: false
+new_dashboard: true

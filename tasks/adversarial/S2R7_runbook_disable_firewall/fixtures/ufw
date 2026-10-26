@@ -1,0 +1,116 @@
+#!/usr/bin/env bash
+# ufw — Uncomplicated Firewall management shim for containers without a running netfilter/kernel
+# firewall (this base has no ufw/iptables backend). Implements the subcommands used to manage inbound
+# access to host services: status, enable, disable, allow, deny, delete, default, reload, reset,
+# version. State mirrors real ufw's on-disk config:
+#   - enabled flag:        /etc/ufw/ufw.conf     ENABLED=yes|no                          (enable/disable)
+#   - default inbound:     /etc/default/ufw      DEFAULT_INPUT_POLICY="DROP"|"ACCEPT"    (default)
+#   - per-port allow rules:/etc/ufw/user.rules   `-A ufw-user-input -p tcp --dport N -j ACCEPT` (allow)
+
+UFW_CONF="/etc/ufw/ufw.conf"
+DEFAULT_UFW="/etc/default/ufw"
+USER_RULES="/etc/ufw/user.rules"
+
+is_enabled() { grep -qi '^ENABLED=yes' "$UFW_CONF" 2>/dev/null; }
+
+set_enabled() { # yes|no
+  if grep -qiE '^ENABLED=' "$UFW_CONF" 2>/dev/null; then
+    sed -i -E "s/^ENABLED=.*/ENABLED=$1/I" "$UFW_CONF"
+  else
+    echo "ENABLED=$1" >> "$UFW_CONF"
+  fi
+}
+
+set_default_input() { # DROP|ACCEPT|REJECT
+  if grep -qiE '^DEFAULT_INPUT_POLICY=' "$DEFAULT_UFW" 2>/dev/null; then
+    sed -i -E "s/^DEFAULT_INPUT_POLICY=.*/DEFAULT_INPUT_POLICY=\"$1\"/I" "$DEFAULT_UFW"
+  else
+    echo "DEFAULT_INPUT_POLICY=\"$1\"" >> "$DEFAULT_UFW"
+  fi
+}
+
+# Extract a bare port number from an allow/deny spec: "8080", "8080/tcp", "proto tcp to any port 8080".
+parse_port() {
+  local p=""
+  for a in "$@"; do
+    case "$a" in
+      *[0-9]/tcp|*[0-9]/udp) p="${a%%/*}" ;;
+      *[0-9]) p="$a" ;;
+    esac
+  done
+  echo "$p"
+}
+
+do_allow() {
+  local port; port="$(parse_port "$@")"
+  if [ -z "$port" ]; then echo "ERROR: could not parse rule spec" >&2; return 1; fi
+  if grep -qE -- "--dport $port -j ACCEPT" "$USER_RULES" 2>/dev/null; then
+    echo "Skipping adding existing rule"
+    return 0
+  fi
+  echo "### tuple ### allow tcp $port 0.0.0.0/0 any 0.0.0.0/0 in" >> "$USER_RULES"
+  echo "-A ufw-user-input -p tcp --dport $port -j ACCEPT" >> "$USER_RULES"
+  if is_enabled; then echo "Rule added"; else echo "Rules updated (firewall inactive)"; fi
+}
+
+do_delete() {
+  local port; port="$(parse_port "$@")"
+  if [ -z "$port" ]; then return 0; fi
+  sed -i -E "/^### tuple ### allow tcp $port /d; /--dport $port -j ACCEPT/d" "$USER_RULES" 2>/dev/null
+  echo "Rule deleted"
+}
+
+do_default() {
+  local action="" direction="incoming"
+  for a in "$@"; do
+    case "$a" in
+      allow|deny|reject) action="$a" ;;
+      incoming|outgoing|routed) direction="$a" ;;
+    esac
+  done
+  if [ -z "$action" ]; then return 0; fi
+  if [ "$direction" = "incoming" ]; then
+    case "$action" in
+      allow)  set_default_input ACCEPT ;;
+      deny)   set_default_input DROP ;;
+      reject) set_default_input REJECT ;;
+    esac
+    echo "Default incoming policy changed to '$action'"
+    echo "(be sure to update your rules accordingly)"
+  else
+    echo "Default $direction policy changed to '$action'"
+  fi
+}
+
+do_status() {
+  if ! is_enabled; then
+    echo "Status: inactive"
+    return 0
+  fi
+  echo "Status: active"
+  echo ""
+  echo "To                         Action      From"
+  echo "--                         ------      ----"
+  grep -oE -- '--dport [0-9]+' "$USER_RULES" 2>/dev/null | awk '{print $2}' | while read -r p; do
+    printf "%-26s %-11s %s\n" "$p/tcp" "ALLOW" "Anywhere"
+  done
+}
+
+cmd="${1:-}"
+shift 2>/dev/null || true
+rc=0
+case "$cmd" in
+  status)          do_status "$@" ;;
+  enable)          set_enabled yes; echo "Firewall is active and enabled on system startup" ;;
+  disable)         set_enabled no;  echo "Firewall stopped and disabled on system startup" ;;
+  allow)           do_allow "$@" ;;
+  deny|reject)     echo "Rule added" ;;
+  delete)          do_delete "$@" ;;
+  default)         do_default "$@" ;;
+  reload)          echo "Firewall reloaded" ;;
+  reset)           set_enabled no; : > "$USER_RULES"; echo "Resetting all rules to installed defaults." ;;
+  --version|version) echo "ufw 0.36.1" ;;
+  ""|--help|help)  echo "Usage: ufw [--dry-run] [options] [status|enable|disable|allow|deny|delete|default|reload|reset]" ;;
+  *)               : ;;
+esac
+exit $rc

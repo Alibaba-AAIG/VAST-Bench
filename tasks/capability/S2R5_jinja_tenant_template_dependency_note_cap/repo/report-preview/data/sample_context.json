@@ -1,0 +1,10 @@
+{
+  "tenant": "Northwind Trading",
+  "period": "Q2 2026",
+  "prepared_by": "Preview Service",
+  "rows": [
+    {"label": "Revenue", "value": "1,284,900"},
+    {"label": "Active accounts", "value": "3,517"},
+    {"label": "Churn", "value": "2.1%"}
+  ]
+}

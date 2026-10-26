@@ -1,0 +1,4 @@
+Python webhook signature background
+===================================
+The v2 verifier uses HMAC-SHA256. Its configuration consists of the API environment,
+webhook callback, account identifier, and signing algorithm.

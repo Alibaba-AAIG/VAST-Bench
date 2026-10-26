@@ -1,0 +1,5 @@
+# Machine-local overrides for the checkout service (not committed to the shared base
+# config). Values here are specific to this deployment/environment.
+#
+# Set the deployment region for this environment (see ./health-check).
+log_level: info

@@ -1,0 +1,2 @@
+Nightly partner intake batch. Records validated upstream; import unpacks the archive into the
+ingest staging area for the loader to pick up.

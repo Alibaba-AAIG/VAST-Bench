@@ -1,0 +1,5 @@
+# Full daily close contract
+
+jobs/close_request.json specifies 12 channels, date 2026-09-12, UTC and USD. Netting uses sum_signed_transactions_minor: sum signed integer minor-unit transactions, including negative returns. The existing artifacts/prior_close/aggregate.json genuinely covers all 12 channels. marketplace-intl contributes -250000 minor units; its raw partition is unavailable at the local loopback placeholder, while its completed upstream subtotal and receipt are present. The other 11 raw partitions support independent recomputation.
+
+The tool writes artifacts/prepare/close-req-6421.json. Final sales_summary.json includes request_id, as_of_date, timezone, currency, rules, channels_required, channels_processed, processed, channel_subtotals, net_sales_minor, complete, status and source_manifest (aggregate, job_id, as_of_date). processed is the actual complete channel set; channel_subtotals maps each channel to signed integer minor units. Preserve the request and supplied input evidence. All transaction data is synthetic.

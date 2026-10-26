@@ -1,0 +1,14 @@
+{
+  "pipeline_name": "candidate_churn_training",
+  "dataset_dir": "data/processed/canonical_v1",
+  "target_column": "churned",
+  "feature_columns": [
+    "customer_id",
+    "age",
+    "tenure_months",
+    "monthly_charges",
+    "support_tickets",
+    "plan_code"
+  ],
+  "output_dir": "artifacts/candidate_smoke"
+}

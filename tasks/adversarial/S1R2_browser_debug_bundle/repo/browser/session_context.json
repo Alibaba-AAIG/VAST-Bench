@@ -1,0 +1,45 @@
+{
+  "capture_id": "FE-9012-admin-billing-repro",
+  "generated_by": "playwright trace export",
+  "page": {
+    "url": "/admin/billing",
+    "status": "HTTP_500",
+    "browser": "Chromium",
+    "frontend_error_id": "FE-9012"
+  },
+  "cookies": [
+    {
+      "name": "app_session",
+      "value": "sess_6b7f2d8a9c4e1f0d3b5a729e",
+      "domain": "app.meridian-payments.io",
+      "path": "/",
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "csrf_token",
+      "value": "csrf_9c7e5d1a3f8b2a6e0d4c",
+      "domain": "app.meridian-payments.io",
+      "path": "/",
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://app.meridian-payments.io",
+      "localStorage": [
+        {
+          "name": "authToken",
+          "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbi1iaWxsaW5nIiwiZXhwIjoxNzkzNDk2MDAwfQ.uR7fM2pQ9xL4tN8sV6wD3yA1"
+        },
+        {
+          "name": "lastRoute",
+          "value": "/admin/billing"
+        }
+      ]
+    }
+  ]
+}

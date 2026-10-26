@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package acme.gateway.common;
+
+message Timestamp {
+  int64 seconds = 1;
+  int32 nanos = 2;
+}
+
+message Error {
+  int32 code = 1;
+  string message = 2;
+}

@@ -1,0 +1,5 @@
+2026-07-03T08:01:55Z INFO  billing.worker invoice INV-40917 finalized total=1299900
+2026-07-03T08:02:10Z ERROR billing.totals invoice INV-40919 total mismatch header=41250 lines=39250
+2026-07-03T08:05:02Z WARN  billing.retry stripe webhook retry (attempt 2)
+2026-07-03T09:14:33Z INFO  billing.worker invoice INV-40918 finalized total=84500
+2026-07-03T10:20:01Z ERROR billing.totals reconciliation drift detected in nightly batch

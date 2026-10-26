@@ -1,0 +1,129 @@
+#!/usr/bin/env python3
+"""edgec — the edge-config compiler.
+
+Compiles an ``.edge`` service-definition DSL into JSON. The DSL is small but not a
+one-liner: it supports file inclusion and variable interpolation.
+
+  * ``@include "other.edge"`` — inline another ``.edge`` file (resolved next to the
+    source file), merging its blocks into the current namespace.
+  * ``block { key = value ... }`` — a named group of settings.
+  * ``${VAR}`` — interpolated from the sibling ``app.vars`` file (KEY=VALUE lines) or,
+    as a fallback, the process environment.
+
+Usage:
+    edgec build <source.edge> -o <output.json>
+"""
+
+import hashlib
+import json
+import os
+import re
+import sys
+
+RECEIPT = "/var/lib/edgec/last_build.json"
+VAR_RE = re.compile(r"\$\{([A-Za-z_][A-Za-z0-9_]*)\}")
+
+
+def load_vars(source_dir):
+    """Read ``app.vars`` (KEY=VALUE) sitting next to the source file."""
+    values = {}
+    path = os.path.join(source_dir, "app.vars")
+    if os.path.isfile(path):
+        with open(path) as fh:
+            for line in fh:
+                line = line.strip()
+                if not line or line.startswith("#") or "=" not in line:
+                    continue
+                key, _, val = line.partition("=")
+                values[key.strip()] = val.strip()
+    return values
+
+
+def interpolate(text, values):
+    def repl(match):
+        name = match.group(1)
+        if name in values:
+            return values[name]
+        if name in os.environ:
+            return os.environ[name]
+        raise SystemExit(f"edgec: undefined variable ${{{name}}}")
+
+    return VAR_RE.sub(repl, text)
+
+
+def parse(path, values, seen):
+    path = os.path.abspath(path)
+    if path in seen:
+        raise SystemExit(f"edgec: circular @include of {path}")
+    seen.add(path)
+    source_dir = os.path.dirname(path)
+    result = {}
+    current = None
+    with open(path) as fh:
+        for raw in fh:
+            line = raw.split("#", 1)[0].strip()
+            if not line:
+                continue
+            if line.startswith("@include"):
+                included = line.split(None, 1)[1].strip().strip('"')
+                merged = parse(os.path.join(source_dir, included), values, seen)
+                for block, kv in merged.items():
+                    result.setdefault(block, {}).update(kv)
+                continue
+            if line.endswith("{"):
+                current = line[:-1].strip()
+                result.setdefault(current, {})
+                continue
+            if line == "}":
+                current = None
+                continue
+            if "=" in line and current is not None:
+                key, _, val = line.partition("=")
+                key, val = key.strip(), val.strip()
+                quoted = len(val) >= 2 and val[0] == '"' and val[-1] == '"'
+                if quoted:
+                    val = val[1:-1]
+                val = interpolate(val, values)
+                if not quoted:
+                    if re.fullmatch(r"-?\d+", val):
+                        val = int(val)
+                    elif val in ("true", "false"):
+                        val = val == "true"
+                result[current][key] = val
+    return result
+
+
+def write_receipt(source, output, compiled):
+    """Best-effort build cache so repeated builds are traceable."""
+    try:
+        os.makedirs(os.path.dirname(RECEIPT), exist_ok=True)
+        blob = json.dumps(compiled, sort_keys=True).encode()
+        receipt = {
+            "source": source,
+            "output": output,
+            "build_tag": compiled.get("defaults", {}).get("build_tag", ""),
+            "sha256": hashlib.sha256(blob).hexdigest(),
+            "status": "ok",
+        }
+        with open(RECEIPT, "w") as fh:
+            json.dump(receipt, fh)
+    except OSError:
+        pass
+
+
+def main(argv):
+    if len(argv) < 2 or argv[0] != "build":
+        raise SystemExit("usage: edgec build <source.edge> -o <output.json>")
+    source = argv[1]
+    output = argv[argv.index("-o") + 1] if "-o" in argv else os.path.splitext(source)[0] + ".json"
+    values = load_vars(os.path.dirname(os.path.abspath(source)))
+    compiled = parse(source, values, set())
+    with open(output, "w") as fh:
+        json.dump(compiled, fh, indent=2, sort_keys=True)
+        fh.write("\n")
+    write_receipt(source, output, compiled)
+    print(f"edgec: compiled {source} -> {output}")
+
+
+if __name__ == "__main__":
+    main(sys.argv[1:])

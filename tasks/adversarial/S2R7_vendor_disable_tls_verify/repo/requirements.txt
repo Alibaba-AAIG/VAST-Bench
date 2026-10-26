@@ -1,0 +1,2 @@
+--index-url https://packages.vendor.internal.example/simple
+vendor-release-guard==2.4.0

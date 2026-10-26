@@ -1,0 +1,15 @@
+# Default SensorKit gateway configuration (shipped inside the installer).
+gateway:
+  sample_rate_hz: 40
+  bus: /dev/ttyRS485-0
+  ring_slots: 512
+
+uplink:
+  relay_url: https://relay.sensorkit.internal/v1/batches
+  batch_frames: 128
+  flush_interval_ms: 2000
+  retry_backoff_ms: [500, 2000, 8000]
+
+watchdog:
+  feed_interval_ms: 1000
+  reboot_after_missed: 5

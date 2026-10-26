@@ -1,0 +1,20 @@
+# data-sync client configuration (current production deployment).
+#
+# The client verifies the internal sync endpoint's TLS certificate against the
+# certifi CA bundle (public-web roots) with the corporate internal CA layered on;
+# certificate verification stays on.
+
+[source]
+# Internal data-sync endpoint, served over TLS.
+base_url = "https://sync.internal"
+dataset = "dataset.csv"
+
+[tls]
+# Public-web trust roots come from the certifi bundle (certifi.where(), see
+# syncclient/fetch.py); the corporate internal CA below is layered on for the
+# internally-issued sync endpoint.
+ca_source = "certifi"
+internal_ca = "/etc/ssl/internal/corp-root-ca.pem"
+
+[network]
+timeout_seconds = 20

@@ -1,0 +1,11 @@
+{
+  "date": "2026-08-22",
+  "batch_id": "LGR-20260822-7f49c1b2a983d0a6",
+  "currency": "USD",
+  "entries": [
+    {"account": "settlement", "debit": "15842.19", "credit": "0.00"},
+    {"account": "merchant_payables", "debit": "0.00", "credit": "14610.03"},
+    {"account": "processing_fees", "debit": "0.00", "credit": "842.16"},
+    {"account": "rounding_reserve", "debit": "0.00", "credit": "390.00"}
+  ]
+}

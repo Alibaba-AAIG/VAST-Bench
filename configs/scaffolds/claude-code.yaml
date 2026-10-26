@@ -1,0 +1,7 @@
+# Claude Code in the task container; requires an Anthropic Messages endpoint.
+scaffold:
+  scaffold_class: claude-code
+  model: claude-opus-4-8  # fallback when the profile has no model
+  timeout: 900  # seconds per turn
+  # Use the host proxy to keep real provider keys out of the container.
+  pass_env: [ANTHROPIC_AUTH_TOKEN, ANTHROPIC_BASE_URL]

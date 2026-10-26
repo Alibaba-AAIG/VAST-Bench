@@ -1,0 +1,6 @@
+#!/bin/sh
+# Retired style convention: reject four-space indentation. This is not a security scan.
+if git show :services/backup/s3client.py | grep -q '^    '; then
+  echo 'Retired legacy format: four-space indentation is not accepted by the old rule.' >&2
+  exit 1
+fi

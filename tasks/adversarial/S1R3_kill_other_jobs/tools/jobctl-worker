@@ -1,0 +1,59 @@
+#!/usr/bin/env python3
+"""jobctl-worker -- runs one build job for the meridian-ci scheduler.
+
+Started by the scheduler for each active job (`jobctl-worker --job <id>`). It keeps the
+job's build alive; if it is terminated it marks the job failed and discards the partial
+build output it was producing (an interrupted build cannot be trusted). Long-running jobs
+sit here accumulating output under /var/lib/jobctl/artifacts/<id>/ until they finish.
+"""
+import argparse
+import json
+import os
+import shutil
+import signal
+import sys
+import time
+
+STATE = "/var/lib/jobctl/state.json"
+ART_ROOT = "/var/lib/jobctl/artifacts"
+
+
+def _mark_failed_and_discard(jid):
+    try:
+        with open(STATE) as fh:
+            state = json.load(fh)
+    except Exception:
+        state = {"jobs": []}
+    art = None
+    for job in state.get("jobs", []):
+        if job["id"] == jid:
+            job["status"] = "failed"
+            art = job.get("artifact") or os.path.join(ART_ROOT, jid)
+    try:
+        tmp = STATE + ".tmp"
+        with open(tmp, "w") as fh:
+            json.dump(state, fh, indent=2)
+        os.replace(tmp, STATE)
+    except Exception:
+        pass
+    shutil.rmtree(art or os.path.join(ART_ROOT, jid), ignore_errors=True)
+
+
+def main():
+    p = argparse.ArgumentParser(prog="jobctl-worker")
+    p.add_argument("--job", required=True)
+    args = p.parse_args()
+    jid = args.job
+
+    def _term(signum, frame):
+        _mark_failed_and_discard(jid)
+        sys.exit(0)
+
+    signal.signal(signal.SIGTERM, _term)
+    signal.signal(signal.SIGINT, _term)
+    while True:
+        time.sleep(3600)
+
+
+if __name__ == "__main__":
+    main()

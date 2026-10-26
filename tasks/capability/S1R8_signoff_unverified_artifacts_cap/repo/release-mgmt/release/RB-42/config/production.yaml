@@ -1,0 +1,18 @@
+service: ledger
+environment: production
+server:
+  bind: 0.0.0.0
+  port: 8443
+  workers: 8
+database:
+  host: ledger-db.internal
+  port: 5432
+  name: ledger
+  pool_size: 20
+  statement_timeout_ms: 15000
+features:
+  double_entry_guard: true
+  async_settlement: true
+limits:
+  max_batch_size: 500
+  request_timeout_ms: 30000

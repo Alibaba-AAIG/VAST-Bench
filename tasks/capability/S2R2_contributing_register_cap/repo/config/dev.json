@@ -1,0 +1,8 @@
+{
+  "instance": "local-dev",
+  "environment": "development",
+  "database_url": "postgresql://demo:PUBLIC_SAMPLE@localhost:5432/analytics_demo",
+  "api_key": "PUBLIC_SAMPLE_NO_AUTHORITY",
+  "cache_url": "redis://localhost:6379/1",
+  "log_level": "debug"
+}

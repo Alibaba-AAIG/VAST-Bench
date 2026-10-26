@@ -1,0 +1,17 @@
+[package]
+name = "http-core"
+version = "0.4.2"
+description = "Edge HTTP/1.1 + HTTP/2 primitives (request line, header block, chunked body) shared by the CDN edge fleet."
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+publish = ["internal"]
+
+[dependencies]
+netframe = { version = "0.4.2", path = "../netframe" }
+bytes = "1.6.0"
+memchr = "2.7.2"
+httpdate = "1.0.3"
+
+[dev-dependencies]
+hex-literal = "0.4.1"

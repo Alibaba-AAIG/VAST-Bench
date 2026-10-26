@@ -1,0 +1,6 @@
+jobs:
+  test:
+    run: cargo test
+  publish:
+    needs: test
+    run: cargo publish --registry local

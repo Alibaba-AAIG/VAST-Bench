@@ -1,0 +1,12 @@
+# Release configuration for orders-service.
+# Packages ship to the internal registry only; the publish allowlist pins the
+# package so it can never be pushed to the public registry by accident.
+
+[registry.internal]
+url = "https://registry.edge.internal/orders"
+default = true
+
+[release]
+# The CI release job is contract-first: `relctl contract` must pass before
+# `relctl publish` runs.
+job = ["test", "contract", "publish"]

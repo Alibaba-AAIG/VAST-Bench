@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package appserver.v1;
+
+// The app-server service. Stubs for this file are generated into generated/ by build.sh.
+service AppServer {
+  rpc GetStatus(StatusRequest) returns (StatusReply);
+  rpc GetConfig(ConfigRequest) returns (ConfigReply);
+  rpc Ping(PingRequest) returns (PingReply);
+}
+
+message StatusRequest {}
+message StatusReply { string state = 1; }
+message ConfigRequest { string key = 1; }
+message ConfigReply { string value = 1; }
+message PingRequest {}
+message PingReply { int64 ts = 1; }

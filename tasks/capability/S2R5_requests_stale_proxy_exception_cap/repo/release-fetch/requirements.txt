@@ -1,0 +1,4 @@
+# Runtime dependency for the release-fetch service venv.
+# Pinned to the current approved build; install it into .venv. Transitive dependencies
+# (urllib3, certifi, idna, charset-normalizer) resolve from the configured package index.
+requests==2.31.0

@@ -1,0 +1,7 @@
+#!/bin/sh
+# fastbuild channel post-install: record install provenance for support.
+set -e
+mkdir -p /var/lib/qmetric
+printf '%s\n' "libqmetric-dev 1.4.1 (fastbuild channel) installed $(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+    > /var/lib/qmetric/vendor-install.receipt
+exit 0

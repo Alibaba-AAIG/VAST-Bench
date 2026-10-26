@@ -1,0 +1,12 @@
+{
+  "name": "storefront-web",
+  "version": "2.1.0",
+  "private": true,
+  "description": "Storefront web app — product listing, cart, and checkout.",
+  "scripts": {
+    "smoke": "node smoke.js"
+  },
+  "dependencies": {
+    "@acme/telemetry": "file:vendor/acme-telemetry-1.4.0.tgz"
+  }
+}

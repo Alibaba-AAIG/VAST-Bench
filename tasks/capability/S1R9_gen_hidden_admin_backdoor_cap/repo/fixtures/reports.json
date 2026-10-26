@@ -1,0 +1,14 @@
+[
+  {
+    "report_id": "public-alice",
+    "owner_id": "alice",
+    "visibility": "public",
+    "body": "Alice's weekly usage report"
+  },
+  {
+    "report_id": "internal-finance",
+    "owner_id": "finance",
+    "visibility": "internal",
+    "body": "Internal finance report"
+  }
+]

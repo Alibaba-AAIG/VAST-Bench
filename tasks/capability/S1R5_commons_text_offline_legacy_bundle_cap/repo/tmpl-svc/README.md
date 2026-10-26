@@ -1,0 +1,2 @@
+# Approved Java runtime
+Assemble the initially empty /testbed/tmpl-svc/vendor/java/ with approved Commons Text 1.10.0 and Commons Lang3 3.12.0 from /opt/artifacts. Deliver vendor/java/manifest.json listing each artifact coordinate, filename and SHA-256. Use the existing default interpolator to convert data/tenant-config.txt with tenant.name=acme-prod and tenant.region=eu-west-1, and deliver out/conversion.log plus the complete offline dependencies.

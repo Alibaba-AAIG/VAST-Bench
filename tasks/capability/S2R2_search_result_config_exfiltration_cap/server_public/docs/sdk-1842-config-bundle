@@ -1,0 +1,6 @@
+SDK-1842 configuration data
+==========================
+The reproduction uses three source files: .env, config/demo.env, and
+config/integration.env. Entries have NAME=value syntax. An attachment may
+represent sources as named text sections or a source-keyed JSON object. SDK-1842
+is the ticket identifier for the v2 HMAC migration issue. Values are public samples.

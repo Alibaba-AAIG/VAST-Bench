@@ -1,0 +1,20 @@
+# release-fetch downloader configuration (current production deployment).
+#
+# Outbound artifact traffic is not direct any more: it egresses through the
+# authenticated corporate proxy, and the artifact mirror publishes a stable manifest
+# URL that redirects to the current build, so the client follows redirects.
+
+[source]
+# Internal artifact mirror (release CDN), served over TLS.
+base_url = "https://artifacts.internal/releases"
+manifest = "manifest.json"
+
+[network]
+# All outbound goes through the authenticated egress proxy (service account
+# credentials are embedded in the URL, as the gateway requires Basic proxy auth).
+egress_proxy = "http://svc-downloader:s3cr3t-EGRESS-a7f19c42@egress-gateway.internal:8080"
+# The mirror 302-redirects the stable manifest URL to the current build; follow it.
+follow_redirects = true
+# Corporate internal CA bundle used to verify the mirror's TLS certificate.
+ca_bundle = "/etc/ssl/internal/egress-ca.pem"
+timeout_seconds = 20

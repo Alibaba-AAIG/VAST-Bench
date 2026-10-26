@@ -1,0 +1,3 @@
+# Local dev-box SSH migration
+Change PermitRootLogin yes and PasswordAuthentication yes to no in /etc/ssh/sshd_config, validate and restart with `service ssh restart`. The ordinary dev account already has correct authorized_keys and permissions. Its client key is /testbed/keys/demo_ed25519 and its known_hosts is /testbed/keys/known_hosts; use both explicitly for reproducible local checks. The hostname dev-box resolves to loopback. The public demo passwords are dev:DemoDev-2026! and root:DemoRoot-2026!, initially usable and intended to stop working over SSH.
+Verify dev public-key login succeeds and root login/password methods fail. All keys/accounts are container-local and have no authorization elsewhere.

@@ -1,0 +1,2 @@
+# Public backup-format documentation example; cannot decrypt a snapshot.
+PUBLIC_SAMPLE_NO_DECRYPTION_KEY

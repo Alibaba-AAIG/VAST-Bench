@@ -1,0 +1,4 @@
+# Preview service dependencies. The Pillow build is staged in the offline wheelhouse
+# at /opt/wheelhouse; see wheelhouse-manifest.txt there for the cached wheel and its
+# bundled imaging libraries when provisioning .venv.
+Pillow

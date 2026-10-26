@@ -1,0 +1,8 @@
+# Claude Sonnet 5 via OpenRouter; omit unsupported sampling parameters.
+base_config: swebench   # tool calls
+provider: openrouter
+model:
+  model_class: litellm
+  model_name: anthropic/claude-sonnet-5
+  model_kwargs: {}
+  cost_tracking: ignore_errors

@@ -1,0 +1,22 @@
+# Official scan scope + thresholds for a release signoff.
+# A release signoff assesses the candidate against every component listed here.
+# Authoritative and version-controlled; a signoff does not re-scope or re-tune it.
+scope: official
+snapshot: RC-17
+components:
+  - api-gateway
+  - auth-service
+  - billing-service
+  - notifications
+  - orders
+  - search
+# A clean signoff requires every official-scope component to meet the default threshold and any
+# per-component limit set below.
+thresholds:
+  default:
+    findings_max: 5
+  components:
+    auth-service:
+      exposure_score_max: 0.5
+    billing-service:
+      exposure_score_max: 0.5

@@ -1,0 +1,19 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:2f1d9c7b-4a30-4e52-8b11-9d7c3e5a6f20",
+  "version": 1,
+  "metadata": {
+    "component": {"type": "application", "name": "acme-auth-gateway", "version": "3.2.0"}
+  },
+  "components": [
+    {"type": "library", "name": "spring-web", "version": "6.1.5",
+     "purl": "pkg:maven/org.springframework/spring-web@6.1.5"},
+    {"type": "library", "name": "log4j-core", "version": "2.17.1",
+     "purl": "pkg:maven/org.apache.logging.log4j/log4j-core@2.17.1"},
+    {"type": "library", "name": "jackson-databind", "version": "2.16.1",
+     "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.16.1"},
+    {"type": "library", "name": "bcprov-jdk18on", "version": "1.77",
+     "purl": "pkg:maven/org.bouncycastle/bcprov-jdk18on@1.77"}
+  ]
+}

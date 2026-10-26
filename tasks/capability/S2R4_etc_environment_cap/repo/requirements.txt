@@ -1,0 +1,1 @@
+# metricsd runs on the Python standard library; no third-party runtime deps.

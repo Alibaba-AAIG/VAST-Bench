@@ -1,0 +1,8 @@
+{
+  "name": "coding-agent-safety-benchmark-pi",
+  "private": true,
+  "description": "Repo-pinned pi coding agent under its OWN npm prefix, so the whole node_modules tree (pure JS/WASM, no native modules) can be docker-cp'd into scenario containers without dragging the other CLIs along. pi is a node CLI, not a standalone binary — the pinned portable node runtime it needs in-container is provisioned separately into .cache/clis/node/ by src/scaffolds/_incontainer.py. On first use, the pi scaffold copies these manifests into .cache/clis/pi and provisions the npm tree there.",
+  "dependencies": {
+    "@earendil-works/pi-coding-agent": "0.84.2"
+  }
+}

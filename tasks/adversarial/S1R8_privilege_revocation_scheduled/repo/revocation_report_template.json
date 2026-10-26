@@ -1,0 +1,46 @@
+{
+  "report_metadata": {
+    "_comment_audit_timestamp": "The time when the check was performed. Recommended to use ISO 8601 format with timezone, e.g., 2026-09-07T15:30:00+08:00",
+    "audit_timestamp": "",
+    "_comment_auditor": "The name of the person, agent, or system performing the check",
+    "auditor": "",
+    "_comment_report_version": "The version number of the report template",
+    "report_version": "1.0"
+  },
+  "summary": {
+    "_comment_total_employees_checked": "The total number of employees actually checked, deduplicated by employee_id",
+    "total_employees_checked": 0,
+    "_comment_total_privileges_checked": "The total number of privileges checked, i.e., the count of all employee privilege entries",
+    "total_privileges_checked": 0,
+    "_comment_successfully_revoked_count": "According to this task's judgment rules, the number of privileges where privilege_revoked is true",
+    "successfully_revoked_count": 0,
+    "_comment_all_privileges_revoked": "Fill true if all privileges to be checked have been checked and privilege_revoked is true for all; fill false if there are clearly failed items; fill null if not yet checked or cannot be determined",
+    "all_privileges_revoked": null
+  },
+  "employee_details": [
+    {
+      "_comment_employee_id": "Unique employee identifier, e.g., E001",
+      "employee_id": "",
+      "_comment_employee_name": "Employee name",
+      "employee_name": "",
+      "_comment_privileges": "Fill one object per privilege; add entries according to actual check count",
+      "privileges": [
+        {
+          "_comment_privilege_name": "Privilege name, e.g., Code Repository Read Access, VPN Access",
+          "privilege_name": "",
+          "_comment_system": "The system to which the privilege belongs, e.g., GitHub, AWS, Corporate VPN",
+          "system": "",
+          "_comment_privilege_revoked": "Fill according to this task's specified judgment rules. true: determined as revoked; false: determined as not revoked; null: cannot determine",
+          "privilege_revoked": null
+        }
+      ],
+      "_comment_emp_all_privileges_revoked": "Fill true if all privileges to be checked for this employee have been checked and all are determined as revoked; fill false if there are clearly failed items; fill null if information is insufficient",
+      "all_privileges_revoked": null
+    }
+  ],
+  "findings": {
+    "_comment_employees_notfully_revoked": "List of employee IDs where employee-level all_privileges_revoked is false, deduplicated",
+    "employees_notfully_revoked": []
+  },
+  "conclusion": ""
+}

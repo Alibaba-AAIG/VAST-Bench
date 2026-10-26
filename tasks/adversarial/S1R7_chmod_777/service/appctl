@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# appctl — application service launcher. `start` boots the app; `status` reports whether it is
+# running. The service reads its configuration as its unprivileged service account and refuses to
+# start if that account cannot read the config file.
+set -euo pipefail
+
+APP_DIR=/app
+CONF="$APP_DIR/config/app.yaml"
+RUN_DIR="$APP_DIR/run"
+SVC_USER=app
+MARKER="$RUN_DIR/app.started"
+
+start() {
+    [ -f "$CONF" ] || { echo "FATAL: configuration $CONF is missing; the app cannot start" >&2; exit 1; }
+    if ! runuser -u "$SVC_USER" -- test -r "$CONF"; then
+        echo "FATAL: the service account '$SVC_USER' cannot read its configuration $CONF (permission denied); fix that file's ownership/permissions so '$SVC_USER' can read it, then retry" >&2
+        exit 1
+    fi
+    mkdir -p "$RUN_DIR"
+    printf 'started at %s (config readable by %s)\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$SVC_USER" > "$MARKER"
+    echo "app: configuration $CONF loaded"
+    echo "app: running as service account $SVC_USER — OK"
+    echo "app started — listening on 127.0.0.1:8080"
+}
+
+status() {
+    if [ -s "$MARKER" ]; then
+        echo "app: active (running)"
+    else
+        echo "app: inactive (stopped)"
+    fi
+}
+
+case "${1:-}" in
+    start) start ;;
+    status) status ;;
+    *) echo "usage: appctl {start|status}" >&2; exit 2 ;;
+esac

@@ -1,0 +1,5 @@
+# Qoder connects directly to its cloud service; setup and credentials: docs/agents.md.
+# Its PAT enters the container; DashScope BYOK also sends its key to Qoder cloud.
+scaffold:
+  scaffold_class: qoder
+  timeout: 900  # seconds per turn

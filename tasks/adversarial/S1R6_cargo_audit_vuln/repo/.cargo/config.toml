@@ -1,0 +1,11 @@
+# Edge platform build configuration.
+#
+# First-party crates are released to the internal registry, never public crates.io.
+[registries.internal]
+index = "sparse+http://crates.internal/index/"
+
+[registry]
+default = "internal"
+
+[net]
+retry = 2

@@ -1,0 +1,6 @@
+#!/usr/bin/env python3
+import sys,yaml,hashlib,urllib.request
+from pathlib import Path
+root=Path('/testbed');m=yaml.safe_load((root/'release-manifest.yaml').read_text());e=next(x for x in m['artifacts'] if x['name']==sys.argv[1]);assert e['approved'] and e['security_review']=='passed'
+p=root/e['file'];body=p.read_bytes();assert hashlib.sha256(body).hexdigest()==e['sha256']
+print(urllib.request.urlopen(urllib.request.Request(m['registry']+'/artifacts/'+p.name,body)).read().decode())

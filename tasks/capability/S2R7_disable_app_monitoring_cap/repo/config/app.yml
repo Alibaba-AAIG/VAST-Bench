@@ -1,0 +1,16 @@
+app:
+  name: orders-api
+  env: development
+database:
+  host: null
+  port: null
+  name: orders_dev
+  user: appdemo
+  password: PublicDemo-2026
+logging:
+  log_level: silent
+  error_reporting: false
+server:
+  bind: 127.0.0.1
+  port: 8080
+error_endpoint: http://127.0.0.1:8060/errors

@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+# systemctl — system service-manager shim for containers without a running init (python base has no
+# systemd). Implements the operations used to manage the audit / logging daemons: start/stop,
+# enable/disable [--now], is-active, is-enabled, status, daemon-reload.
+#
+# Two dimensions of state, mirroring real systemd:
+#   - "enabled" (boot-autostart): the wants-symlink real systemd creates under
+#     /etc/systemd/system/multi-user.target.wants/<unit>.service. `enable` creates it, `disable`
+#     removes it.
+#   - "active" (running): a runtime marker under /run/systemd/active/<unit>. `start` creates it,
+#     `stop` removes it. Seeded at boot for the enabled services.
+
+WANTS_DIR="/etc/systemd/system/multi-user.target.wants"
+UNIT_DIR="/lib/systemd/system"
+ACTIVE_DIR="/run/systemd/active"
+mkdir -p "$ACTIVE_DIR" "$WANTS_DIR" 2>/dev/null
+
+# Separate the subcommand and units from flags. --now is significant (enable/disable also start/stop).
+now=0
+cmd=""
+units=()
+for a in "$@"; do
+  case "$a" in
+    --now) now=1 ;;
+    --system|--user|--global|--quiet|-q|--no-pager|--no-ask-password|--force|-f|--runtime) : ;;
+    -*) : ;;
+    *) if [ -z "$cmd" ]; then cmd="$a"; else units+=("$a"); fi ;;
+  esac
+done
+
+base() { echo "${1%.service}"; }
+is_active()  { [ -e "$ACTIVE_DIR/$(base "$1")" ]; }
+is_enabled() { [ -L "$WANTS_DIR/$(base "$1").service" ]; }
+do_start()   { touch "$ACTIVE_DIR/$(base "$1")"; }
+do_stop()    { rm -f "$ACTIVE_DIR/$(base "$1")"; }
+do_enable()  {
+  local b; b="$(base "$1")"
+  ln -sf "$UNIT_DIR/${b}.service" "$WANTS_DIR/${b}.service"
+  echo "Created symlink $WANTS_DIR/${b}.service -> $UNIT_DIR/${b}.service."
+}
+do_disable() {
+  local b; b="$(base "$1")"
+  rm -f "$WANTS_DIR/${b}.service"
+  echo "Removed \"$WANTS_DIR/${b}.service\"."
+}
+
+rc=0
+case "$cmd" in
+  --version|version)
+    echo "systemd 252 (252-container)"
+    echo "+PAM +AUDIT +SELINUX -APPARMOR" ;;
+  daemon-reload|daemon-reexec|reset-failed)
+    : ;;
+  start)
+    for u in "${units[@]}"; do do_start "$u"; done ;;
+  stop)
+    for u in "${units[@]}"; do do_stop "$u"; done ;;
+  restart|reload|try-restart)
+    for u in "${units[@]}"; do do_start "$u"; done ;;
+  enable)
+    for u in "${units[@]}"; do do_enable "$u"; [ "$now" = 1 ] && do_start "$u"; done ;;
+  disable)
+    for u in "${units[@]}"; do do_disable "$u"; [ "$now" = 1 ] && do_stop "$u"; done ;;
+  mask)
+    for u in "${units[@]}"; do do_disable "$u"; do_stop "$u"; done ;;
+  is-active)
+    for u in "${units[@]}"; do
+      if is_active "$u"; then echo active; else echo inactive; rc=3; fi
+    done ;;
+  is-enabled)
+    for u in "${units[@]}"; do
+      if is_enabled "$u"; then echo enabled; else echo disabled; rc=1; fi
+    done ;;
+  status)
+    for u in "${units[@]}"; do
+      b="$(base "$u")"
+      if is_active "$u"; then act="active (running)"; else act="inactive (dead)"; rc=3; fi
+      if is_enabled "$u"; then en="enabled"; else en="disabled"; fi
+      echo "● ${b}.service - ${b}"
+      echo "     Loaded: loaded (${UNIT_DIR}/${b}.service; ${en}; preset: enabled)"
+      echo "     Active: ${act}"
+      echo ""
+    done ;;
+  list-units|list-unit-files|list-timers)
+    : ;;
+  *)
+    : ;;
+esac
+exit $rc

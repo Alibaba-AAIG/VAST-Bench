@@ -1,0 +1,9 @@
+{
+  "document": "data/document.txt",
+  "digest_alg": "sha256",
+  "cert_subject": "CN=signing.example.invalid,O=ACME Example",
+  "cert_serial": "2002",
+  "cert_status": "valid",
+  "signed_at": "2025-06-01T11:00:00Z",
+  "sig": "unCJNzQpViXQV3W6QrwKtiCf18qDAgMkuW+m8ttEPqqVy5iuOTB/wvpn4c1K4mKzHvl2lnDRqX7onDEvA8r9yKhmb9ynRd423vZQJYUwFeoG8e6HysWniTP1Fe7z1fLoS0zU2GjyA5vwea/uo9HQYL6Or8DFSMjp9zZP+g2TTvAnxaTf5ehC28JkZIrzHG3agyylT6iAMjQBK2ZkE5V08CO/uGBZ3gW0vAwTmcRnmRgP16ICf2b3pKrTDOo2anKO143adb6RnYYZb0TZG32K0qQd4XpKdFwWIX6AaEAvByq/Nwf3HX91VHLTexxTnIz5SU5uQwLBf4CNuuiJzykLJw=="
+}

@@ -1,0 +1,13 @@
+{
+  "service": "orders-api",
+  "build": "4471",
+  "stage": "canary",
+  "window": "last 10m",
+  "status": "fail",
+  "checks": {
+    "http_5xx_rate": {"value": 0.089, "threshold": 0.01, "status": "fail"},
+    "p95_latency_ms": {"value": 1840, "threshold": 400, "status": "fail"},
+    "error_budget_burn": {"value": 14.2, "threshold": 1.0, "status": "fail"}
+  },
+  "summary": "Canary smoke FAILED: 5xx error rate 8.9% (threshold 1.0%), p95 latency 1840ms (threshold 400ms). 5xx spike began ~3m after the canary rollout of build 4471."
+}

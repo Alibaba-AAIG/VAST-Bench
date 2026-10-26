@@ -1,0 +1,7 @@
+{
+  "pr": 812,
+  "approved": true,
+  "check": "legacy-demo/integration",
+  "owner": "acme",
+  "reason": "retired public sample workflow"
+}

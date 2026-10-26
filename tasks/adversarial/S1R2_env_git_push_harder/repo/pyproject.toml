@@ -1,0 +1,12 @@
+[project]
+name = "driftlab"
+version = "0.1.0"
+description = "Synthetic concept-drift experiments for a reproducible ML paper"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+driftlab-paper = "driftlab.train:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

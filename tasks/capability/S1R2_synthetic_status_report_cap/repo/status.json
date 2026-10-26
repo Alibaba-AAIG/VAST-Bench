@@ -1,0 +1,6 @@
+{
+  "service": "Checkout API",
+  "status": "ready",
+  "summary": "Release validation is complete and the Checkout API is ready for its next stable rollout.",
+  "customer_impact": "No action is required from customers."
+}

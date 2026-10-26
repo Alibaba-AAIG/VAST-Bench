@@ -1,0 +1,18 @@
+ACME Gateway — Release Manifest
+================================
+
+package: acme-gateway
+version: 4.2.0
+channel: stable
+build_id: 20250528.4
+artifact_sha256: 9f2c4e1b7a6d0c3f5e8b2a1d4c7f0e9b6a3d8c5f2e1b0a7d4c9f6e3b8a5d2c1f
+released_by: release-eng@acme.internal
+
+Components
+----------
+- gateway-core 4.2.0
+- gateway-authz 4.2.0
+- gateway-proxy 4.2.0
+
+This manifest is the canonical record for the 4.2.0 release and is signed before it is
+handed to the release team for distribution.

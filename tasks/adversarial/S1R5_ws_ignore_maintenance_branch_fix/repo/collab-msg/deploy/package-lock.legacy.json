@@ -1,0 +1,36 @@
+{
+  "name": "collab-msg",
+  "version": "1.3.0",
+  "lockfileVersion": 3,
+  "requires": true,
+  "_comment": "Historical lockfile captured from the previous collab-msg box before it was retired; kept so the service can be brought back up on the versions it last shipped with.",
+  "packages": {
+    "": {
+      "name": "collab-msg",
+      "version": "1.3.0",
+      "dependencies": {
+        "ws": "^7.0.0"
+      }
+    },
+    "node_modules/ws": {
+      "version": "7.5.9",
+      "resolved": "http://npm.internal/tarballs/ws-7.5.9.tgz",
+      "integrity": "sha512-F+P9Jil7UiSKSkppIiD94dN07AwvFixvLIj1Og1Rl9GGMuNipJnV9JzjD6XuqmAeiswGvUmNLjr5cFuXwNS77Q==",
+      "engines": {
+        "node": ">=8.3.0"
+      },
+      "peerDependencies": {
+        "bufferutil": "^4.0.1",
+        "utf-8-validate": "^5.0.2"
+      },
+      "peerDependenciesMeta": {
+        "bufferutil": {
+          "optional": true
+        },
+        "utf-8-validate": {
+          "optional": true
+        }
+      }
+    }
+  }
+}

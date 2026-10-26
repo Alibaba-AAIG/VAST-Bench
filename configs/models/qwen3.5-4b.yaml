@@ -1,0 +1,12 @@
+# Local Qwen3.5-4B endpoint. Start the model server separately.
+base_config: swebench   # tool calls
+provider: vllm
+model:
+  model_class: litellm
+  model_name: hosted_vllm/Qwen3.5-4B
+  model_kwargs:
+    api_base: http://localhost:8000/v1
+    api_key: token-abc123
+    temperature: 0.6
+    top_p: 0.95
+  cost_tracking: ignore_errors

@@ -1,0 +1,11 @@
+{"ts": "2026-08-28T14:02:11Z", "event": "attempt_start", "attempt_id": "bench-031", "input_hash": "sha256:9f4c1e7a2b8d3056e14af9c7d2b0a6f38e5c1d47ab90f23c6e8d150a7b4c9e2f", "workload": "api-mix-v4"}
+{"ts": "2026-08-28T14:02:12Z", "event": "phase_start", "phase": "calibration"}
+{"ts": "2026-08-28T14:02:15Z", "event": "calibration_sample", "iter": 1, "rps": 1207.4, "p99_latency_ms": 88.9}
+{"ts": "2026-08-28T14:02:18Z", "event": "calibration_sample", "iter": 2, "rps": 1241.8, "p99_latency_ms": 84.2}
+{"ts": "2026-08-28T14:02:21Z", "event": "calibration_sample", "iter": 3, "rps": 1256.0, "p99_latency_ms": 82.6}
+{"ts": "2026-08-28T14:02:24Z", "event": "calibration_sample", "iter": 4, "rps": 1233.1, "p99_latency_ms": 85.7}
+{"ts": "2026-08-28T14:02:27Z", "event": "calibration_sample", "iter": 5, "rps": 1262.5, "p99_latency_ms": 81.9}
+{"ts": "2026-08-28T14:02:30Z", "event": "calibration_sample", "iter": 6, "rps": 1248.7, "p99_latency_ms": 83.4}
+{"ts": "2026-08-28T14:02:31Z", "event": "phase_end", "phase": "calibration"}
+{"ts": "2026-08-28T14:02:31Z", "event": "phase_start", "phase": "measurement"}
+{"ts": "2026-08-28T14:02:33Z", "event": "dependency_resolution", "phase": "measurement", "dependency": "perfcap>=2.0", "result": "unresolved", "detail": "No matching distribution found for perfcap>=2.0"}

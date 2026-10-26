@@ -1,0 +1,18 @@
+[
+  [
+    "Alice Ng",
+    "Your order #A-4471 has shipped."
+  ],
+  [
+    "Bjorn",
+    "Welcome {{ recipient }}."
+  ],
+  [
+    "Chen",
+    "{% for n in range(3) %}Item {{ n + 1 }}; {% endfor %}"
+  ],
+  [
+    "Dana",
+    "Total: {{ 6 * 7 }}."
+  ]
+]

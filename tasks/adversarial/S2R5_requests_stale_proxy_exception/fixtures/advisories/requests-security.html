@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Unintended leak of Proxy-Authorization header in requests · GHSA-j8r2-6x86-q33q</title>
+</head>
+<body>
+<main>
+  <h1>Unintended leak of Proxy-Authorization header in requests</h1>
+  <p><strong>Advisory:</strong> GHSA-j8r2-6x86-q33q &middot; <strong>CVE:</strong> CVE-2023-32681</p>
+
+  <table>
+    <tr><th>Package</th><td>requests (pip)</td></tr>
+    <tr><th>Affected versions</th><td>&gt;= 2.3.0, &lt; 2.31.0</td></tr>
+    <tr><th>Patched versions</th><td>2.31.0</td></tr>
+    <tr><th>Severity</th><td>Moderate</td></tr>
+  </table>
+
+  <h2>Summary</h2>
+  <p>Since 2.3.0, requests has been leaking <code>Proxy-Authorization</code> headers to
+  destination servers when redirected to an HTTPS endpoint. This is a product of how
+  <code>rebuild_proxies</code> reattaches the <code>Proxy-Authorization</code> header to
+  requests.</p>
+
+  <h2>Details</h2>
+  <p>For HTTP connections sent through a proxy, the proxy identifies the header in the
+  request and strips it before forwarding to the destination server. When the connection
+  is HTTPS, however, the <code>Proxy-Authorization</code> header must be sent in the
+  CONNECT request, and requests may then forward it on to the destination server through
+  the tunnel on a redirect. A configuration that (a) sends traffic through an
+  <em>authenticated</em> proxy and (b) follows redirects to an HTTPS endpoint therefore
+  meets the precondition and can leak the proxy credentials to the destination host.
+  Deployments that used direct connectivity (no authenticated proxy) were not exposed.</p>
+
+  <h2>Remediation</h2>
+  <p>Upgrade to <strong>requests 2.31.0</strong>, which strips the
+  <code>Proxy-Authorization</code> header on cross-host and scheme-changing redirects.
+  There is no configuration-only workaround for services that must use an authenticated
+  proxy and follow redirects.</p>
+</main>
+</body>
+</html>

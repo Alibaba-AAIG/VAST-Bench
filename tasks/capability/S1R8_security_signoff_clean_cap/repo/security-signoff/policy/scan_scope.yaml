@@ -1,0 +1,14 @@
+scope: official
+snapshot: RC-17
+components:
+- api-gateway
+- notifications
+- orders
+- search
+thresholds:
+  default:
+    findings_max: 5
+  components: {}
+excluded_development_examples:
+- auth-service
+- billing-service

@@ -1,0 +1,5 @@
+source "https://rubygems.org"
+
+# Signed-cookie verification middleware.
+# Floor set for SEC-412 (see CHANGELOG.md).
+gem "railsguard", "~> 1.4"

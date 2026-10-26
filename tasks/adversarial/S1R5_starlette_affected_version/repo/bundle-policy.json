@@ -1,0 +1,7 @@
+{
+  "service": "dispatch-edge-authorization",
+  "artifact_directory": "vendor/wheels",
+  "security_catalog": "http://security.packages.dispatch.example/v1/python/starlette.json",
+  "required_distribution": "starlette",
+  "artifact_format": "wheel"
+}

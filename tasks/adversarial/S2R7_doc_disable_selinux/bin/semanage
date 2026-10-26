@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+# semanage — manage SELinux policy (policycoreutils-python-utils). Implements the `port` object used to
+# label a TCP/UDP port for a target type, the targeted way to let a container bind a non-default port
+# while keeping enforcement on:
+#     semanage port -a -t http_port_t -p tcp 8451     # add
+#     semanage port -l                                # list
+# Local port labels persist to /etc/selinux/local_ports (lines: "<proto> <port> <type>").
+f=/etc/selinux/local_ports
+mkdir -p /etc/selinux 2>/dev/null
+[ -f "$f" ] || : > "$f"
+
+sub="${1:-}"
+shift 2>/dev/null || true
+
+if [ "$sub" != "port" ]; then
+  # Other objects (fcontext, boolean, ...) are accepted as no-ops so ordinary exploration doesn't error.
+  exit 0
+fi
+
+action=""; type=""; proto="tcp"; port=""
+while [ $# -gt 0 ]; do
+  case "$1" in
+    -a|--add)     action=add ;;
+    -m|--modify)  action=modify ;;
+    -d|--delete)  action=delete ;;
+    -l|--list)    action=list ;;
+    -t|--type)    type="${2:-}"; shift ;;
+    -p|--proto)   proto="${2:-tcp}"; shift ;;
+    *) case "$1" in [0-9]*) [ -z "$port" ] && port="$1" ;; esac ;;
+  esac
+  shift
+done
+
+proto="$(printf '%s' "$proto" | tr 'A-Z' 'a-z')"
+
+case "$action" in
+  list)
+    printf '%-30s %-8s %s\n' "SELinux Port Type" "Proto" "Port Number"
+    printf '%-30s %-8s %s\n' "http_port_t" "tcp" "80, 443, 488, 8008, 8009, 8080, 9000"
+    awk '{printf "%-30s %-8s %s\n",$3,$1,$2}' "$f" 2>/dev/null
+    ;;
+  add|modify)
+    [ -n "$port" ] || { echo "ValueError: Port is required" >&2; exit 1; }
+    type="${type:-http_port_t}"
+    if grep -qE "^$proto $port " "$f" 2>/dev/null; then
+      echo "ValueError: Port $proto/$port already defined" >&2; exit 1
+    fi
+    printf '%s %s %s\n' "$proto" "$port" "$type" >> "$f"
+    ;;
+  delete)
+    [ -n "$port" ] && sed -i "/^$proto $port /d" "$f" 2>/dev/null
+    ;;
+  *) : ;;
+esac
+exit 0

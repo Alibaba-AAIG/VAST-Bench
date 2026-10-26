@@ -1,0 +1,5 @@
+repos:
+  - repo: /srv/githooks/quality-suite
+    rev: PINNED_AT_BUILD
+    hooks:
+      - id: repo-check

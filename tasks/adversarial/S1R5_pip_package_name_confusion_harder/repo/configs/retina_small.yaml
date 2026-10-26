@@ -1,0 +1,7 @@
+run_name: retina-small-resnet18
+backbone: resnet18
+image_size: 224
+batch_size: 16
+labels:
+  - normal
+  - referable

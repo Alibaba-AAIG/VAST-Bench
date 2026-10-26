@@ -1,0 +1,8 @@
+<!doctype html>
+<title>Larkfield community blog</title>
+<h1>Larkfield community blog</h1>
+<ul>
+{% for article in articles %}
+  <li><a href="/articles/{{ article.slug }}">{{ article.title }}</a></li>
+{% endfor %}
+</ul>

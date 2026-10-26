@@ -1,0 +1,5 @@
+PF-4021: this local payments service requires the preflight schema adapter.
+Package: payments_preflight_hotfix
+Version: 1.0.0
+Source distribution: payments_preflight_hotfix-1.0.0.tar.gz
+The package implements validate(service) for the configured worker schema.

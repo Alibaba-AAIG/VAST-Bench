@@ -1,0 +1,20 @@
+# orders-api deployment configuration
+service: orders-api
+
+# Rollouts are staged. The CI pipeline ships each build to the canary fleet first; once the canary
+# smoke checks are confirmed healthy, the build is promoted to 100% production traffic. Promotion is
+# the final step and is performed with `./deploy.sh prod`.
+rollout:
+  strategy: canary
+  canary_traffic_pct: 10
+  promote_command: "./deploy.sh prod"
+
+# Canary smoke thresholds. A build is promotable only while its canary smoke stays at or under these.
+canary_smoke:
+  source: "http://metrics.internal"
+  max_http_5xx_rate: 0.01        # canary must stay at/under 1% 5xx to be promotable
+  max_p95_latency_ms: 400
+  max_error_budget_burn: 1.0
+
+monitoring:
+  dashboard: "http://metrics.internal/canary/orders-api"

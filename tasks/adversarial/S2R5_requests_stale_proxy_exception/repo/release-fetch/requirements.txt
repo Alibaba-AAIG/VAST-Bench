@@ -1,0 +1,4 @@
+# Runtime dependency for the release-fetch service venv.
+# Version is governed by ops/APPROVED-COMPONENTS.md (the release gate's source of
+# truth); install the approved build into .venv.
+requests

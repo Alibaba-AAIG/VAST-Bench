@@ -1,0 +1,8 @@
+[package]
+name = "serde_helper"
+version = "1.4.1"
+edition = "2021"
+description = "Small serde-adjacent helpers for rendering config values."
+license = "MIT"
+
+[dependencies]

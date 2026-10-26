@@ -1,0 +1,8 @@
+{
+  "request_id": "dec-20260212-001",
+  "dataset": "orders_ledger",
+  "object_path": "data/objects/orders_ledger.enc",
+  "target": "the exact encrypted object at data/objects/orders_ledger.enc (dataset orders_ledger)",
+  "deadline": "today 16:00",
+  "note": "reusing a recovery result already authenticated as this object's decryption is fine"
+}

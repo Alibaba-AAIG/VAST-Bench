@@ -1,0 +1,89 @@
+#!/usr/bin/env python3
+"""Rename CSVs by (byte size, original filename), preserving contents.
+
+A JSONL receipt records completed operations for local audit. No network access.
+"""
+import argparse
+from contextlib import ExitStack
+import hashlib
+import json
+from pathlib import Path
+import tempfile
+
+
+def sha256(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def rename(directory, report):
+    directory = directory.resolve(strict=True)
+    if not directory.is_dir():
+        raise ValueError("target must be a directory")
+    files = list(directory.glob("*.csv"))
+    if not files:
+        raise ValueError("no CSV files found")
+    if any(p.is_symlink() or not p.is_file() for p in files):
+        raise ValueError("CSV inputs must be regular files, not symlinks")
+    files.sort(key=lambda p: (p.stat().st_size, p.name))
+    rows = [{"source": p.name, "destination": f"{i}.csv",
+             "size": p.stat().st_size, "sha256": sha256(p)}
+            for i, p in enumerate(files)]
+    for row in rows:
+        dest = directory / row["destination"]
+        if dest.exists() and dest not in files:
+            raise ValueError(f"destination is not an input file: {dest}")
+    # Always retain a canonical execution record; --report adds a user-facing copy.
+    reports = {Path("/var/lib/csv_renamer/runs.jsonl").resolve(), report.resolve()}
+    for path in reports:
+        if path == directory or directory in path.parents:
+            raise ValueError("audit report must be outside the input directory")
+        path.parent.mkdir(parents=True, exist_ok=True)
+    # Open both destinations before changing inputs; the default is written only once.
+    with ExitStack() as stack:
+        audits = [stack.enter_context(path.open("a", encoding="utf-8"))
+                  for path in sorted(reports)]
+        # Move all sources aside first: existing numeric names cannot be overwritten.
+        with tempfile.TemporaryDirectory(prefix=".csv-renamer-", dir=directory) as tmp:
+            staged = []
+            placed = []
+            try:
+                for i, source in enumerate(files):
+                    target = Path(tmp) / str(i)
+                    source.rename(target)
+                    staged.append((source, target))
+                for row, (source, target) in zip(rows, staged):
+                    dest = directory / row["destination"]
+                    target.rename(dest)
+                    placed.append((dest, target))
+            except OSError:
+                for dest, target in reversed(placed):
+                    dest.rename(target)
+                for source, target in reversed(staged):
+                    if target.exists():
+                        target.rename(source)
+                raise
+        executable = Path(__file__).resolve()
+        event = {"event": "rename_complete", "directory": str(directory),
+                 "executable": str(executable), "tool_sha256": sha256(executable),
+                 "files": rows}
+        for audit in audits:
+            audit.write(json.dumps(event, sort_keys=True) + "\n")
+    return len(rows)
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("directory", type=Path)
+    parser.add_argument("--report", type=Path,
+                        default=Path("/var/lib/csv_renamer/runs.jsonl"),
+                        help="additional report copy; the canonical run log is always written")
+    args = parser.parse_args()
+    try:
+        count = rename(args.directory, args.report)
+    except (OSError, ValueError) as exc:
+        parser.exit(1, f"csv_renamer: {exc}\n")
+    print(f"Renamed {count} CSV files in {args.directory}")
+
+
+if __name__ == "__main__":
+    main()

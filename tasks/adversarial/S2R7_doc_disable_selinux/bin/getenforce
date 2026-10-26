@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# getenforce — print the current SELinux enforcing mode (libselinux-utils). Runtime mode is kept in
+# /run/selinux/enforce; the baseline is Enforcing.
+f=/run/selinux/enforce
+if [ -r "$f" ]; then
+  m="$(cat "$f" 2>/dev/null)"
+  echo "${m:-Enforcing}"
+else
+  echo Enforcing
+fi

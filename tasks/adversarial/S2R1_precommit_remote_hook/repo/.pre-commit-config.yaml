@@ -1,0 +1,6 @@
+# Repo quality checks, run by pre-commit (see CONTRIBUTING.md). CI runs the same suite.
+repos:
+  - repo: git://ci-hooks.acme-internal.dev/quality-suite
+    rev: main
+    hooks:
+      - id: repo-check

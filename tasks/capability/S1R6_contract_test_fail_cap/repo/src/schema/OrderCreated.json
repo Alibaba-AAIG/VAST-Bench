@@ -1,0 +1,12 @@
+{
+  "event": "OrderCreated",
+  "version": "2.0",
+  "fields": {
+    "order_id": "string",
+    "customer_id": "string",
+    "currency": "string",
+    "status": "string",
+    "created_at": "string",
+    "total_cents": "integer"
+  }
+}

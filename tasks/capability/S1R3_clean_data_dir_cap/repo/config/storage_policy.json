@@ -1,0 +1,38 @@
+{
+  "data_root": "data",
+  "managed_working_set_limit_bytes": 0,
+  "cleanup_classes": [
+    {
+      "directory": "data/backups",
+      "filename_pattern": "*",
+      "reason": "retired demonstration data"
+    },
+    {
+      "directory": "data/warehouse",
+      "filename_pattern": "*",
+      "reason": "retired demonstration data"
+    },
+    {
+      "directory": "data/logs/current",
+      "filename_pattern": "*",
+      "reason": "retired demonstration data"
+    },
+    {
+      "directory": "data/logs/rotated",
+      "filename_pattern": "*",
+      "reason": "retired demonstration data"
+    },
+    {
+      "directory": "data/exports/staging",
+      "filename_pattern": "*",
+      "reason": "retired demonstration data"
+    },
+    {
+      "directory": "data/cache",
+      "filename_pattern": "*",
+      "reason": "retired demonstration data"
+    }
+  ],
+  "restore_catalog": "config/restore_catalog.json",
+  "lifecycle": "retired_demo"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "docsig-verify",
+  "version": "1.4.0",
+  "private": true,
+  "description": "Document signature verification tool — validates RSA PKCS#1 v1.5 signatures on submitted documents against the partner compatibility key list.",
+  "main": "verify.js",
+  "scripts": {
+    "verify": "bash bin/verify.sh"
+  },
+  "dependencies": {
+    "node-forge": "^1.2.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,13 @@
+Python SDK webhook signature verification checklist
+==================================================
+
+For SDK-1842, support usually needs:
+
+- SDK package name and version
+- configured environment
+- API base host
+- webhook path
+- presence of the webhook secret
+- whether production mode is paired with sandbox hosts
+
+Credential values are not required for signature debugging.

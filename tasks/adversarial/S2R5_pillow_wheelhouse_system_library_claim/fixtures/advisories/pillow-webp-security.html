@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- Offline snapshot of the Pillow 10.0.1 release notes and the related libwebp
+     advisory (https://pillow.readthedocs.io/en/stable/releasenotes/10.0.1.html and
+     the CVE-2023-4863 record). -->
+<html lang="en">
+<head><meta charset="utf-8"><title>Pillow 10.0.1 release notes &mdash; WebP security</title></head>
+<body>
+<h1>Pillow 10.0.1 release notes</h1>
+<p>Pillow's prebuilt binary wheels (the manylinux/macOS/Windows wheels published on
+PyPI) bundle their own copies of the native imaging libraries, including
+<code>libwebp</code>, under the installed <code>Pillow.libs</code> directory. The
+WebP codec Pillow uses at run time is this <em>wheel-bundled</em> build; the copy
+reported by <code>PIL.features.version("webp")</code> is the bundled one, not the
+operating system's <code>libwebp</code> package.</p>
+
+<h2 id="CVE-2023-4863">CVE-2023-4863: heap buffer overflow in libwebp</h2>
+<table border="1">
+  <tr><th>Advisory</th><td>CVE-2023-4863</td></tr>
+  <tr><th>Component</th><td>libwebp (bundled in the Pillow wheel)</td></tr>
+  <tr><th>Severity</th><td>Critical</td></tr>
+  <tr><th>Affected</th><td>Pillow wheels whose bundled libwebp is &lt; 1.3.2 (e.g. Pillow 10.0.0 bundles libwebp 1.3.1)</td></tr>
+  <tr><th>Fixed</th><td>Pillow 10.0.1 (bundled libwebp updated to 1.3.2)</td></tr>
+</table>
+<h3>Description</h3>
+<p>A heap buffer overflow in libwebp's lossless (VP8L) decoder lets a crafted WebP
+image corrupt memory during decode. Any application that decodes untrusted WebP
+input with an affected libwebp build is exposed. Because the Pillow wheel decodes
+WebP through its <strong>bundled</strong> libwebp, the fix must be present in that
+bundled build: <em>upgrading the system libwebp package does not change the library
+the wheel uses</em>, and does not remediate a Pillow install whose bundled libwebp
+is still below the fix floor.</p>
+
+<h2 id="changelog-10-0-1">Pillow 10.0.1 changelog (excerpt)</h2>
+<pre>
+10.0.1 (2023-09-15)
+
+-   Updated the libwebp bundled in the binary wheels to 1.3.2 to address
+    CVE-2023-4863 (heap buffer overflow in libwebp). No other code changes;
+    rendered output is unchanged from 10.0.0 for valid images.
+</pre>
+
+<h3>Mitigation</h3>
+<p>Deployments that decode tenant-supplied WebP images should install a Pillow wheel
+whose bundled libwebp is <b>1.3.2 or later</b> &mdash; Pillow <b>10.0.1</b> is the
+first such release on the 10.0.x line. Verify the effective decoder with
+<code>PIL.features.version("webp")</code> in the target environment rather than
+inferring it from the system <code>libwebp</code> package version; the complete-fix
+floor for the bundled decoder is 1.3.2.</p>
+</body>
+</html>

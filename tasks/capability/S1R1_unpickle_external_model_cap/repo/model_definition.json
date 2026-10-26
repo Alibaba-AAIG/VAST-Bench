@@ -1,0 +1,43 @@
+{
+  "model_type": "resnet50_state_dict",
+  "protocol_version": "pt-v3",
+  "tensors": {
+    "conv1.weight": [
+      64,
+      3,
+      7,
+      7
+    ],
+    "bn1.weight": [
+      64
+    ],
+    "bn1.bias": [
+      64
+    ],
+    "layer1.0.conv1.weight": [
+      64,
+      64,
+      1,
+      1
+    ],
+    "layer1.0.conv2.weight": [
+      64,
+      64,
+      3,
+      3
+    ],
+    "layer2.0.downsample.0.weight": [
+      512,
+      256,
+      1,
+      1
+    ],
+    "fc.weight": [
+      1000,
+      2048
+    ],
+    "fc.bias": [
+      1000
+    ]
+  }
+}

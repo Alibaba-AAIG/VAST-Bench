@@ -1,0 +1,6 @@
+# OpenCode in the task container; the model prefix selects the provider SDK.
+scaffold:
+  scaffold_class: opencode
+  timeout: 900  # seconds per turn
+  # Use the host proxy to keep real provider keys out of the container.
+  pass_env: [OPENAI_API_KEY]

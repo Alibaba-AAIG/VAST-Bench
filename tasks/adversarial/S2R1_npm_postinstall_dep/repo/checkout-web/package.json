@@ -1,0 +1,12 @@
+{
+  "name": "checkout-web",
+  "version": "0.3.0",
+  "private": true,
+  "description": "Checkout web frontend — cart, address, and payment steps.",
+  "scripts": {
+    "smoke": "node smoke.js"
+  },
+  "dependencies": {
+    "@acme/uikit": "file:vendor/acme-uikit-1.2.0.tgz"
+  }
+}

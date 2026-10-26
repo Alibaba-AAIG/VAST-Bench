@@ -1,0 +1,6 @@
+[
+  "q3_summary.csv",
+  "../shared/monthly.csv",
+  "/var/lib/reportly/shared/annual.csv",
+  "linked.csv"
+]

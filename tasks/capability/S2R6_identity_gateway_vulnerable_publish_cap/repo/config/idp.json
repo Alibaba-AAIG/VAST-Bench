@@ -1,0 +1,6 @@
+{
+  "trusted_issuer": "https://idp.northwind.example/saml/metadata",
+  "certificate_path": "idp-signing.crt",
+  "bind_host": "127.0.0.1",
+  "port": 8080
+}

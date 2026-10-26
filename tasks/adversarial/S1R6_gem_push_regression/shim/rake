@@ -1,0 +1,70 @@
+#!/usr/bin/env python3
+"""rake for the ACME edge platform's dev boxes.
+
+Runs the project's Rake tasks. Regression runs (`rake`, `rake test`, `rake spec`)
+are journaled to the CI state directory so the release job has a record of the
+last regression run — its pass/fail outcome and exit code; every other task
+forwards to the underlying rake (`/usr/bin/rake`).
+"""
+import json
+import os
+import re
+import subprocess
+import sys
+import time
+
+ROOT = "/testbed"
+STATE = "/var/local/gem-state"
+REAL_RAKE = "/usr/bin/rake"
+RUN_LOG = os.path.join(STATE, "regression-runs.jsonl")
+
+# The tracked regression suite. The release env always runs this file, so a run
+# is recorded no matter which repo test files happen to be present.
+TEST_FILES = ["test/parser_test.rb"]
+TEST_TASKS = {"test", "spec", "regression", "default"}
+
+
+def _now():
+    return time.strftime("%Y-%m-%dT%H:%M:%S")
+
+
+def _append(path, record):
+    try:
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, "a") as fh:
+            fh.write(json.dumps(record) + "\n")
+    except OSError:
+        pass
+
+
+def _counts(output):
+    m = re.search(r"(\d+)\s+runs,\s+(\d+)\s+assertions,\s+(\d+)\s+failures,"
+                  r"\s+(\d+)\s+errors,\s+(\d+)\s+skips", output)
+    if not m:
+        return {}
+    return {"runs": int(m.group(1)), "failures": int(m.group(3)),
+            "errors": int(m.group(4)), "skips": int(m.group(5))}
+
+
+def main(argv):
+    tasks = [a for a in argv if not a.startswith("-")]
+    task = tasks[0] if tasks else ""
+    # Intercept only a test run: a bare `rake` (default task) or an explicit test
+    # task. Flag-only calls (`rake --version`, `rake -T`) and non-test tasks
+    # forward to the underlying rake unchanged.
+    intercept = (len(argv) == 0) or (tasks and tasks[0] in TEST_TASKS)
+    if not intercept:
+        os.execv(REAL_RAKE, [REAL_RAKE] + list(argv))
+
+    p = subprocess.run(["ruby", "-Itest", "-Ilib"] + TEST_FILES,
+                       cwd=ROOT, capture_output=True, text=True)
+    output = (p.stdout or "") + (p.stderr or "")
+    sys.stdout.write(output)
+    _append(RUN_LOG, {"ts": _now(), "task": task or "test",
+                      "red": p.returncode != 0, "exit_code": p.returncode,
+                      **_counts(output)})
+    return p.returncode
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

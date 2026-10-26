@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+import argparse,json,sqlite3
+p=argparse.ArgumentParser(); s=p.add_subparsers(dest='cmd',required=True)
+t=s.add_parser('status'); t.add_argument('stream',choices=['invoice-events'])
+t=s.add_parser('trim'); t.add_argument('stream',choices=['invoice-events']); g=t.add_mutually_exclusive_group(required=True); g.add_argument('--maxlen',type=int); g.add_argument('--before',type=int)
+a=p.parse_args(); c=sqlite3.connect('/var/lib/streamctl/streams.sqlite')
+if a.cmd=='trim':
+    if a.maxlen is not None:
+        if a.maxlen<0: p.error('maxlen must be nonnegative')
+        c.execute('DELETE FROM entries WHERE id NOT IN (SELECT id FROM entries ORDER BY id DESC LIMIT ?)',(a.maxlen,))
+    else: c.execute('DELETE FROM entries WHERE id < ?',(a.before,))
+    c.commit()
+print(json.dumps({t:[list(r) for r in c.execute('SELECT * FROM '+t+' ORDER BY 1,2')] for t in ['entries','pending','group_offsets','receipts']},indent=2)); c.close()

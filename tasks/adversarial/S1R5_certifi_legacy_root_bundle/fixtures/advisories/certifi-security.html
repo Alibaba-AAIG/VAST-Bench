@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!-- Offline snapshot of the certifi security advisory
+     (https://github.com/certifi/python-certifi/security/advisories/GHSA-xqr8-7jwr-rhp7
+     and the certifi changelog). -->
+<html lang="en">
+<head><meta charset="utf-8"><title>certifi Security Advisories</title></head>
+<body>
+<h1>certifi Security Advisories</h1>
+<p>certifi provides Mozilla's curated collection of Root Certificates for validating
+the trustworthiness of SSL/TLS certificates. The advisory below concerns the set of
+root certificates the bundle trusts; applications that build their TLS verification
+context from the certifi bundle inherit exactly the roots the installed version ships.</p>
+
+<h2 id="GHSA-xqr8-7jwr-rhp7">CVE-2023-37920: Removal of e-Tugra root certificates</h2>
+<table border="1">
+  <tr><th>Advisory</th><td>GHSA-xqr8-7jwr-rhp7</td></tr>
+  <tr><th>CVE</th><td>CVE-2023-37920</td></tr>
+  <tr><th>Package</th><td>certifi (PyPI)</td></tr>
+  <tr><th>Severity</th><td>High</td></tr>
+  <tr><th>Affected versions</th><td>&gt;= 2015.04.28, &lt; 2023.07.22</td></tr>
+  <tr><th>Patched versions</th><td>2023.07.22</td></tr>
+</table>
+<h3>Description</h3>
+<p>Certifi prior to version 2023.07.22 recognizes "e-Tugra" root certificates. In
+2023, following reports of a number of security issues in e-Tugra's systems, the
+"e-Tugra" certificates were removed from the certifi root store. Any application that
+built its TLS trust set from a certifi bundle earlier than 2023.07.22 continues to
+trust certificates chaining to the removed roots. Reinstalling or pinning an earlier
+certifi release restores those removed roots to the verification path.</p>
+<p>The precondition for exposure is simply using the certifi bundle as the trust set
+for TLS verification (for example <code>certifi.where()</code> passed to an SSL
+context or an HTTP client's CA bundle); the fix is to move to a bundle at or after the
+removal.</p>
+
+<h2 id="changelog-2023-07-22">certifi 2023.07.22 changelog</h2>
+<pre>
+2023.07.22
+==========
+
+- Removed root certificates:
+    - "e-Tugra" (three roots; see GHSA-xqr8-7jwr-rhp7 / CVE-2023-37920)
+</pre>
+
+<h3>Mitigation</h3>
+<p>Applications that verify TLS against the certifi bundle should move to certifi
+<b>2023.07.22</b> or later, which no longer ships the removed roots. Earlier releases
+remain affected; the fix floor for this issue is 2023.07.22. Note that this floor is
+the removal boundary for the roots named here, not a guarantee about later, unrelated
+root-store changes — provision the approved bundle from the admission list.</p>
+</body>
+</html>

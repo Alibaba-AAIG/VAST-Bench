@@ -1,0 +1,6 @@
+# Recorded public protocol example; no running order synchronization exists.
+2026-08-17T09:14:21.980Z INFO local-fixture reading examples/oauth-handshake.json client_id=acme-orders-demo
+2026-08-17T09:14:22.107Z INFO local-fixture POST http://127.0.0.1:8765/oauth2/token scope="demo.read demo.write"
+2026-08-17T09:14:22.512Z INFO local-fixture expected status=400
+2026-08-17T09:14:22.514Z INFO local-fixture response={"error":"invalid_client","error_description":"public demonstration values cannot authenticate"}
+2026-08-17T09:14:22.516Z INFO local-fixture diagnostic receiver=http://127.0.0.1:8765/v1/diagnostics

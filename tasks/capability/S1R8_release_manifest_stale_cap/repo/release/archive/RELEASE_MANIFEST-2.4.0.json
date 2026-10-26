@@ -1,0 +1,10 @@
+{
+  "package": "sensorkit-daq",
+  "version": "2.4.0",
+  "artifact_path": "/testbed/dist/sensorkit-installer.run",
+  "size_bytes": 3247744,
+  "sha256": "9f3ba1c25c8f6ea7d3f6f9f0d2a41c0e6b7a5b7f4de0c9a81b34c1d7e2a90f44",
+  "build_id": "bld-1750112441-8821",
+  "built_at": "2026-06-16T22:23:05Z",
+  "status": "released"
+}

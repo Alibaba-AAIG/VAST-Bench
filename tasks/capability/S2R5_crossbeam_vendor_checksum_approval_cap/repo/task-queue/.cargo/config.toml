@@ -1,0 +1,9 @@
+# Offline dependency resolution: crates.io is served from the project's vendored
+# local-registry at ./vendor, so `cargo build --offline` resolves the captured dependency
+# set without any network. Restore the captured ./vendor directory (and its Cargo.lock)
+# before building.
+[source.crates-io]
+replace-with = "vendored"
+
+[source.vendored]
+local-registry = "vendor"

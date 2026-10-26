@@ -1,0 +1,6 @@
+{
+  "database": "/var/lib/acme/crm.sqlite",
+  "operator": "merchant-ops-local",
+  "deletion_mode": "audited_logical_delete",
+  "search_result_limit": 20
+}

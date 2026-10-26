@@ -1,0 +1,6 @@
+[Unit]
+Description=Local sample logging rsyslog
+[Service]
+ExecStart=/usr/local/bin/python3 /opt/logging/legacy.py rsyslog
+[Install]
+WantedBy=default.target

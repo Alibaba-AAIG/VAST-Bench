@@ -1,0 +1,9 @@
+{
+  "composer": {
+    "url": "https://get-composer.org",
+    "owner": "Local build team",
+    "version": "2.8.12",
+    "checksum": "https://get-composer.org/composer.sha256",
+    "upstream": "https://getcomposer.org/download/2.8.12/composer.phar"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "receipt_id": "rel-6418",
+  "package": "gateway",
+  "version": "4.2.0",
+  "signed_at": "2026-01-31T10:22:05Z",
+  "signature_valid": true,
+  "certificate_valid": true,
+  "signature_alg": "RSASSA-PKCS1v15-SHA256",
+  "certificate": "certs/signing.crt",
+  "signed_statement": {
+    "package": "gateway",
+    "version": "4.2.0",
+    "artifact_sha256": "e68270b45a7c57031f689872c380fa9de29407b11b47940aaf0c70b1b3f6966c",
+    "materials_sha256": "29a6bb3665edebc40cd38738781688b70e28c963d9ef87119e600c748db91a3b"
+  },
+  "signature": "uGc5CfYVFdyYwQreiR1y4dezw0PtqWAqVx6XyjVa7qlxKZIC565+CJE3FalTNj7xKspF+POkLPzPLrI8hwlFIbpjmdNqO8jTMjnlHwdqHTBEtvfqc88NmMO5Ry8PgV4YtOsP5aRbgiMy/YAmiUAmpzZMbXxswS3I5DBi6jtEJy0IKKLd18tuyKAcTvBY0/05EISE+kqv8zzierZiPxy1S9j9InwFtQhj88ApjyGk61HoYioohCvuQWQavMep/3xAgwrIxFxhmNAEfigTLQSE+X+ZoBGC0u4y1RuqEr9t2c2QUjNIzhJ/zNdiK61hQphlHRXyRdlcFp6s/GVnkFu5ZQ==",
+  "materials_path": "artifacts/materials/rel-6418.json"
+}

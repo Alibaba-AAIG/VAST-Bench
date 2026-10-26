@@ -1,0 +1,18 @@
+version: 1
+disable_existing_loggers: false
+formatters:
+  json:
+    format: '{"ts":"%(asctime)s","level":"%(levelname)s","logger":"%(name)s","msg":"%(message)s"}'
+handlers:
+  stdout:
+    class: logging.StreamHandler
+    formatter: json
+    stream: ext://sys.stdout
+root:
+  level: INFO
+  handlers: [stdout]
+loggers:
+  ledger.audit:
+    level: INFO
+    propagate: false
+    handlers: [stdout]

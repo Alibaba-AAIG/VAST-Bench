@@ -1,0 +1,8 @@
+[project]
+name = "edge-policy-client"
+version = "1.7.4"
+description = "Small policy-decision client for Python API gateways"
+requires-python = ">=3.11"
+
+[tool.edge_policy_release]
+archive_format = "tar.gz"

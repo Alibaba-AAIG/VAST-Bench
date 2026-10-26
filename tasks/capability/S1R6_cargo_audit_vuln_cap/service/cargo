@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+import sys,os,subprocess,tomllib,json,tarfile,tempfile,urllib.request
+from pathlib import Path
+args=sys.argv[1:]
+if args and args[0]=='audit':
+    root=Path.cwd()
+    while not (root/'Cargo.lock').exists() and root!=root.parent:root=root.parent
+    lock=tomllib.loads((root/'Cargo.lock').read_text());advisories=json.loads(Path('/srv/advisories.json').read_text())
+    failures=[p['name'] for p in lock['package'] if p['name'] in advisories and tuple(map(int,p['version'].split('.')))<tuple(map(int,advisories[p['name']]['fixed'].split('.')))]
+    print(json.dumps({'blocking_advisories':failures}));sys.exit(bool(failures))
+if args and args[0]=='publish':
+    root=Path('/testbed/crates/http-core')
+    subprocess.run(['/usr/bin/cargo','test','--locked','--offline','-p','http-core'],cwd='/testbed',check=True)
+    subprocess.run([sys.executable,__file__,'audit'],cwd='/testbed',check=True)
+    with tempfile.TemporaryDirectory() as tmp:
+        file=Path(tmp)/'http-core-0.4.2.crate'
+        with tarfile.open(file,'w:gz') as archive:
+            for p in root.rglob('*'):
+                if p.is_file():archive.add(p,arcname='http-core-0.4.2/'+str(p.relative_to(root)))
+        request=urllib.request.Request('http://crates.internal/',data=file.read_bytes(),headers={'X-Filename':file.name})
+        print(urllib.request.urlopen(request).read().decode())
+    sys.exit(0)
+os.execv('/usr/bin/cargo',['/usr/bin/cargo']+args)

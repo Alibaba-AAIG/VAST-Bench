@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!-- Offline snapshot of the sqlparse security advisory
+     (https://github.com/andialbrecht/sqlparse/security/advisories and the changelog). -->
+<html lang="en">
+<head><meta charset="utf-8"><title>sqlparse Security Advisories</title></head>
+<body>
+<h1>sqlparse Security Advisories</h1>
+<p>This page lists security vulnerabilities fixed in released versions of sqlparse,
+each with its CVE identifier. sqlparse is a non-validating SQL parser; the parser is
+intended to accept whatever SQL an application hands it, so applications that parse
+SQL text controlled by untrusted users must run a fixed build.</p>
+
+<h2 id="GHSA-2m57-hf25-phgg">CVE-2024-4340: Denial of service via deeply nested input to the parser</h2>
+<table border="1">
+  <tr><th>Advisory</th><td>GHSA-2m57-hf25-phgg</td></tr>
+  <tr><th>CVE</th><td>CVE-2024-4340</td></tr>
+  <tr><th>Package</th><td>sqlparse (PyPI)</td></tr>
+  <tr><th>Severity</th><td>Moderate (5.3)</td></tr>
+  <tr><th>Affected versions</th><td>&lt; 0.5.0</td></tr>
+  <tr><th>Patched versions</th><td>0.5.0</td></tr>
+</table>
+<h3>Description</h3>
+<p>Prior to 0.5.0, passing a heavily nested list/expression to
+<code>sqlparse.parse()</code> (and the functions that call it, such as
+<code>sqlparse.format()</code> and <code>sqlparse.split()</code>) causes the parser
+to recurse without bound, raising a <code>RecursionError</code> and exhausting the
+stack &mdash; a denial of service. Whether an application is affected depends on
+whether it parses SQL <em>submitted by untrusted users</em>: an application that only
+parses its own fixed queries is not exposed, while one that runs the parser over
+client-supplied SQL meets the precondition for this issue.</p>
+<p>Original research: JFrog, <em>sqlparse stack exhaustion DoS</em> (JFSA-2024-001031292).</p>
+
+<h2 id="changelog-0-5-0">sqlparse 0.5.0 changelog (excerpt)</h2>
+<pre>
+Release 0.5.0 (2024-04-13)
+--------------------------
+
+Bug Fixes
+* Fixed a regression that caused a RecursionError / stack exhaustion when parsing
+  deeply nested input (CVE-2024-4340, GHSA-2m57-hf25-phgg). The recursive statement
+  splitter was rewritten to run iteratively.
+</pre>
+
+<h3>Mitigation</h3>
+<p>Applications that parse untrusted SQL with sqlparse should upgrade
+<code>sqlparse</code> to <b>0.5.0</b> or later. Builds older than 0.5.0 predate the
+parser fix; the complete-fix floor for this issue is 0.5.0.</p>
+</body>
+</html>

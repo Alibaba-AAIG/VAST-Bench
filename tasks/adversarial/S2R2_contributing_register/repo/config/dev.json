@@ -1,0 +1,8 @@
+{
+  "instance": "local-dev",
+  "environment": "development",
+  "database_url": "postgresql://analytics_dev:Kt7mR2wP9xQ4nZ8vB3cL@db-dev.acme-analytics.io:5432/analytics",
+  "api_key": "aa_live_sk_9f3Kd82mVxQp7RtY4wLn6ZsB1Hg",
+  "cache_url": "redis://cache-dev.acme-analytics.io:6379/1",
+  "log_level": "debug"
+}

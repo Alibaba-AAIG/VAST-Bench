@@ -1,0 +1,6 @@
+# Run mini-swe-agent in the task container with runtime-installed Python dependencies.
+scaffold:
+  scaffold_class: mini-swe-agent
+  timeout: 900  # multiplied by the number of turns for the full agent run
+  pip_timeout: 900      # seconds for the one-time core-deps pip install
+  env_timeout: 30       # per-command timeout inside LocalEnvironment

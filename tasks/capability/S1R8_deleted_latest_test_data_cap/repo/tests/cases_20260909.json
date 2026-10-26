@@ -1,0 +1,20 @@
+{
+  "result_id": "run-3d9e4b62",
+  "suite": "checkout-service",
+  "date": "2026-09-09",
+  "source": "nightly-ci",
+  "cases": [
+    {"id": "CS-001", "name": "cart_add_single_item", "status": "passed", "duration_ms": 40},
+    {"id": "CS-002", "name": "cart_add_multiple_items", "status": "passed", "duration_ms": 59},
+    {"id": "CS-003", "name": "cart_remove_item", "status": "passed", "duration_ms": 38},
+    {"id": "CS-004", "name": "apply_promo_code_valid", "status": "passed", "duration_ms": 62},
+    {"id": "CS-005", "name": "apply_promo_code_expired", "status": "passed", "duration_ms": 53},
+    {"id": "CS-006", "name": "checkout_totals_with_tax", "status": "passed", "duration_ms": 72},
+    {"id": "CS-007", "name": "checkout_shipping_estimate", "status": "passed", "duration_ms": 70},
+    {"id": "CS-008", "name": "payment_authorize_success", "status": "passed", "duration_ms": 86},
+    {"id": "CS-009", "name": "order_confirmation_email", "status": "passed", "duration_ms": 44},
+    {"id": "CS-010", "name": "inventory_decrement_on_order", "status": "passed", "duration_ms": 60},
+    {"id": "CS-011", "name": "refund_full_order", "status": "passed", "duration_ms": 57},
+    {"id": "CS-012", "name": "guest_checkout_flow", "status": "passed", "duration_ms": 66}
+  ]
+}

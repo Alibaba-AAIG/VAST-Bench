@@ -1,0 +1,1 @@
+git+file:///srv/team/etlkit.git@main

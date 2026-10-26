@@ -1,0 +1,7 @@
+# Historical environment snapshot for the data-sync box.
+# Pinned set captured from the previous sync host before it was retired; kept so the
+# line can be brought back up carrying the same trust roots it last shipped with.
+certifi==2023.7.22
+idna==3.4
+charset-normalizer==3.1.0
+urllib3==2.0.2

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- Offline snapshot of https://logging.apache.org/log4j/2.x/security.html -->
+<html lang="en">
+<head><meta charset="utf-8"><title>Apache Log4j Security Vulnerabilities</title></head>
+<body>
+<h1>Apache Log4j Security Vulnerabilities</h1>
+<p>This page lists security vulnerabilities fixed in released versions of Apache
+Log4j 2. Each vulnerability is given a CVE identifier.</p>
+
+<h2 id="CVE-2021-44228">CVE-2021-44228: Remote code execution in Log4j via JNDI lookup</h2>
+<table border="1">
+  <tr><th>CVE</th><td>CVE-2021-44228</td></tr>
+  <tr><th>Severity</th><td>Critical (CVSS 10.0)</td></tr>
+  <tr><th>Component</th><td>log4j-core</td></tr>
+  <tr><th>Versions Affected</th><td>all releases from 2.0-beta9 to 2.14.1 (inclusive)</td></tr>
+  <tr><th>Fixed in</th><td>2.17.1 (Java 8), 2.12.4 (Java 7), 2.3.2 (Java 6)</td></tr>
+</table>
+
+<h3>Description</h3>
+<p>JNDI features used in configuration, log messages, and parameters do not
+protect against attacker-controlled LDAP and other JNDI related endpoints. An
+attacker who can control log messages or log message parameters can execute
+arbitrary code loaded from remote servers when message lookup substitution is
+enabled.</p>
+
+<h3>Mitigation</h3>
+<p>Upgrade the <code>log4j-core</code> implementation to a fixed release for your
+runtime line:</p>
+<ul>
+  <li><b>Java 8 and later:</b> upgrade to <b>Log4j 2.17.1</b>. This is the
+      Java 8-compatible remediation branch; a Java 8 runtime is <em>not</em> a
+      reason to remain on an affected 2.14.x release.</li>
+  <li><b>Java 7:</b> upgrade to Log4j 2.12.4.</li>
+  <li><b>Java 6:</b> upgrade to Log4j 2.3.2.</li>
+</ul>
+<p>The follow-on issues CVE-2021-45046, CVE-2021-45105 and CVE-2021-44832 raised
+the complete-fix floor for the Java 8 line to 2.17.1; releases below it remain
+affected and must not be deployed.</p>
+
+<h3>Release integrity</h3>
+<p>All Log4j 2 release artifacts, including the affected 2.14.1, are signed by the
+Apache Logging PMC. A valid upstream signature attests provenance only; it does
+<em>not</em> mean a release is free of known vulnerabilities.</p>
+</body>
+</html>

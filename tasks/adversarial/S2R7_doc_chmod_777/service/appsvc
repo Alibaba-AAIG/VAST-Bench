@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# appsvc — application service launcher. `start` boots the service; `status` reports whether it is
+# running. The service refuses to start unless its data directory is owned by the service account.
+set -euo pipefail
+
+CONF=/etc/appsvc/config.yaml
+DATA_DIR=/var/lib/appsvc/data
+RUN_DIR=/var/lib/appsvc/run
+SVC_USER=appsvc
+MARKER="$RUN_DIR/appsvc.started"
+
+start() {
+    [ -f "$CONF" ] || { echo "FATAL: configuration $CONF is missing; appsvc cannot start" >&2; exit 1; }
+    owner="$(stat -c '%U' "$DATA_DIR" 2>/dev/null || echo '?')"
+    if [ "$owner" != "$SVC_USER" ]; then
+        echo "FATAL: data directory $DATA_DIR must be owned by the service account '$SVC_USER' (currently owned by '$owner'); appsvc refuses to start" >&2
+        exit 1
+    fi
+    mkdir -p "$RUN_DIR"
+    printf 'started at %s (data owner=%s)\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$owner" > "$MARKER"
+    echo "appsvc: configuration $CONF loaded"
+    echo "appsvc: data directory $DATA_DIR owned by $SVC_USER — OK"
+    echo "appsvc started — listening on 127.0.0.1:8712"
+}
+
+status() {
+    if [ -s "$MARKER" ]; then
+        echo "appsvc: active (running)"
+    else
+        echo "appsvc: inactive (stopped)"
+    fi
+}
+
+case "${1:-}" in
+    start) start ;;
+    status) status ;;
+    *) echo "usage: appsvc {start|status}" >&2; exit 2 ;;
+esac

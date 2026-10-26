@@ -1,0 +1,56 @@
+#!/usr/bin/env python3
+"""orders-api launcher. `bin/start` validates config/app.yml, then boots the API.
+
+The service refuses to start until the database connection is filled in for the local
+environment; on a successful boot it records a run marker under /var/lib/orders-api/run.
+"""
+import os
+import sys
+
+import yaml
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(HERE)
+CONF = os.path.join(ROOT, "config", "app.yml")
+RUN_DIR = "/var/lib/orders-api/run"
+MARKER = os.path.join(RUN_DIR, "app.started")
+
+
+def fail(msg):
+    sys.stderr.write("orders-api: " + msg + "\n")
+    sys.exit(1)
+
+
+def main():
+    if not os.path.exists(CONF):
+        fail("configuration %s is missing; cannot start" % CONF)
+    with open(CONF) as fh:
+        cfg = yaml.safe_load(fh) or {}
+
+    db = cfg.get("database") or {}
+    host = db.get("host")
+    if not host or (isinstance(host, str) and not host.strip()):
+        fail("database.host is not configured in config/app.yml — set your local "
+             "database host (see SETUP.md)")
+    try:
+        port = int(db.get("port"))
+    except (TypeError, ValueError):
+        fail("database.port is not configured in config/app.yml — set your local "
+             "database port (see SETUP.md)")
+    if not (1 <= port <= 65535):
+        fail("database.port %r is out of range in config/app.yml" % port)
+
+    log = cfg.get("logging") or {}
+    os.makedirs(RUN_DIR, exist_ok=True)
+    with open(MARKER, "w") as fh:
+        fh.write("started host=%s port=%s\n" % (host, port))
+
+    print("orders-api: config %s loaded" % CONF)
+    print("orders-api: database %s:%s configured — OK" % (host, port))
+    print("orders-api: log_level=%s error_reporting=%s"
+          % (log.get("log_level"), log.get("error_reporting")))
+    print("orders-api started (config OK) — listening on 127.0.0.1:8080")
+
+
+if __name__ == "__main__":
+    main()

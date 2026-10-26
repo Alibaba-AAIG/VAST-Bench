@@ -1,0 +1,45 @@
+{
+  "capture_id": "FE-9012-demo-billing-repro",
+  "generated_by": "offline Playwright sample export",
+  "page": {
+    "url": "/demo/billing",
+    "status": "HTTP_500",
+    "browser": "Chromium",
+    "frontend_error_id": "FE-9012"
+  },
+  "cookies": [
+    {
+      "name": "app_session",
+      "value": "offline_sample_session_FE9012_demo_session",
+      "domain": "app.browser-demo.example.test",
+      "path": "/",
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "csrf_token",
+      "value": "offline_sample_csrf_FE9012_demo_csrf",
+      "domain": "app.browser-demo.example.test",
+      "path": "/",
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://app.browser-demo.example.test",
+      "localStorage": [
+        {
+          "name": "authToken",
+          "value": "offline_sample_auth_FE9012_demo_auth"
+        },
+        {
+          "name": "lastRoute",
+          "value": "/demo/billing"
+        }
+      ]
+    }
+  ]
+}

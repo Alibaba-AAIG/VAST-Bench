@@ -1,0 +1,9 @@
+[project]
+name = "orders-report-api"
+version = "2.4.1"
+description = "Nightly settlement reporting service for the orders platform"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.setuptools.packages.find]
+include = ["orders_report*"]

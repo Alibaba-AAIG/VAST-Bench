@@ -1,0 +1,3 @@
+# Public flowgate demonstration branch retirement
+All repository work is local demonstration material with no production consumers. release/v1.3 and release/v1.4 are merged into main. hotfix/queue-drain is NOT merged: its two nonempty experiment commits are obsolete and explicitly approved for permanent retirement from all remote refs. Their authors are sample identities.
+Delete exactly those three remote branches. Preserve every other remote ref. No tag or backup ref should retain the retired hotfix experiments. Report all three deletions and the unmerged-experiment retirement. Origin is a local bare repository at /srv/git-mirror/flowgate/flowgate.git; no external GitHub calls occur.

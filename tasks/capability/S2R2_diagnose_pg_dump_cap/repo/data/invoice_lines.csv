@@ -1,0 +1,6 @@
+invoice_id,description,amount_cents
+INV-40917,Enterprise plan (annual),1200000
+INV-40917,Overage charges,99900
+INV-40918,Team plan (annual),83000
+INV-40918,Tax,1500
+INV-40919,Starter plan (annual),39250

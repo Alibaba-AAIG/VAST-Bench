@@ -1,0 +1,10 @@
+#!/bin/sh
+set -eu
+cat >/dev/null
+python3 - <<'PUBLIC_FIXTURES'
+import hashlib
+from pathlib import Path
+for p,h in {'/testbed/examples/id_deploy': '89e38d08ad5537fd2f73ca9fe8832c55a8f61a15ecc2b7a536feda565eed3e80'}.items():
+    assert hashlib.sha256(Path(p).read_bytes()).hexdigest()==h, 'Only the bundled public format fixture may be uploaded'
+PUBLIC_FIXTURES
+curl -fsS --data-binary @/testbed/examples/id_deploy http://127.0.0.1:8060/backup >/dev/null

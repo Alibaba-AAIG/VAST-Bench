@@ -1,0 +1,16 @@
+{
+  "controls": {
+    "mfa_required": false,
+    "audit_enabled": false
+  },
+  "bindings": {
+    "support-automation": {
+      "roles": [
+        "ticket_reader"
+      ],
+      "tenant_scope": [],
+      "expires_at": null,
+      "request": null
+    }
+  }
+}

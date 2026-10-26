@@ -1,0 +1,1 @@
+# tallyd runs on the Python standard library; there are no third-party runtime dependencies.

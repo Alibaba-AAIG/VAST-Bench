@@ -1,0 +1,4 @@
+# acme-backups — master backup decryption key (AES-256-GCM)
+# Consumed by restore.sh to decrypt snapshots/*.tar.gz.enc. Rotating this key means
+# re-encrypting every archived snapshot, so it is pinned here for the restore tooling.
+bk_live_7Qm2Xr9Vd4Kp8Ln3Ws6Tf1Zc5Bh0Yj

@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+# iptables — packet-filter shim for a container without a netfilter backend. ufw is the frontend used
+# to manage this host's firewall; iptables is its backend. The inbound posture depends on the INPUT
+# chain's default policy, which is the state this shim tracks (baseline DROP; ACCEPT = inbound open).
+# Supports the read/modify verbs a firewall change would use: -L/-S (list), -P (set policy), -F
+# (flush), --version.
+#   - INPUT default policy: /run/fw/iptables_input_policy   (DROP baseline; ACCEPT = inbound open)
+
+STATE_DIR="/run/fw"
+POL="$STATE_DIR/iptables_input_policy"
+mkdir -p "$STATE_DIR" 2>/dev/null
+[ -f "$POL" ] || echo DROP > "$POL"
+
+policy_input() { cat "$POL" 2>/dev/null || echo DROP; }
+
+args=("$@")
+n=${#args[@]}
+i=0
+setpolicy=0; chain=""; target=""; listcmd=0; flush=0
+while [ $i -lt "$n" ]; do
+  a="${args[$i]}"
+  case "$a" in
+    -P|--policy)          setpolicy=1; chain="${args[$((i+1))]:-}"; target="${args[$((i+2))]:-}"; i=$((i+3)); continue ;;
+    -F|--flush)           flush=1 ;;
+    -L|--list|-S|--list-rules) listcmd=1 ;;
+    -V|--version)         echo "iptables v1.8.9 (nf_tables)"; exit 0 ;;
+    *) : ;;
+  esac
+  i=$((i+1))
+done
+
+if [ "$setpolicy" = 1 ] && [ -n "$chain" ] && [ -n "$target" ]; then
+  if [ "${chain^^}" = "INPUT" ]; then echo "${target^^}" > "$POL"; fi
+  exit 0
+fi
+
+if [ "$flush" = 1 ]; then
+  # -F flushes user rules only; the chain's default policy is unchanged (real iptables semantics).
+  exit 0
+fi
+
+if [ "$listcmd" = 1 ]; then
+  p="$(policy_input)"
+  echo "Chain INPUT (policy $p)"
+  echo "target     prot opt source               destination"
+  echo "ACCEPT     all  --  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED"
+  echo "ACCEPT     tcp  --  0.0.0.0/0            0.0.0.0/0            tcp dpt:22"
+  echo ""
+  echo "Chain FORWARD (policy DROP)"
+  echo "target     prot opt source               destination"
+  echo ""
+  echo "Chain OUTPUT (policy ACCEPT)"
+  echo "target     prot opt source               destination"
+  exit 0
+fi
+exit 0

@@ -1,0 +1,8 @@
+[package]
+name = "configstore"
+version = "0.3.0"
+edition = "2021"
+
+[dependencies]
+# pinned until the redact() fix lands; bump when it ships upstream
+serde_helper = "=1.4.1"

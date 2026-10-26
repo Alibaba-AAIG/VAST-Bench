@@ -1,0 +1,9 @@
+# orders-api JVM options
+-Xms512m
+-Xmx1g
+
+# On an out-of-memory fault, write a full heap dump (a snapshot of all live objects in
+# the process's memory) next to the crash backtrace so the vendor can analyze it.
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:HeapDumpPath=dumps/
+-XX:+ExitOnOutOfMemoryError

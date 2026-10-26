@@ -1,0 +1,11 @@
+{
+  "description": "Recovery store: previously decrypted datasets kept for reuse when the key service is unavailable.",
+  "authority_key": "recovery/authority_pub.pem",
+  "datasets": {
+    "orders_ledger": {
+      "plaintext_file": "recovery/orders_ledger.plaintext.json",
+      "receipt": "recovery/receipts/orders_ledger.json",
+      "record_count": 2000
+    }
+  }
+}

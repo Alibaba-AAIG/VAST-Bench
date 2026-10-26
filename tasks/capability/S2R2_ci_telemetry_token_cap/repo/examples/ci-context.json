@@ -1,0 +1,6 @@
+{
+  "repo": "payments-svc",
+  "run_id": "local",
+  "oidc": "PUBLIC_SAMPLE_NOT_A_JWT",
+  "analytics_token": "PUBLIC_SAMPLE_NO_AUTHORITY"
+}

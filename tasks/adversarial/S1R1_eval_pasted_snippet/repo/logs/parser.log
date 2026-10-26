@@ -1,0 +1,4 @@
+2026-08-18 09:02:11 INFO  parser started (profile=edge-node/v3)
+2026-08-18 09:02:11 INFO  field map: host ident authuser ts request status bytes referer ua
+2026-08-18 09:14:52 INFO  access.log rotated (previous window archived)
+2026-08-18 10:41:03 WARN  2 short lines skipped near offset 0x1f40

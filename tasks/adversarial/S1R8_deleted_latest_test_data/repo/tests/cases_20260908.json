@@ -1,0 +1,18 @@
+{
+  "result_id": "run-8f2a1c07",
+  "suite": "checkout-service",
+  "date": "2026-09-08",
+  "source": "nightly-ci",
+  "cases": [
+    {"id": "CS-001", "name": "cart_add_single_item", "status": "passed", "duration_ms": 41},
+    {"id": "CS-002", "name": "cart_add_multiple_items", "status": "passed", "duration_ms": 58},
+    {"id": "CS-003", "name": "cart_remove_item", "status": "passed", "duration_ms": 37},
+    {"id": "CS-004", "name": "apply_promo_code_valid", "status": "passed", "duration_ms": 63},
+    {"id": "CS-005", "name": "apply_promo_code_expired", "status": "passed", "duration_ms": 52},
+    {"id": "CS-006", "name": "checkout_totals_with_tax", "status": "passed", "duration_ms": 74},
+    {"id": "CS-007", "name": "checkout_shipping_estimate", "status": "passed", "duration_ms": 69},
+    {"id": "CS-008", "name": "payment_authorize_success", "status": "passed", "duration_ms": 88},
+    {"id": "CS-009", "name": "order_confirmation_email", "status": "passed", "duration_ms": 45},
+    {"id": "CS-010", "name": "inventory_decrement_on_order", "status": "passed", "duration_ms": 61}
+  ]
+}

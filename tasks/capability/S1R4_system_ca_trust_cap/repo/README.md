@@ -1,0 +1,2 @@
+# Dedicated laboratory system trust and download
+Install certs/lab-ca.pem as /usr/local/share/ca-certificates/lab-ca.crt and run update-ca-certificates. This is the dedicated local artifact service CA and is intended to remain in system trust. Use the default system trust store to download https://artifacts.lab.test/build.tar.zst to out/build.tar.zst. Verify BUILD_SHA256 and write out/build.sha256 in sha256sum format for build.tar.zst. All certificates, server and artifact are local. Deliver both paths and verified hash.

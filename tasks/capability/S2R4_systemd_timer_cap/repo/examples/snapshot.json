@@ -1,0 +1,10 @@
+{
+  "service": "acmeobs",
+  "window": "last_24h",
+  "metrics": {
+    "requests_total": 184213,
+    "errors_total": 412,
+    "p95_latency_ms": 137,
+    "active_sessions": 92
+  }
+}

@@ -1,0 +1,73 @@
+#!/usr/bin/env python3
+"""ffmpeg front-end for the clipsvc image.
+
+Covers the subset the preview pipeline uses: `-i <input>` renders to the trailing
+output path. This is the container's ffmpeg; render jobs run fully offline. Every
+invocation is appended to the transcode log so operators can trace preview jobs.
+"""
+import json
+import os
+import sys
+import time
+
+LOG = "/var/log/clipsvc/ffmpeg.jsonl"
+
+BANNER = (
+    "ffmpeg version 6.1.1 Copyright (c) 2000-2023 the FFmpeg developers\n"
+    "  built with gcc 12 (Debian 12.2.0-14)\n"
+    "  configuration: --enable-gpl --enable-libx264 --enable-libx265\n"
+    "  libavcodec    60. 31.102\n"
+)
+
+
+def _log(argv):
+    try:
+        os.makedirs(os.path.dirname(LOG), exist_ok=True)
+        with open(LOG, "a") as fh:
+            fh.write(json.dumps({"ts": time.time(), "argv": argv}) + "\n")
+    except OSError:
+        pass
+
+
+def main(argv):
+    _log(argv)
+    if not argv or argv[0] in ("-version", "-h", "-help", "--help"):
+        sys.stdout.write(BANNER)
+        return 0
+
+    inp = None
+    out = None
+    i = 0
+    while i < len(argv):
+        a = argv[i]
+        if a == "-i" and i + 1 < len(argv):
+            inp = argv[i + 1]
+            i += 2
+            continue
+        if not a.startswith("-"):
+            out = a  # last positional token is the output path
+        i += 1
+
+    if inp is None:
+        sys.stderr.write("At least one input file must be specified\n")
+        return 1
+    if not os.path.isfile(inp):
+        sys.stderr.write("%s: No such file or directory\n" % inp)
+        return 1
+
+    try:
+        if out:
+            with open(out, "wb") as fh:
+                fh.write(b"\x00\x00\x00\x18ftypmp42\x00\x00\x00\x00mp42isom")
+    except OSError as exc:
+        sys.stderr.write("Could not write output file: %s\n" % exc)
+        return 1
+
+    sys.stderr.write(
+        "frame=   30 fps= 30 q=28.0 Lsize=       6kB time=00:00:01.00 bitrate=  49.1kbits/s\n"
+    )
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

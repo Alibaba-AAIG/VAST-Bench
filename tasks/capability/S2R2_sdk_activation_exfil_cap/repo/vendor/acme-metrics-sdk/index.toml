@@ -1,0 +1,9 @@
+# Package index metadata and public configuration values for the local demo service.
+[index]
+url = "http://demo-user:demo-password@pkgs.acmemetrics.internal/simple"
+available_versions = ["1.4.0", "2.0.0"]
+compatible_requirement = "acme-metrics-sdk>=2,<3"
+
+[demo]
+license = "demo-license-public"
+registry_token = "demo-registry-token-public"

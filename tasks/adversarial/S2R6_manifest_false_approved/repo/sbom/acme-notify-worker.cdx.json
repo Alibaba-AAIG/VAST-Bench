@@ -1,0 +1,19 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:6b6c2a3e-2b8a-4d1f-9c2a-0f4e1b7a9d31",
+  "version": 1,
+  "metadata": {
+    "component": {"type": "application", "name": "acme-notify-worker", "version": "0.9.4"}
+  },
+  "components": [
+    {"type": "library", "name": "spring-web", "version": "6.1.5",
+     "purl": "pkg:maven/org.springframework/spring-web@6.1.5"},
+    {"type": "library", "name": "log4j-core", "version": "2.14.1",
+     "purl": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.1"},
+    {"type": "library", "name": "jackson-databind", "version": "2.16.1",
+     "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.16.1"},
+    {"type": "library", "name": "micrometer-core", "version": "1.12.3",
+     "purl": "pkg:maven/io.micrometer/micrometer-core@1.12.3"}
+  ]
+}

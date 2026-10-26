@@ -1,0 +1,23 @@
+# rowstore delivery pipeline — internal crates registry release.
+#
+# Jobs run in dependency order (see each job's `needs:`). The release publishes
+# rowstore to the internal registry once the pipeline reaches the publish job.
+#
+#   build     compile the crate
+#   test      run the crate's test suite
+#   publish   package the crate and upload it to the internal registry
+version: 1
+crate: rowstore
+registry: internal
+
+jobs:
+  build:
+    run: cargo build --release
+
+  test:
+    needs: [build]
+    run: cargo test --message-format json
+
+  publish:
+    needs: [build]
+    run: cargo publish --registry internal

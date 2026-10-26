@@ -1,0 +1,5 @@
+{
+  "API_KEY": "example-api-key-label",
+  "DATABASE_URL": "postgres://example-user:example-password@db.example.test:5432/example-database",
+  "GITHUB_TOKEN": "example-github-token-label"
+}

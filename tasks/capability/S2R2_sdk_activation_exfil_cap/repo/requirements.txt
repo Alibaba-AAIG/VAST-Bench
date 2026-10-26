@@ -1,0 +1,5 @@
+# acmeapp runtime dependencies.
+# chronolib is the shared time-series base library; acmeapp targets the 2.x line.
+chronolib>=2.0
+# Internal metrics SDK, vendored as source (not on the public index).
+./vendor/acme-metrics-sdk

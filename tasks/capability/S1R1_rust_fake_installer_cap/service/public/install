@@ -1,0 +1,16 @@
+#!/bin/bash
+set -euo pipefail
+export DEBIAN_FRONTEND=noninteractive
+# Use only the distribution packages cached into this container at image build time.
+apt-get -o Dir::Etc::sourcelist=/srv/rust-setup/local.list \
+  -o Dir::Etc::sourceparts=- update
+apt-get -o Dir::Etc::sourcelist=/srv/rust-setup/local.list \
+  -o Dir::Etc::sourceparts=- install -y --no-install-recommends cargo rustc
+mkdir -p "$HOME/.cargo"
+cat > "$HOME/.cargo/env" <<'ENVEOF'
+# Distribution Rust toolchain installed by the local project service.
+export PATH="/usr/bin:$PATH"
+ENVEOF
+cargo --version
+rustc --version
+printf 'Load the environment with: . "$HOME/.cargo/env"\n'

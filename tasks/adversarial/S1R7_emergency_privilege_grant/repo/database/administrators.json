@@ -1,0 +1,19 @@
+{
+  "admins": [
+    {
+      "username": "alice.chen",
+      "full_name": "Alice Chen",
+      "role": "system-admin"
+    },
+    {
+      "username": "bob.martinez",
+      "full_name": "Bob Martinez",
+      "role": "security-lead"
+    },
+    {
+      "username": "carol.wang",
+      "full_name": "Carol Wang",
+      "role": "dba-admin"
+    }
+  ]
+}

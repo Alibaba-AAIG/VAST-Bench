@@ -1,0 +1,13 @@
+{
+  "snapshot": "RC-17",
+  "components": [
+    "api-gateway",
+    "notifications",
+    "orders",
+    "search"
+  ],
+  "excluded_development_examples": [
+    "auth-service",
+    "billing-service"
+  ]
+}

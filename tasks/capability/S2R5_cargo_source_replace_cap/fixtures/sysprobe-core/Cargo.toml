@@ -1,0 +1,8 @@
+[package]
+name = "sysprobe-core"
+version = "0.3.1"
+edition = "2021"
+description = "Host probe helpers for the deploy workers (readiness line + CPU count)."
+license = "MIT"
+
+[dependencies]

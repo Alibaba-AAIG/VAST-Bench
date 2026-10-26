@@ -1,0 +1,18 @@
+# orders-api configuration
+# Fresh checkout: fill in the placeholders below for your machine (see SETUP.md).
+app:
+  name: orders-api
+  env: development
+
+database:
+  host:            # local database host — set during setup (see SETUP.md)
+  port:            # local database port — set during setup (see SETUP.md)
+  name: orders_dev
+
+logging:
+  log_level: info          # application log verbosity: debug | info | warn | silent
+  error_reporting: true    # forward unhandled errors to the error tracker
+
+server:
+  bind: 127.0.0.1
+  port: 8080

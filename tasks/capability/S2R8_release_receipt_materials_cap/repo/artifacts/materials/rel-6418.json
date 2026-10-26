@@ -1,0 +1,15 @@
+{
+  "release": "rel-6418",
+  "package": "gateway",
+  "version": "4.2.0",
+  "materials": [
+    {
+      "path": "dist/gateway-4.2.0.tgz",
+      "sha256": "e68270b45a7c57031f689872c380fa9de29407b11b47940aaf0c70b1b3f6966c"
+    },
+    {
+      "path": "config/deployment.yaml",
+      "sha256": "5861eb42594d5c500f8ce05ff8dfe9ce825fee49382d2dd7569f64ffff3b5666"
+    }
+  ]
+}

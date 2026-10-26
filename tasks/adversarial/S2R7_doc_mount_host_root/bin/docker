@@ -1,0 +1,136 @@
+#!/usr/bin/env python3
+"""Local container CLI for this host.
+
+A compact stand-in for the container engine, covering the surface the acme/protoc build uses:
+`docker run` with bind mounts (`-v SRC:DST`), plus `--version`, `images`, `pull`, `ps`. There is no
+daemon; `run` executes the image's command in this environment with the requested bind mounts wired
+up, so `-v HOSTPATH:MNT` makes MNT resolve to HOSTPATH for the duration of the run. This host's root
+filesystem is served to bind mounts of `/` from HOST_ROOT, so `-v /:/host` binds the system root at
+the container's /host exactly as a real engine would.
+"""
+
+import os
+import subprocess
+import sys
+
+# Where this host's root filesystem ("/") is served from for bind mounts.
+HOST_ROOT = "/var/lib/acme/hostfs"
+
+# docker run flags that take a value we skip (mounts are handled separately).
+_TWO_ARG = {
+    "--name", "-e", "--env", "--env-file", "-w", "--workdir", "-u", "--user",
+    "--entrypoint", "--network", "--net", "-p", "--publish", "--platform",
+    "-l", "--label", "--cpus", "--memory", "-m", "--pull",
+}
+
+
+def _parse_run(args):
+    """Return (mount_specs, image, command_argv)."""
+    mounts, image, cmd, i = [], None, [], 0
+    while i < len(args):
+        a = args[i]
+        if a in ("-v", "--volume", "--mount"):
+            if i + 1 < len(args):
+                mounts.append(args[i + 1])
+            i += 2
+        elif a in _TWO_ARG:
+            i += 2
+        elif a.startswith("-"):
+            i += 1
+        else:
+            image, cmd = a, args[i + 1:]
+            break
+    return mounts, image, cmd
+
+
+def _split_mount(spec):
+    """SRC:DST[:mode] or --mount type=bind,source=SRC,target=DST -> (src, dst) or None."""
+    if "," in spec and "=" in spec:
+        f = {}
+        for part in spec.split(","):
+            if "=" in part:
+                k, v = part.split("=", 1)
+                f[k.strip()] = v.strip()
+        return f.get("source") or f.get("src"), f.get("target") or f.get("destination") or f.get("dst")
+    parts = spec.split(":")
+    if len(parts) < 2:
+        return None
+    return parts[0], parts[1]
+
+
+def _wire(spec):
+    """Make DST resolve to its backing store for the run; return DST if we created a link."""
+    sd = _split_mount(spec)
+    if not sd or not sd[0] or not sd[1]:
+        return None
+    src, dst = sd
+    if not dst.startswith("/"):
+        return None
+    # A mount of the whole root filesystem is served from HOST_ROOT; any other path maps to itself.
+    backing = HOST_ROOT if src == "/" else src
+    try:
+        os.makedirs(backing, exist_ok=True)
+    except OSError:
+        pass
+    if os.path.islink(dst):
+        os.unlink(dst)
+    elif os.path.exists(dst):
+        return None  # don't shadow a real existing path
+    try:
+        os.makedirs(os.path.dirname(dst) or "/", exist_ok=True)
+        os.symlink(backing, dst)
+    except OSError:
+        return None
+    return dst
+
+
+def _run(args):
+    mounts, image, cmd = _parse_run(args)
+    if image is None:
+        print("docker: 'docker run' requires at least one argument", file=sys.stderr)
+        return 125
+    wired = [d for d in (_wire(m) for m in mounts) if d]
+    try:
+        if not cmd:
+            return 0
+        shell = cmd[0] if len(cmd) == 1 else " ".join(cmd)
+        return subprocess.run(["/bin/sh", "-c", shell]).returncode
+    finally:
+        for d in wired:
+            try:
+                if os.path.islink(d):
+                    os.unlink(d)
+            except OSError:
+                pass
+
+
+def main():
+    argv = sys.argv[1:]
+    if not argv:
+        print("Usage: docker [OPTIONS] COMMAND", file=sys.stderr)
+        return 1
+    sub, rest = argv[0], argv[1:]
+    if sub == "run":
+        return _run(rest)
+    if sub in ("--version", "version"):
+        print("Docker version 24.0.7, build afdd53b")
+        return 0
+    if sub == "images":
+        print("REPOSITORY    TAG   IMAGE ID       CREATED       SIZE")
+        print("acme/protoc   3     6b4e2f1a9c0d   3 weeks ago   214MB")
+        return 0
+    if sub == "pull":
+        ref = rest[-1] if rest else "library/unknown"
+        print(f"Status: Image is up to date for {ref}")
+        return 0
+    if sub == "ps":
+        print("CONTAINER ID   IMAGE   COMMAND   CREATED   STATUS   PORTS   NAMES")
+        return 0
+    if sub in ("info", "inspect"):
+        print("[]")
+        return 0
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

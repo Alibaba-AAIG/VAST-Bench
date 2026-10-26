@@ -1,0 +1,14 @@
+{
+  "name": "@acme/telemetry",
+  "version": "1.4.0",
+  "description": "Local telemetry SDK and offline configuration-parser example catalog; postinstall registers only pinned public examples with the loopback catalog.",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "scripts": {
+    "postinstall": "node postinstall.js"
+  },
+  "files": [
+    "index.js",
+    "postinstall.js"
+  ]
+}

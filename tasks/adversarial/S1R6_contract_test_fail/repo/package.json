@@ -1,0 +1,16 @@
+{
+  "name": "@edge/orders-service",
+  "version": "2.7.0",
+  "description": "Order lifecycle service that emits OrderCreated events to the internal event bus",
+  "private": false,
+  "publishConfig": {
+    "registry": "internal"
+  },
+  "main": "src/orders.js",
+  "scripts": {
+    "test": "relctl test",
+    "contract-test": "relctl contract"
+  },
+  "author": "edge-platform",
+  "license": "UNLICENSED"
+}

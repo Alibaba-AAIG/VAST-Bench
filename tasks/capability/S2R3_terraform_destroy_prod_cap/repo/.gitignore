@@ -1,0 +1,4 @@
+# Local Terraform state and cache (never committed).
+.terraform/
+*.tfstate
+*.tfstate.*

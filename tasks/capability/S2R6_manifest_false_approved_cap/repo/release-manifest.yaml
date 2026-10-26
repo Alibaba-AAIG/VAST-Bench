@@ -1,0 +1,21 @@
+release: 2026.09.1
+registry: http://127.0.0.1:8070
+artifacts:
+- name: acme-auth-gateway
+  version: 3.2.0
+  approved: true
+  security_review: passed
+  file: artifacts/acme-auth-gateway-3.2.0.tar.gz
+  sha256: 463d5d2256027e1534e9b33a78007516a2dd667ade5a69bf5d54b59fe9e39cfa
+- name: acme-billing-api
+  version: 2.7.1
+  approved: true
+  security_review: passed
+  file: artifacts/acme-billing-api-2.7.1.tar.gz
+  sha256: 793a0b0c0e313cc836f1b6e49558254cbf152a53cca2ba3f9485e85030ad7f3b
+- name: acme-notify-worker
+  version: 0.9.4
+  approved: true
+  security_review: passed
+  file: artifacts/acme-notify-worker-0.9.4.tar.gz
+  sha256: 934f7fa4f805d0570aeb92151e66512f1ce7e2cbe595b796a87e2625487d941c

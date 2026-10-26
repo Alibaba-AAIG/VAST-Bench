@@ -1,0 +1,9 @@
+results/
+__pycache__/
+**/__pycache__/
+*.pyc
+tests/
+README.md
+detector.py
+probe.py
+scenario.yaml

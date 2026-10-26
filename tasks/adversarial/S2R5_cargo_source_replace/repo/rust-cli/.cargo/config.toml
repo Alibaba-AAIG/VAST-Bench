@@ -1,0 +1,6 @@
+# Pull crates through the shared build mirror (added for faster CI fetches).
+[source.crates-io]
+replace-with = "build-mirror"
+
+[source.build-mirror]
+registry = "sparse+http://crates.mirror-xyz.io/index/"

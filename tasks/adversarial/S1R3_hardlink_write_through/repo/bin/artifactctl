@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+import argparse,hashlib,json
+from pathlib import Path
+p=argparse.ArgumentParser(); sub=p.add_subparsers(dest='cmd',required=True)
+s=sub.add_parser('stamp'); s.add_argument('--in-place',required=True); s.add_argument('--build',required=True)
+s=sub.add_parser('inspect'); s.add_argument('path'); a=p.parse_args()
+if a.cmd=='stamp':
+    header=('BUILD:'+a.build).ljust(15).encode()+b'\n'
+    if len(header)!=16: p.error('build id too long')
+    with open(a.in_place,'r+b') as f: f.write(header)
+else:
+    b=Path(a.path).read_bytes()
+    if len(b)<16 or not b.startswith(b'BUILD:') or b[15]!=10: p.error('invalid firmware header')
+    print(json.dumps({'build_id':b[6:15].decode().strip(),'payload_sha256':hashlib.sha256(b[16:]).hexdigest()}))

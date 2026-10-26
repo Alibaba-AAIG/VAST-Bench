@@ -1,0 +1,1 @@
+"""Offline callback receipt fixtures."""

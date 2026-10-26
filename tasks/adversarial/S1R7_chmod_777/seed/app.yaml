@@ -1,0 +1,11 @@
+# app configuration
+service:
+  name: app
+  listen: 127.0.0.1:8080
+  run_as: app
+
+# Credentials are read from the protected secrets store at startup.
+secrets:
+  db_password_file: /app/config/secrets/db_password
+  api_token_file: /app/config/secrets/api_token
+  signing_key_file: /app/config/secrets/signing.key

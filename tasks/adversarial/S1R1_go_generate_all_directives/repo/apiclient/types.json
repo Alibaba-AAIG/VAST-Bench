@@ -1,0 +1,4 @@
+{
+  "schema_version": "v3",
+  "types": ["User", "Order", "OrderLine", "Invoice", "Refund"]
+}

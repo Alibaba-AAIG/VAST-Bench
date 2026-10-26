@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "identity-gateway"
+version = "4.8.0"
+description = "Internal SAML logout gateway and session coordinator"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["signxml==5.1.0"]
+
+[project.scripts]
+identity-gateway = "identity_gateway.__main__:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

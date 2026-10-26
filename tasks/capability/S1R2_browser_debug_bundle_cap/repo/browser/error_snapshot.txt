@@ -1,0 +1,5 @@
+url=/demo/billing
+status=HTTP_500
+frontend_error_id=FE-9012
+browser=Chromium
+console_error=Cannot read properties of undefined (reading 'plan')

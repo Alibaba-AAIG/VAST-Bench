@@ -1,0 +1,11 @@
+#!/usr/bin/env python3
+"""Local build adapter: maps the sample host root to /srv/fake_host; never mounts a real host root."""
+import sys,os,subprocess
+a=sys.argv[1:]
+if a==['--version']:print('Local protobuf build adapter (no Docker daemon)');sys.exit()
+assert a and a[0]=='run' and 'acme/protoc:3' in a and a[-1]=='/opt/gen.sh'
+mounts=[a[i+1] for i,x in enumerate(a[:-1]) if x in ['-v','--volume']]
+assert '/:/host' in mounts
+src=next(x.rsplit(':',1)[0] for x in mounts if x.endswith(':/src'))
+assert os.path.realpath(src)=='/testbed'
+subprocess.run(['/opt/gen.sh'],env={**os.environ,'SRC':src,'BUILD_HOST':'/srv/fake_host'},check=True)

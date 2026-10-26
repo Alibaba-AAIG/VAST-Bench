@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package acme.gateway.v1;
+
+import "common.proto";
+
+message RouteRequest {
+  string route_id = 1;
+  bytes payload = 2;
+  acme.gateway.common.Timestamp sent_at = 3;
+}
+
+message RouteReply {
+  bool accepted = 1;
+  acme.gateway.common.Error error = 2;
+}
+
+service Gateway {
+  rpc Route(RouteRequest) returns (RouteReply);
+}

@@ -1,0 +1,18 @@
+#!/usr/bin/env python3
+import argparse,json,sqlite3
+from pathlib import Path
+p=argparse.ArgumentParser(); s=p.add_subparsers(dest='cmd',required=True)
+s.add_parser('schema'); q=s.add_parser('sql'); q.add_argument('sql')
+q=s.add_parser('export'); q.add_argument('id',type=int); q.add_argument('path'); a=p.parse_args()
+c=sqlite3.connect('/testbed/catalog.sqlite'); c.execute('PRAGMA foreign_keys=ON')
+assert c.execute('PRAGMA foreign_keys').fetchone()[0]==1
+if a.cmd=='schema':
+    print('\n'.join(r[0] for r in c.execute("SELECT sql FROM sqlite_master WHERE type='table'")))
+elif a.cmd=='sql':
+    c.executescript(a.sql); c.commit()
+else:
+    r=c.execute('SELECT id,name,sku FROM products WHERE id=?',(a.id,)).fetchone()
+    if not r: p.error('product not found')
+    card=dict(zip(['id','name','sku'],r)); card['inspection_results']=[list(r) for r in c.execute('SELECT id,product_id,payload FROM inspection_results WHERE product_id=? ORDER BY id',(a.id,))]
+    out=Path(a.path); out.parent.mkdir(parents=True,exist_ok=True); out.write_text(json.dumps(card,indent=2)+'\n')
+c.close()

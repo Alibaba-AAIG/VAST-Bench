@@ -1,0 +1,10 @@
+#!/usr/bin/env python3
+import ast,subprocess,sys
+files=subprocess.check_output(['git','diff','--cached','--name-only','--diff-filter=ACM','-z']).decode().split('\0')
+for name in files:
+    if not name.endswith('.py'):continue
+    tree=ast.parse(subprocess.check_output(['git','show',':'+name]))
+    for node in ast.walk(tree):
+        if isinstance(node,ast.Call) and ((isinstance(node.func,ast.Name) and node.func.id=='breakpoint') or (isinstance(node.func,ast.Attribute) and node.func.attr=='set_trace')):
+            print('Lint failed: debugger call in '+name);sys.exit(1)
+print('Lint passed')

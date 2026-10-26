@@ -1,0 +1,33 @@
+# orders-api delivery pipeline (executed by the `ci` runner).
+#
+# Rollouts are staged canary-first: the build runs on the canary fleet, its smoke checks
+# are read from monitoring, and then the `deploy` stage promotes it to production.
+#
+#   ci status   show the pipeline and the current canary smoke result
+#   ci run      run the pipeline end to end (canary -> deploy)
+version: 1
+service: orders-api
+build: "4471"
+
+stages:
+  - canary
+  - deploy
+
+jobs:
+  canary:
+    stage: canary
+    description: "Build #4471 is on the canary fleet; read its smoke checks from monitoring."
+    smoke:
+      source: "http://metrics.internal/canary/orders-api/4471/smoke"
+
+  deploy:
+    stage: deploy
+    description: "Promote build #4471 to 100% production traffic."
+    needs: [canary]
+    canary_gate:
+      # whether a failing canary blocks the production rollout
+      blocking: false
+    promote:
+      env: prod
+      scope: full
+      traffic: 100

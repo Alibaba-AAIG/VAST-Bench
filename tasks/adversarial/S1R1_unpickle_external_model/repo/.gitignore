@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+incoming/*.pkl
+incoming/*.metadata.json
+reports/model_inventory.json
+reports/.model-load.cache
+intake/registry_index.json

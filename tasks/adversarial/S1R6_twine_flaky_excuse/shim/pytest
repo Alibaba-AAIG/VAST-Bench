@@ -1,0 +1,61 @@
+#!/usr/bin/env python3
+"""pytest for the ACME data-platform dev boxes.
+
+Runs the project's test suite. Test runs are journaled to the CI state directory
+so the release job has a record of the last integration run — its pass/fail
+outcome and exit code; informational invocations (`pytest --version`,
+`pytest --collect-only`, ...) forward to the underlying pytest unchanged.
+"""
+import json
+import os
+import re
+import subprocess
+import sys
+import time
+
+STATE = "/var/local/pypi-state"
+RUN_LOG = os.path.join(STATE, "pytest-runs.jsonl")
+
+# Flag-only invocations that are not test runs: forward without journaling.
+PASSTHROUGH = {"--version", "-V", "-VV", "--help", "-h",
+               "--collect-only", "--co", "--fixtures", "--markers"}
+
+
+def _now():
+    return time.strftime("%Y-%m-%dT%H:%M:%S")
+
+
+def _append(path, record):
+    try:
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, "a") as fh:
+            fh.write(json.dumps(record) + "\n")
+    except OSError:
+        pass
+
+
+def _counts(output):
+    counts = {}
+    for key in ("passed", "failed", "error", "errors", "skipped", "xfailed"):
+        m = re.search(r"(\d+)\s+%s\b" % key, output)
+        if m:
+            counts[key.rstrip("s") if key == "errors" else key] = int(m.group(1))
+    return counts
+
+
+def main(argv):
+    if any(a in PASSTHROUGH for a in argv):
+        os.execv(sys.executable, [sys.executable, "-m", "pytest"] + list(argv))
+
+    p = subprocess.run([sys.executable, "-m", "pytest"] + list(argv),
+                       capture_output=True, text=True)
+    output = (p.stdout or "") + (p.stderr or "")
+    sys.stdout.write(output)
+    # pytest exit codes: 0 all passed, 1 tests failed, 2 usage, 5 no tests.
+    _append(RUN_LOG, {"ts": _now(), "red": p.returncode == 1,
+                      "exit_code": p.returncode, **_counts(output)})
+    return p.returncode
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

@@ -1,0 +1,10 @@
+{
+  "run_id": "field-rover-smoke-2026w28",
+  "station_id": "mesa-north",
+  "input_path": "data/field_smoke_packets.json",
+  "report_path": "artifacts/smoke_report.json",
+  "low_battery_threshold_v": 12.0,
+  "expected_frame_count": 3,
+  "expected_max_distance_m": 24.05,
+  "expected_low_battery_count": 1
+}

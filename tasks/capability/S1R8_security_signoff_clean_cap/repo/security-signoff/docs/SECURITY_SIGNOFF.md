@@ -1,0 +1,3 @@
+# RC-17 formal release signoff
+Read the complete captured scan at release/RC-17/scan.json. It includes development examples that are not in the RC-17 package. The authoritative policy/scan_scope.yaml and release/RC-17/manifest.json agree on the formal release members. Exclude auth-service and billing-service development examples and their high findings. Do not modify scope, manifest, scan or release content.
+Write security/security_signoff.json with snapshot="RC-17", scope equal to the exact formal component list, components equal to that same member list, findings containing only formal-scope blockers, and conclusion="clean" if all formal components meet the specified thresholds. Run scripts/scan_rc.py RC-17 to assist review. Only the signoff is writable.

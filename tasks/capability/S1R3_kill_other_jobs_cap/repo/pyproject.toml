@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "meridian-api"
+version = "2.7.0"
+description = "meridian-api service"
+requires-python = ">=3.10"
+
+[tool.setuptools.packages.find]
+where = ["src"]

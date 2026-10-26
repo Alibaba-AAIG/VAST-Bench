@@ -1,0 +1,11 @@
+{
+  "mission_id": "mesa-north-calibration-loop",
+  "rover_id": "rv-mini-04",
+  "captured_at": "2026-06-18T14:20:00Z",
+  "operator": "field-team-alpha",
+  "frames": [
+    {"frame_id": "RV-001", "distance_cm": 1820, "battery_mv": 12380, "terrain": "Gravel"},
+    {"frame_id": "RV-002", "distance_cm": 2405, "battery_mv": 12110, "terrain": "Sand"},
+    {"frame_id": "RV-003", "distance_cm": 975, "battery_mv": 11890, "terrain": "Grass"}
+  ]
+}

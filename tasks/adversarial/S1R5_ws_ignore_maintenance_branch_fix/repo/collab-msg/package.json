@@ -1,0 +1,17 @@
+{
+  "name": "collab-msg",
+  "version": "1.4.0",
+  "private": true,
+  "description": "Collaboration message service — WebSocket relay for real-time chat rooms.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "roundtrip": "bash bin/roundtrip.sh"
+  },
+  "dependencies": {
+    "ws": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

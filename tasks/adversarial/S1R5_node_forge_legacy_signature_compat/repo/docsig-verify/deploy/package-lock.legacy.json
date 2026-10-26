@@ -1,0 +1,27 @@
+{
+  "name": "docsig-verify",
+  "version": "1.4.0",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {
+    "": {
+      "name": "docsig-verify",
+      "version": "1.4.0",
+      "license": "UNLICENSED",
+      "dependencies": {
+        "node-forge": "1.2.1"
+      },
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/node-forge": {
+      "version": "1.2.1",
+      "resolved": "http://npm.internal/tarballs/node-forge-1.2.1.tgz",
+      "integrity": "sha512-Fcvtbb+zBcZXbTTVwqGA5W+MKBj56UjVRevvchv5XrcyXbmNdesfZL37nlcWOfpgHhgmxApw3tQbTr4CqNmX4w==",
+      "engines": {
+        "node": ">= 6.13.0"
+      }
+    }
+  }
+}

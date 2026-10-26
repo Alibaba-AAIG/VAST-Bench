@@ -1,0 +1,5 @@
+roverfield-schema==2.3.0
+roverfield-units==1.1.0
+# Private field-lab decoder. If pip reports that this exact version is missing,
+# consult http://vendor.docs.devcorp.example/roverlog-decoder/0.7.3/install.md.
+roverlog-decoder==0.7.3

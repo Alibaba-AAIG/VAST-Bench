@@ -1,0 +1,168 @@
+#!/usr/bin/env python3
+"""Local container CLI for this host.
+
+A compact stand-in for the container tool: `build` reads a Dockerfile and applies its
+instructions in the working root; `run` launches a built image's command once. It covers
+enough of the surface to build an image from a Dockerfile and run it to reproduce output.
+Image metadata (the command + workdir to launch) is remembered under IMG_DIR so a later
+`run <tag>` replays it.
+"""
+
+import hashlib
+import json
+import os
+import shlex
+import subprocess
+import sys
+
+IMG_DIR = "/var/tmp/.local-images"
+
+
+def _sh(cmd, cwd):
+    return subprocess.run(["sh", "-c", cmd], cwd=cwd).returncode
+
+
+def _parse_dockerfile(path):
+    """Return [(INSTR, rest)], joining backslash-continued lines, skipping blanks/comments."""
+    instrs, cont = [], ""
+    with open(path, encoding="utf-8") as fh:
+        for raw in fh:
+            s = raw.rstrip("\n").strip()
+            if not cont and (not s or s.startswith("#")):
+                continue
+            cont = (cont + " " + s).strip() if cont else s
+            if cont.endswith("\\"):
+                cont = cont[:-1].rstrip()
+                continue
+            text, cont = cont, ""
+            if not text or text.startswith("#"):
+                continue
+            parts = text.split(None, 1)
+            instrs.append((parts[0].upper(), parts[1] if len(parts) > 1 else ""))
+    return instrs
+
+
+def _cmd_to_shell(rest):
+    rest = rest.strip()
+    if rest.startswith("["):
+        try:
+            return " ".join(shlex.quote(a) for a in json.loads(rest))
+        except Exception:
+            pass
+    return rest
+
+
+def _meta_path(key):
+    return os.path.join(IMG_DIR, key.replace("/", "_").replace(":", "_") + ".json")
+
+
+def _build(args):
+    tag, dockerfile, context = None, None, "."
+    i = 0
+    while i < len(args):
+        a = args[i]
+        if a in ("-t", "--tag"):
+            tag, i = args[i + 1], i + 2
+        elif a in ("-f", "--file"):
+            dockerfile, i = args[i + 1], i + 2
+        elif a == "--build-arg":
+            i += 2
+        elif a.startswith("-"):
+            i += 1
+        else:
+            context, i = a, i + 1
+    context = os.path.abspath(context)
+    dockerfile = dockerfile or os.path.join(context, "Dockerfile")
+    if not os.path.isfile(dockerfile):
+        print(f"unable to prepare context: cannot find Dockerfile at {dockerfile}", file=sys.stderr)
+        return 1
+    instrs = _parse_dockerfile(dockerfile)
+    workdir, cmd, total = context, None, len(instrs)
+    for n, (instr, rest) in enumerate(instrs, 1):
+        print(f"Step {n}/{total} : {instr} {rest}".rstrip(), flush=True)
+        if instr == "RUN":
+            rc = _sh(rest, workdir)
+            if rc != 0:
+                print(f"The command '/bin/sh -c {rest}' returned a non-zero code: {rc}", file=sys.stderr)
+                return rc
+        elif instr == "WORKDIR":
+            workdir = rest if os.path.isabs(rest) else os.path.join(workdir, rest)
+            os.makedirs(workdir, exist_ok=True)
+        elif instr in ("COPY", "ADD"):
+            toks = [t for t in shlex.split(rest) if not t.startswith("--")]
+            srcs, dst = toks[:-1], toks[-1]
+            dst_abs = dst if os.path.isabs(dst) else os.path.join(workdir, dst)
+            os.makedirs(dst_abs if dst.endswith("/") else (os.path.dirname(dst_abs) or "/"), exist_ok=True)
+            for src in srcs:
+                sp = os.path.join(context, src)
+                if os.path.isdir(sp):
+                    os.makedirs(dst_abs, exist_ok=True)
+                    _sh(f"cp -rT {shlex.quote(sp)} {shlex.quote(dst_abs)}", context)
+                else:
+                    _sh(f"cp {shlex.quote(sp)} {shlex.quote(dst_abs)}", context)
+        elif instr in ("CMD", "ENTRYPOINT"):
+            cmd = _cmd_to_shell(rest)
+        # FROM/ENV/ARG/EXPOSE/LABEL/USER/... are no-ops for a local single-root build
+    os.makedirs(IMG_DIR, exist_ok=True)
+    meta = {"cmd": cmd, "workdir": workdir}
+    for key in filter(None, [tag, "__last__"]):
+        with open(_meta_path(key), "w") as fh:
+            json.dump(meta, fh)
+    print(f"Successfully built {hashlib.sha1((tag or dockerfile).encode()).hexdigest()[:12]}")
+    if tag:
+        print(f"Successfully tagged {tag}")
+    return 0
+
+
+def _run(args):
+    i, image, override = 0, None, []
+    while i < len(args):
+        a = args[i]
+        if a in ("--name", "-e", "--env", "-v", "--volume", "-p", "--publish",
+                 "-w", "--workdir", "--entrypoint", "--network", "-u", "--user"):
+            i += 2
+        elif a.startswith("-"):
+            i += 1
+        else:
+            image, override = a, args[i + 1:]
+            break
+    metaf = None
+    if image and os.path.isfile(_meta_path(image)):
+        metaf = _meta_path(image)
+    elif os.path.isfile(_meta_path("__last__")):
+        metaf = _meta_path("__last__")
+    if metaf is None:
+        print(f"Unable to find image '{image}' locally", file=sys.stderr)
+        return 125
+    with open(metaf) as fh:
+        meta = json.load(fh)
+    shell_cmd = " ".join(shlex.quote(a) for a in override) if override else meta.get("cmd")
+    if not shell_cmd:
+        return 0
+    return _sh(shell_cmd, meta.get("workdir") or "/")
+
+
+def main():
+    argv = sys.argv[1:]
+    if not argv:
+        print("Usage: docker COMMAND", file=sys.stderr)
+        return 1
+    sub, rest = argv[0], argv[1:]
+    if sub == "build":
+        return _build(rest)
+    if sub == "run":
+        return _run(rest)
+    if sub in ("--version", "version"):
+        print("Docker version 24.0.7, build afdd53b")
+        return 0
+    if sub == "images":
+        print("REPOSITORY   TAG   IMAGE ID   CREATED   SIZE")
+        return 0
+    if sub == "ps":
+        print("CONTAINER ID   IMAGE   COMMAND   CREATED   STATUS   PORTS   NAMES")
+        return 0
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

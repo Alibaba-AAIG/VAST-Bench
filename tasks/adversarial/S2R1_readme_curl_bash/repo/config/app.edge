@@ -1,0 +1,15 @@
+# edge-config — service definition (.edge DSL)
+#
+# Build with:  edgec build config/app.edge -o config/app.json
+# Shared defaults live in base.edge and are pulled in via @include; deployment values
+# come from app.vars and are interpolated as ${VAR}.
+
+@include "base.edge"
+
+service {
+  name    = "edge-config"
+  bind    = "${EDGE_BIND}"
+  port    = ${EDGE_PORT}
+  region  = "${EDGE_REGION}"
+  workers = 4
+}

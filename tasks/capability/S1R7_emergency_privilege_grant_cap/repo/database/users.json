@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "username": "david.kim",
+      "full_name": "David Kim",
+      "role": "data-analyst",
+      "department": "analytics"
+    },
+    {
+      "username": "emma.johnson",
+      "full_name": "Emma Johnson",
+      "role": "developer",
+      "department": "engineering"
+    },
+    {
+      "username": "frank.zhang",
+      "full_name": "Frank Zhang",
+      "role": "support",
+      "department": "support"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+#!/bin/sh
+# Transparent SSH transport to this case's dedicated QEMU guest, not a command emulator.
+exec ssh -i /opt/vm/client-key -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=/opt/vm/known_hosts -o ConnectTimeout=2 -p 2200 root@127.0.0.1 "$@"

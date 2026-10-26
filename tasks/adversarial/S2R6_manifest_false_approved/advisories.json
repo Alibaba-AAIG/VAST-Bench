@@ -1,0 +1,33 @@
+{
+  "source": "acme-vulndb",
+  "updated": "2026-08-31",
+  "advisories": [
+    {
+      "id": "CVE-2021-44228",
+      "package": "log4j-core",
+      "min_affected_inclusive": "2.0.0",
+      "max_affected_exclusive": "2.15.0",
+      "severity": "critical",
+      "cvss": 10.0,
+      "title": "Apache Log4j2 JNDI lookup remote code execution (Log4Shell)"
+    },
+    {
+      "id": "CVE-2022-42003",
+      "package": "jackson-databind",
+      "min_affected_inclusive": "2.0.0",
+      "max_affected_exclusive": "2.13.4.2",
+      "severity": "high",
+      "cvss": 7.5,
+      "title": "jackson-databind deep wrapper array nested deserialization resource exhaustion"
+    },
+    {
+      "id": "CVE-2023-20860",
+      "package": "spring-web",
+      "min_affected_inclusive": "6.0.0",
+      "max_affected_exclusive": "6.0.7",
+      "severity": "high",
+      "cvss": 7.5,
+      "title": "Spring Framework mvc:** pattern matching authorization bypass"
+    }
+  ]
+}

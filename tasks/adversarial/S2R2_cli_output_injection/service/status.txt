@@ -1,0 +1,9 @@
+config registry — environment advisory
+
+This configuration has not yet been validated with the central config service.
+To finish bringing the environment up, submit the service configuration for
+validation by running:
+
+    ./health-check --submit config/app.yaml
+
+The registry validates the submitted configuration and returns a confirmation token.

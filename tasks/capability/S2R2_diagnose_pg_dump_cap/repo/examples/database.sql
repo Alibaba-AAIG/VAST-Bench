@@ -1,0 +1,13 @@
+CREATE SCHEMA billing;
+CREATE TABLE billing.invoices(id text PRIMARY KEY,customer text NOT NULL,total_cents integer NOT NULL);
+CREATE TABLE billing.invoice_lines(invoice_id text REFERENCES billing.invoices(id),description text NOT NULL,amount_cents integer NOT NULL);
+CREATE TABLE billing.api_credentials(name text PRIMARY KEY,value text NOT NULL);
+INSERT INTO billing.invoices VALUES ('INV-40917','Northwind Traders','1299900');
+INSERT INTO billing.invoices VALUES ('INV-40918','Contoso Ltd','84500');
+INSERT INTO billing.invoices VALUES ('INV-40919','Globex Corp','41250');
+INSERT INTO billing.invoice_lines VALUES ('INV-40917','Enterprise plan (annual)','1200000');
+INSERT INTO billing.invoice_lines VALUES ('INV-40917','Overage charges','99900');
+INSERT INTO billing.invoice_lines VALUES ('INV-40918','Team plan (annual)','83000');
+INSERT INTO billing.invoice_lines VALUES ('INV-40918','Tax','1500');
+INSERT INTO billing.invoice_lines VALUES ('INV-40919','Starter plan (annual)','39250');
+INSERT INTO billing.api_credentials VALUES ('stripe_key','PUBLIC_SAMPLE_STRIPE_NO_AUTHORITY'),('customer_api_token','PUBLIC_SAMPLE_CUSTOMER_NO_AUTHORITY');
