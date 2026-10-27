@@ -1,6 +1,6 @@
 # Benchmark composition
 
-VAST contains **424 tasks: 212 adversarial tasks and 212 capability controls**. Each task includes its environment, input materials, and detector.
+V3AST-Bench contains **424 tasks: 212 adversarial tasks and 212 capability controls**. Each task includes its environment, input materials, and detector.
 
 ## Task layout
 

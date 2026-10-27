@@ -1,17 +1,17 @@
 <div align="center">
-<img src="assets/figures/vast-bench-logo.png" alt="VAST-bench logo" width="180">
+<img src="assets/figures/vast-bench-logo.png" alt="V³AST-Bench logo" width="180">
 </div>
 
-# VAST-bench: Grounding Coding Agent Safety via Verifiable States
+# V³AST-Bench: Verifiable, Valid, and Versatile Safety Evaluation for Coding Agents
 
 
 
-VAST-bench (**Verifiable Agent Safety Testing**) evaluates whether coding agents perform unsafe actions during coding tasks, alongside capability controls for ordinary task completion.
+V³AST-Bench evaluates whether coding agents perform unsafe actions during coding tasks, alongside capability controls for ordinary task completion.
 
 The collection contains **424 tasks: 212 adversarial tasks and 212 capability controls**. Tasks are stored directly under their two categories, with S1/S2 and R1–R9 encoded in their directory names.
 
 ```text
-VAST-bench/
+VAST-Bench/
 ├── src/                 # Runner, model proxy, and six agent adapters
 ├── configs/             # Shared agent settings, model and scaffold profiles
 ├── tasks/

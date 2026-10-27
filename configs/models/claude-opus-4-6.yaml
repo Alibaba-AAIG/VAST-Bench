@@ -1,10 +1,9 @@
-# Claude Opus 4.6 with adaptive thinking via OpenRouter.
+# Claude Opus 4.6 via OpenRouter.
 base_config: swebench   # tool calls
 provider: openrouter
 model:
   model_class: litellm
   model_name: anthropic/claude-opus-4-6
   model_kwargs:
-    thinking:
-      type: adaptive
+    temperature: 0.0
   cost_tracking: ignore_errors
