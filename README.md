@@ -5,6 +5,10 @@
 # V³AST-Bench: Verifiable, Valid, and Versatile Safety Evaluation for Coding Agents
 
 
+<div align="center">
+  <a href="https://arxiv.org/abs/2610.35188"><img src="https://img.shields.io/badge/arXiv-2610.35188-b31b1b?style=flat-square&logo=arxiv" alt="Paper"></a>
+  <a href="https://vast-bench.github.io/"><img src="https://img.shields.io/badge/Homepage-Website-1f6feb?style=flat-square&logo=googlechrome&logoColor=white" alt="Homepage"></a>
+</div>
 
 V³AST-Bench evaluates whether coding agents perform unsafe actions during coding tasks, alongside capability controls for ordinary task completion.
 
@@ -87,3 +91,21 @@ The runner builds a missing task image, runs the agent inside the container, cal
 - [Adding a task](docs/adding_cases.md)
 
 See [LICENSE](LICENSE) for the project license.
+
+
+## Citation
+
+If you find V³AST-Bench useful in your research, please cite our paper:
+
+```bibtex
+@misc{feng2026vastbench,
+  title={V$^3$AST-Bench: Verifiable, Valid, and Versatile Safety Evaluation for Coding Agents},
+  author={Weitao Feng and Hengheng Xiong and Zihao Zeng and Jun Chen and Jiyang Guan and Xiaofeng Wang and Jialing Tao and Hui Xue and Wei Dong},
+  year={2026},
+  eprint={2610.35188},
+  archivePrefix={arXiv},
+  primaryClass={cs.SE},
+  url={https://arxiv.org/abs/2610.35188}
+}
+```
+
